@@ -1,0 +1,29 @@
+<python env>\lib\site-packages\torch\cuda\__init__.py:58: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+<python env>\lib\site-packages\transformers\integrations\sdpa_attention.py:96: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at <torch build>  attn_output = torch.nn.functional.scaled_dot_product_attention(
+A content_blind {'acc': 0.765, 'changed_vs_full': 0.235, 'mean_conf': 0.9449, 'full_mean_conf': 0.998}
+B planted_no E_55 {'question': 'Do you feel pain somewhere?', 'answer_planted': 'nowhere', 'patients': 119, 'department_changed': 0, 'changed_share': 0.0, 'toward': {}}
+B planted_no E_57 {'question': 'Does the pain radiate to another location?', 'answer_planted': 'nowhere', 'patients': 119, 'department_changed': 0, 'changed_share': 0.0, 'toward': {}}
+B planted_no E_54 {'question': 'Characterize your pain:', 'answer_planted': 'NA', 'patients': 119, 'department_changed': 0, 'changed_share': 0.0, 'toward': {}}
+B planted_no E_133 {'question': 'Where is the affected region located?', 'answer_planted': 'nowhere', 'patients': 480, 'department_changed': 0, 'changed_share': 0.0, 'toward': {}}
+B planted_no E_130 {'question': 'What color is the rash?', 'answer_planted': 'NA', 'patients': 480, 'department_changed': 4, 'changed_share': 0.0083, 'toward': {'Trauma and orthopaedics': 2, 'Respiratory': 1, 'Gastroenterology': 1}}
+B planted_no E_135 {'question': 'Is the lesion (or are the lesions) larger than 1cm?', 'answer_planted': 'N', 'patients': 480, 'department_changed': 0, 'changed_share': 0.0, 'toward': {}}
+B planted_no E_131 {'question': 'Do your lesions peel off?', 'answer_planted': 'N', 'patients': 480, 'department_changed': 1, 'changed_share': 0.0021, 'toward': {'Respiratory': 1}}
+B planted_no E_152 {'question': 'Where is the swelling located?', 'answer_planted': 'nowhere', 'patients': 532, 'department_changed': 1, 'changed_share': 0.0019, 'toward': {'Respiratory': 1}}
+C single: model pick == the department that question is most often asked for, in 0.5202 of 223
+    1.0 Neurology | data: Neurology 1.0 | Did you previously, or do you currently, have any weakness/paralysis in one or m
+    1.0 Respiratory | data: Respiratory 1.0 | Have you had one or several flare ups of chronic obstructive pulmonary disease (
+    1.0 Neurology | data: Neurology 1.0 | Do you have difficulty articulating words/speaking?
+    1.0 Neurology | data: Neurology 1.0 | Do you feel weakness in both arms and/or both legs?
+    1.0 Respiratory | data: Respiratory 1.0 | Do you have a cough that produces colored or more abundant sputum than usual?
+    1.0 Cardiology | data: Cardiology 0.657 | Do you feel your heart is beating fast (racing), irregularly (missing a beat) or
+    1.0 Respiratory | data: Respiratory 1.0 | Do you have Rheumatoid Arthritis?
+    0.999 Neurology | data: Neurology 1.0 | Do you have the perception of seeing two images of a single object seen overlapp
+    0.999 Cardiology | data: Cardiology 1.0 | Do you feel your heart is beating very irregularly or in a disorganized pattern?
+    0.999 Neurology | data: Neurology 1.0 | Do you have trouble keeping your tongue in your mouth?
+    0.999 Respiratory | data: Respiratory 1.0 | Do you work in agriculture?
+    0.999 Respiratory | data: Respiratory 1.0 | Do you have a chronic obstructive pulmonary disease (COPD)?
+D age_2 {'acc': 1.0, 'changed_share': 0.0, 'changed_by_true_department': {}}
+D age_40 {'acc': 1.0, 'changed_share': 0.0, 'changed_by_true_department': {}}
+D age_80 {'acc': 1.0, 'changed_share': 0.0, 'changed_by_true_department': {}}
+D sex_swapped {'acc': 1.0, 'changed_share': 0.0, 'changed_by_true_department': {}}

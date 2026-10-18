@@ -1,0 +1,11 @@
+{
+ "model": "runs/m_tiny_translator/model",
+ "n": 270,
+ "field_precision": 0.4785,
+ "field_recall": 0.9939,
+ "field_f1": 0.646,
+ "exact_field_set": 0.4556,
+ "dept_acc_via_seesaw": 0.3667,
+ "urgency_acc_via_seesaw": 0.3444,
+ "fight_share": 0.2222
+}

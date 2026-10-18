@@ -1,0 +1,39 @@
+<python env>\lib\site-packages\torch\cuda\__init__.py:58: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+<python env>\lib\site-packages\transformers\integrations\sdpa_attention.py:96: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at <torch build>  attn_output = torch.nn.functional.scaled_dot_product_attention(
+arm tiny task translator set natural2: 6.5M params on cuda; start val loss 8.7387 tok 0.000 exact 0.000
+step    250 loss 1.094 val 1.0604 tok 0.693 exact 0.000 head 137.863% margins steps-19750.0000
+step    500 loss 0.604 val 0.5909 tok 0.809 exact 0.026 head 158.821% margins steps-19500.0000
+step    750 loss 0.463 val 0.4417 tok 0.851 exact 0.073 head 167.968% margins steps-19250.0000
+step   1000 loss 0.402 val 0.3739 tok 0.871 exact 0.094 head 173.519% margins steps-19000.0000 val-0.1735
+step   1250 loss 0.360 val 0.3223 tok 0.886 exact 0.131 head 177.494% margins steps-18750.0000 val-0.1582
+step   1500 loss 0.314 val 0.2932 tok 0.897 exact 0.147 head 180.820% margins steps-18500.0000 val-0.1102
+step   1750 loss 0.332 val 0.2714 tok 0.903 exact 0.156 head 183.602% margins steps-18250.0000 val-0.0944
+step   2000 loss 0.285 val 0.2491 tok 0.909 exact 0.165 head 186.046% margins steps-18000.0000 val-0.1022
+step   2250 loss 0.250 val 0.2322 tok 0.914 exact 0.182 head 188.198% margins steps-17750.0000 val-0.0878
+step   2500 loss 0.265 val 0.2223 tok 0.918 exact 0.186 head 190.167% margins steps-17500.0000 val-0.0625
+step   2750 loss 0.249 val 0.2117 tok 0.920 exact 0.210 head 192.034% margins steps-17250.0000 val-0.0679
+step   3000 loss 0.239 val 0.2029 tok 0.925 exact 0.223 head 193.761% margins steps-17000.0000 val-0.0614
+step   3250 loss 0.227 val 0.2002 tok 0.925 exact 0.214 head 195.363% margins steps-16750.0000 val-0.0336
+step   3500 loss 0.227 val 0.1930 tok 0.927 exact 0.226 head 196.896% margins steps-16500.0000 val-0.0555
+step   3750 loss 0.212 val 0.1870 tok 0.929 exact 0.241 head 198.309% margins steps-16250.0000 val-0.0512
+step   4000 loss 0.204 val 0.1787 tok 0.932 exact 0.239 head 199.699% margins steps-16000.0000 val-0.0647
+step   4250 loss 0.216 val 0.1767 tok 0.933 exact 0.255 head 201.030% margins steps-15750.0000 val-0.0309
+step   4500 loss 0.202 val 0.1732 tok 0.934 exact 0.250 head 202.297% margins steps-15500.0000 val-0.0397
+step   4750 loss 0.188 val 0.1678 tok 0.935 exact 0.261 head 203.539% margins steps-15250.0000 val-0.0516
+step   5000 loss 0.196 val 0.1686 tok 0.934 exact 0.264 head 204.764% margins steps-15000.0000 val-0.0149
+step   5250 loss 0.200 val 0.1599 tok 0.938 exact 0.278 head 205.919% margins steps-14750.0000 val-0.0668
+step   5500 loss 0.187 val 0.1583 tok 0.938 exact 0.265 head 206.997% margins steps-14500.0000 val-0.0299
+step   5750 loss 0.198 val 0.1530 tok 0.941 exact 0.291 head 208.102% margins steps-14250.0000 val-0.0535
+step   6000 loss 0.148 val 0.1500 tok 0.940 exact 0.273 head 209.176% margins steps-14000.0000 val-0.0395
+step   6250 loss 0.168 val 0.1511 tok 0.939 exact 0.271 head 210.268% margins steps-13750.0000 val-0.0132
+step   6500 loss 0.189 val 0.1468 tok 0.942 exact 0.292 head 211.318% margins steps-13500.0000 val-0.0416
+step   6750 loss 0.130 val 0.1450 tok 0.942 exact 0.287 head 212.340% margins steps-13250.0000 val-0.0320
+step   7000 loss 0.153 val 0.1456 tok 0.942 exact 0.294 head 213.322% margins steps-13000.0000 val-0.0164
+step   7250 loss 0.140 val 0.1399 tok 0.943 exact 0.311 head 214.328% margins steps-12750.0000 val-0.0554
+step   7500 loss 0.178 val 0.1408 tok 0.943 exact 0.295 head 215.303% margins steps-12500.0000 val-0.0134
+step   7750 loss 0.151 val 0.1350 tok 0.945 exact 0.314 head 216.323% margins steps-12250.0000 val-0.0548
+step   8000 loss 0.146 val 0.1413 tok 0.943 exact 0.293 head 217.285% margins steps-12000.0000 val+0.0267
+stopped at step 8000 after 104.1 min because crossed val
+peak GPU memory allocated: 4.54 GB
+rolled back to step 7750 (val 0.1350, tok 0.945 exact 0.314)

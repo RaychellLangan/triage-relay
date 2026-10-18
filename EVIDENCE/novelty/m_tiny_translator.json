@@ -1,0 +1,80 @@
+{
+ "model": "runs/m_tiny_translator/model",
+ "task": "translator",
+ "files": [
+  "data_built/messy_test.jsonl",
+  "data_built/messystress_strays5.jsonl",
+  "data_built/messystress_keep30.jsonl",
+  "data_built/messystress_keep50_strays3.jsonl"
+ ],
+ "n": 4000,
+ "target_counts": {
+  "plain_wrong": 339,
+  "severe_missed": 26,
+  "fight": 2206
+ },
+ "auroc": {
+  "plain_wrong": {
+   "novelty_by_layer": [
+    0.4921,
+    0.596,
+    0.6437,
+    0.6361,
+    0.6358,
+    0.6438,
+    0.6671
+   ],
+   "znorm_by_layer": [
+    0.6785,
+    0.4335,
+    0.4599,
+    0.4689,
+    0.47,
+    0.466,
+    0.4486
+   ],
+   "seesaw_fight_flag (reference)": 0.608
+  },
+  "severe_missed": {
+   "novelty_by_layer": [
+    0.5156,
+    0.6048,
+    0.6385,
+    0.6321,
+    0.646,
+    0.6573,
+    0.6662
+   ],
+   "znorm_by_layer": [
+    0.7213,
+    0.4015,
+    0.4306,
+    0.4451,
+    0.4388,
+    0.4359,
+    0.4396
+   ],
+   "seesaw_fight_flag (reference)": 0.4934
+  },
+  "fight": {
+   "novelty_by_layer": [
+    0.5305,
+    0.5761,
+    0.5893,
+    0.5961,
+    0.6054,
+    0.6146,
+    0.6211
+   ],
+   "znorm_by_layer": [
+    0.3733,
+    0.5672,
+    0.5385,
+    0.5279,
+    0.5173,
+    0.5102,
+    0.4998
+   ]
+  }
+ }
+}

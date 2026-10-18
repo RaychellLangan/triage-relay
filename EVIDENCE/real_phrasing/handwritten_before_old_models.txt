@@ -1,0 +1,33 @@
+models: m
+OK  # 1 no               -> Cardiology             Immediate   (expect Cardiology) | read 1: Have you had significantly increased sweating
+OK  # 2 no               -> Respiratory            Urgent      (expect Respiratory) | read 3: Do you have nasal congestion or a clear runny nose; Do you have a cough; Do you have a sore throat
+OK  # 3 no idea          -> Respiratory            Non-urgent  (expect Respiratory) | read 0: 
+OK  # 4 hand to a person -> Gastroenterology       Urgent      (expect Gastroenterology) | read 5: Do you have a burning sensation that starts in your stomach then goes up into your throat, and can be associated with a bitter taste in your mouth; Do you have 
+--  # 5 no               -> Emergency (resus)      Immediate   (expect Cardiology) | read 1: Do you feel lightheaded and dizzy or do you feel like you are about to faint
+--  # 6 no               -> Gastroenterology       Urgent      (expect Paediatrics) | read 3: Do you wheeze while inhaling or is your breathing noisy after coughing spells; Do you have a cough; Are your symptoms worse when lying down and alleviated while
+OK  # 7 no               -> Emergency (resus)      Immediate   (expect Emergency (resus)) | read 4: Is your nose or the back of your throat itchy; Do you suddenly have difficulty or an inability to open your mouth or have jaw pain when opening it; Do you have 
+--  # 8 no               -> Emergency (resus)      Immediate   (expect Respiratory) | read 1: Characterize your pain: sharp
+--  # 9 yes              -> Infectious diseases    Immediate   (expect Mental health) | read 4: Have you recently had a loss of appetite or do you get full more quickly then usually; Have you recently thrown up blood or something resembling coffee beans; D
+OK  #10 no               -> Respiratory            Urgent      (expect Respiratory) | read 4: Where is the affected region located: nowhere; Have you been able to pass stools or gas since your symptoms increased; Do you have a cough; Have you had chills 
+OK  #11 yes              -> Neurology              Very urgent (expect Neurology) | read 3: Have you started or taken any antipsychotic medication within the last 7 days; Do you have a cough; Do you suddenly have difficulty or an inability to open your
+OK  #12 no               -> Gastroenterology       Very urgent (expect Gastroenterology) | read 3: Have you recently had stools that were black (like coal); Have you recently thrown up blood or something resembling coffee beans; Have you vomited several times
+OK  #13 yes              -> Neurology              Urgent      (expect Neurology) | read 2: Do you feel pain somewhere: eye(R); Do you feel pain somewhere: eye(L)
+--  #14 no               -> Respiratory            Immediate   (expect Cardiology) | read 2: Do you have high blood pressure or do you take medications to treat high blood pressure; Have you been coughing up blood
+--  #15 no idea          -> Respiratory            Non-urgent  (expect ENT) | read 0: 
+OK  #16 no               -> Respiratory            Immediate   (expect Respiratory) | read 1: Do you have heart failure
+--  #17 hand to a person -> Infectious diseases    Immediate   (expect ENT) | read 2: Have you noticed that the tone of your voice has become deeper, softer or hoarse; Do you have a sore throat
+--  #18 hand to a person -> Respiratory            Immediate   (expect ENT) | read 2: Have you lost your sense of smell; Do you have high blood pressure or do you take medications to treat high blood pressure
+--  #19 hand to a person -> Respiratory            Urgent      (expect Gastroenterology) | read 1: Do you have a cough
+--  #20 no               -> Gastroenterology       Urgent      (expect Haematology) | read 3: What color is the rash: pale; Do you have very abundant or very long menstruation periods; Characterize your pain: heavy
+--  #21 yes              -> Cardiology             Very urgent (expect Infectious diseases) | read 3: Have you been unintentionally losing weight or have you lost your appetite; Have you been coughing up blood; How fast did the pain appear: 1
+OK  #22 yes              -> Neurology              Very urgent (expect Neurology) | read 2: Have you started or taken any antipsychotic medication within the last 7 days; Are you unable to control the direction of your eyes
+--  #23 hand to a person -> Infectious diseases    Immediate   (expect Oncology) | read 3: Have you been unintentionally losing weight or have you lost your appetite; Does the pain radiate to another location: upper chest; Does the pain radiate to ano
+--  #24 yes              -> Emergency (resus)      Very urgent (expect Rheumatology) | read 1: Did your cheeks suddenly turn red
+--  #25 no idea          -> Respiratory            Non-urgent  (expect Cardiology) | read 0: 
+--  #26 no               -> Respiratory            Urgent      (expect Trauma and orthopaedics) | read 2: Have you ever had pneumonia; Do you have pain that is increased when you breathe in deeply
+--  #27 no               -> Respiratory            Standard    (expect Paediatrics) | read 2: Do you have nasal congestion or a clear runny nose; Have you noticed a wheezing sound when you exhale
+OK  #28 no               -> Neurology              Very urgent (expect Neurology) | read 1: Do you have a hard time opening/raising one or both eyelids
+--  #29 no               -> Infectious diseases    Immediate   (expect Cardiology) | read 4: Have you ever felt like you were suffocating for a very short time associated with inability to breathe or speak; Have you recently had a loss of appetite or do
+OK  #30 yes              -> Infectious diseases    Urgent      (expect Infectious diseases) | read 4: Have you had unprotected sex with more than one partner in the last 6 months; What color is the rash: pink; Is the rash swollen: 3; Do you have a sore throat
+
+route matches expectation: 13/30 | routed on its own: 7 (4 of them right) | the rest go to a person

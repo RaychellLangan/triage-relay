@@ -1,0 +1,44 @@
+[
+ {
+  "id": 1,
+  "case": 1,
+  "from": "Respiratory",
+  "to": "ENT",
+  "why": "upper airway: ENT sees these here",
+  "by": "demo",
+  "when": "22:12",
+  "fields": [
+   "E_181",
+   "E_201",
+   "E_204_@_V_10",
+   "E_54_@_V_154",
+   "E_54_@_V_161",
+   "E_54_@_V_183",
+   "E_56_@_7",
+   "E_57_@_V_123",
+   "E_58_@_2",
+   "E_59_@_5",
+   "E_76",
+   "E_91",
+   "E_97"
+  ],
+  "fields_no": [],
+  "said": [
+   "Blocked nose",
+   "I've got a cough",
+   "No travel abroad",
+   "Pain feels nagging",
+   "Pain feels tender",
+   "Pain feels heavy",
+   "Pain 7/10",
+   "Pain does not spread",
+   "Can point to exactly where it hurts: 2/10",
+   "How suddenly it came on: 5/10",
+   "A bit dizzy",
+   "I've got a fever",
+   "Sore throat"
+  ],
+  "status": "proposed",
+  "scope": "this case"
+ }
+]

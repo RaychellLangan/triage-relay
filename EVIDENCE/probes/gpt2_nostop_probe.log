@@ -1,0 +1,14 @@
+<python env>\lib\site-packages\torch\cuda\__init__.py:58: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+<python env>\lib\site-packages\transformers\integrations\sdpa_attention.py:96: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at <torch build>  attn_output = torch.nn.functional.scaled_dot_product_attention(
+full {'dept_acc': 0.998, 'mean_confidence': 0.9987, 'mean_entropy_bits': 0.0063, 'confidently_wrong_share': 0.002}
+shuffled {'dept_acc': 0.996, 'mean_confidence': 0.9969, 'mean_entropy_bits': 0.0112, 'confidently_wrong_share': 0.001}
+reason_only {'dept_acc': 0.285, 'mean_confidence': 0.7887, 'mean_entropy_bits': 0.7926, 'confidently_wrong_share': 0.178}
+keep_0.8 {'dept_acc': 0.979, 'mean_confidence': 0.9913, 'mean_entropy_bits': 0.0338, 'confidently_wrong_share': 0.008}
+keep_0.6 {'dept_acc': 0.936, 'mean_confidence': 0.9741, 'mean_entropy_bits': 0.1014, 'confidently_wrong_share': 0.029}
+keep_0.4 {'dept_acc': 0.801, 'mean_confidence': 0.9477, 'mean_entropy_bits': 0.2063, 'confidently_wrong_share': 0.098}
+keep_0.2 {'dept_acc': 0.65, 'mean_confidence': 0.9064, 'mean_entropy_bits': 0.369, 'confidently_wrong_share': 0.159}
+stray_1 {'dept_acc': 0.969, 'mean_confidence': 0.9901, 'mean_entropy_bits': 0.0394, 'confidently_wrong_share': 0.021}
+stray_2 {'dept_acc': 0.939, 'mean_confidence': 0.9855, 'mean_entropy_bits': 0.0579, 'confidently_wrong_share': 0.04}
+stray_3 {'dept_acc': 0.91, 'mean_confidence': 0.9775, 'mean_entropy_bits': 0.0858, 'confidently_wrong_share': 0.061}
+stray_5 {'dept_acc': 0.858, 'mean_confidence': 0.9708, 'mean_entropy_bits': 0.1089, 'confidently_wrong_share': 0.099}

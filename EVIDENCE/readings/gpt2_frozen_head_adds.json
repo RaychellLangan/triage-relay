@@ -1,0 +1,11 @@
+{
+ "readings": "runs/readings/gpt2_frozen_head.npz",
+ "n": 6000,
+ "n_wrong": 1540,
+ "held_out_AUROC": {
+  "mouth_confidence_only": 0.8313,
+  "middle_readings_only": 0.8677,
+  "mouth_plus_middle": 0.8841
+ },
+ "note": "learned diagnostic ceiling, folds by patient; not the monitor"
+}

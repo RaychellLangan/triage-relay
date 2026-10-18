@@ -1,0 +1,31 @@
+<python env>\lib\site-packages\torch\cuda\__init__.py:58: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+<python env>\lib\site-packages\transformers\integrations\sdpa_attention.py:96: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at <torch build>  attn_output = torch.nn.functional.scaled_dot_product_attention(
+fit_acc (rows = embedding, block0.., cols = k in (0, 1, 2, 4, 8) )
+ [[0.162 0.138 0.199 0.164 0.173]
+ [0.35  0.433 0.544 0.547 0.64 ]
+ [0.327 0.324 0.472 0.634 0.595]
+ [0.341 0.41  0.508 0.634 0.642]
+ [0.34  0.413 0.573 0.598 0.638]
+ [0.335 0.441 0.553 0.607 0.638]
+ [0.524 0.594 0.672 0.658 0.732]
+ [0.649 0.731 0.851 0.769 0.782]
+ [0.686 0.768 0.809 0.72  0.702]
+ [0.886 0.928 0.87  0.841 0.622]
+ [0.969 0.869 0.808 0.736 0.578]
+ [0.989 0.913 0.802 0.644 0.628]
+ [0.988 0.864 0.846 0.616 0.542]] 
+vocabulary baseline fit acc 0.706
+full mouth acc 0.998
+shuffled mouth acc 0.996
+reason_only mouth acc 0.282
+messy mouth acc 0.986
+injected mouth acc 0.992
+keep_0.8 mouth acc 0.974
+keep_0.6 mouth acc 0.934
+keep_0.4 mouth acc 0.828
+keep_0.2 mouth acc 0.62
+stray_1 mouth acc 0.974
+stray_3 mouth acc 0.908
+stray_5 mouth acc 0.856
+saved runs/readings/gpt2_nostop.npz

@@ -1,0 +1,259 @@
+{
+ "model": "runs/gpt2/model",
+ "patients": 300,
+ "text_matches_converter": "300/300",
+ "token_share": {
+  "sink": 0.0045,
+  "header": 0.2123,
+  "question": 0.6492,
+  "yes": 0.0336,
+  "value": 0.08,
+  "empty": 0.0028,
+  "demog": 0.0041,
+  "cue": 0.0135
+ },
+ "attention_from_cue_by_layer": [
+  {
+   "sink": 0.0022,
+   "header": 0.1712,
+   "question": 0.421,
+   "yes": 0.0428,
+   "value": 0.0199,
+   "empty": 0.0014,
+   "demog": 0.001,
+   "cue": 0.3404
+  },
+  {
+   "sink": 0.0166,
+   "header": 0.2069,
+   "question": 0.495,
+   "yes": 0.0214,
+   "value": 0.037,
+   "empty": 0.0008,
+   "demog": 0.003,
+   "cue": 0.2194
+  },
+  {
+   "sink": 0.1314,
+   "header": 0.1049,
+   "question": 0.3176,
+   "yes": 0.0349,
+   "value": 0.0156,
+   "empty": 0.0008,
+   "demog": 0.0019,
+   "cue": 0.393
+  },
+  {
+   "sink": 0.2967,
+   "header": 0.1182,
+   "question": 0.1416,
+   "yes": 0.0162,
+   "value": 0.0063,
+   "empty": 0.0001,
+   "demog": 0.0006,
+   "cue": 0.4204
+  },
+  {
+   "sink": 0.3104,
+   "header": 0.1547,
+   "question": 0.1366,
+   "yes": 0.0139,
+   "value": 0.0052,
+   "empty": 0.0001,
+   "demog": 0.0018,
+   "cue": 0.3774
+  },
+  {
+   "sink": 0.495,
+   "header": 0.0756,
+   "question": 0.229,
+   "yes": 0.0048,
+   "value": 0.014,
+   "empty": 0.0008,
+   "demog": 0.0023,
+   "cue": 0.1784
+  },
+  {
+   "sink": 0.5235,
+   "header": 0.0755,
+   "question": 0.1844,
+   "yes": 0.0076,
+   "value": 0.0131,
+   "empty": 0.0006,
+   "demog": 0.0023,
+   "cue": 0.193
+  },
+  {
+   "sink": 0.8537,
+   "header": 0.0239,
+   "question": 0.0774,
+   "yes": 0.0014,
+   "value": 0.0112,
+   "empty": 0.0004,
+   "demog": 0.0015,
+   "cue": 0.0306
+  },
+  {
+   "sink": 0.5528,
+   "header": 0.0887,
+   "question": 0.2827,
+   "yes": 0.0019,
+   "value": 0.011,
+   "empty": 0.0002,
+   "demog": 0.0042,
+   "cue": 0.0584
+  },
+  {
+   "sink": 0.6753,
+   "header": 0.0139,
+   "question": 0.2708,
+   "yes": 0.0005,
+   "value": 0.0187,
+   "empty": 0.0001,
+   "demog": 0.0016,
+   "cue": 0.0192
+  },
+  {
+   "sink": 0.5595,
+   "header": 0.0269,
+   "question": 0.3429,
+   "yes": 0.001,
+   "value": 0.0243,
+   "empty": 0.0001,
+   "demog": 0.0007,
+   "cue": 0.0447
+  },
+  {
+   "sink": 0.4015,
+   "header": 0.0544,
+   "question": 0.4308,
+   "yes": 0.0031,
+   "value": 0.0394,
+   "empty": 0.0003,
+   "demog": 0.0022,
+   "cue": 0.0682
+  }
+ ],
+ "read_ratio_by_layer": [
+  {
+   "sink": 0.49,
+   "header": 0.81,
+   "question": 0.65,
+   "yes": 1.27,
+   "value": 0.25,
+   "empty": 0.51,
+   "demog": 0.25,
+   "cue": 25.25
+  },
+  {
+   "sink": 3.7,
+   "header": 0.97,
+   "question": 0.76,
+   "yes": 0.63,
+   "value": 0.46,
+   "empty": 0.27,
+   "demog": 0.74,
+   "cue": 16.28
+  },
+  {
+   "sink": 29.25,
+   "header": 0.49,
+   "question": 0.49,
+   "yes": 1.04,
+   "value": 0.2,
+   "empty": 0.27,
+   "demog": 0.46,
+   "cue": 29.15
+  },
+  {
+   "sink": 66.04,
+   "header": 0.56,
+   "question": 0.22,
+   "yes": 0.48,
+   "value": 0.08,
+   "empty": 0.03,
+   "demog": 0.14,
+   "cue": 31.19
+  },
+  {
+   "sink": 69.09,
+   "header": 0.73,
+   "question": 0.21,
+   "yes": 0.41,
+   "value": 0.06,
+   "empty": 0.05,
+   "demog": 0.44,
+   "cue": 28.0
+  },
+  {
+   "sink": 110.18,
+   "header": 0.36,
+   "question": 0.35,
+   "yes": 0.14,
+   "value": 0.18,
+   "empty": 0.27,
+   "demog": 0.58,
+   "cue": 13.23
+  },
+  {
+   "sink": 116.51,
+   "header": 0.36,
+   "question": 0.28,
+   "yes": 0.23,
+   "value": 0.16,
+   "empty": 0.21,
+   "demog": 0.58,
+   "cue": 14.32
+  },
+  {
+   "sink": 190.0,
+   "header": 0.11,
+   "question": 0.12,
+   "yes": 0.04,
+   "value": 0.14,
+   "empty": 0.13,
+   "demog": 0.37,
+   "cue": 2.27
+  },
+  {
+   "sink": 123.03,
+   "header": 0.42,
+   "question": 0.44,
+   "yes": 0.06,
+   "value": 0.14,
+   "empty": 0.07,
+   "demog": 1.04,
+   "cue": 4.33
+  },
+  {
+   "sink": 150.3,
+   "header": 0.07,
+   "question": 0.42,
+   "yes": 0.01,
+   "value": 0.23,
+   "empty": 0.03,
+   "demog": 0.39,
+   "cue": 1.42
+  },
+  {
+   "sink": 124.52,
+   "header": 0.13,
+   "question": 0.53,
+   "yes": 0.03,
+   "value": 0.3,
+   "empty": 0.04,
+   "demog": 0.16,
+   "cue": 3.32
+  },
+  {
+   "sink": 89.36,
+   "header": 0.26,
+   "question": 0.66,
+   "yes": 0.09,
+   "value": 0.49,
+   "empty": 0.12,
+   "demog": 0.54,
+   "cue": 5.06
+  }
+ ]
+}

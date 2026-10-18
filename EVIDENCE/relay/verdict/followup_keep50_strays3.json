@@ -1,0 +1,29 @@
+{
+ "facts": "runs/route_from_fields/verdict/facts_keep50_strays3.jsonl",
+ "cases": 1000,
+ "not_routed_at_start": 789,
+ "start_auto_share": 0.211,
+ "rounds": [
+  {
+   "round": 1,
+   "asked_this_round": 789,
+   "now_routed_of_not_routed": 8,
+   "share_resolved": 0.0101,
+   "acc_of_resolved": 1.0,
+   "acc_of_all_not_routed_cases_now": 0.8264,
+   "mean_questions_per_case_so_far": 3.0,
+   "seconds_per_case_this_round": 0.0097
+  },
+  {
+   "round": 2,
+   "asked_this_round": 781,
+   "now_routed_of_not_routed": 15,
+   "share_resolved": 0.019,
+   "acc_of_resolved": 1.0,
+   "acc_of_all_not_routed_cases_now": 0.8378,
+   "mean_questions_per_case_so_far": 5.97,
+   "seconds_per_case_this_round": 0.0099
+  }
+ ],
+ "acc_of_not_routed_at_start": 0.7972
+}

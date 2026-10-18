@@ -1,0 +1,213 @@
+{
+ "model": "runs/m_gpt2_router/model",
+ "task": "router",
+ "files": [
+  "data_built/messy_test.jsonl",
+  "data_built/messystress_strays5.jsonl",
+  "data_built/messystress_keep30.jsonl",
+  "data_built/messystress_keep50_strays3.jsonl"
+ ],
+ "n": 4000,
+ "target_counts": {
+  "plain_wrong": 339,
+  "severe_missed": 26,
+  "fight": 2206
+ },
+ "auroc": {
+  "plain_wrong": {
+   "novelty_by_layer": [
+    0.4926,
+    0.4668,
+    0.4991,
+    0.5145,
+    0.504,
+    0.5249,
+    0.53,
+    0.5167,
+    0.5103,
+    0.5873,
+    0.5922,
+    0.6406,
+    0.678
+   ],
+   "znorm_by_layer": [
+    0.5318,
+    0.5557,
+    0.5439,
+    0.5523,
+    0.5733,
+    0.5627,
+    0.5627,
+    0.5504,
+    0.5361,
+    0.5528,
+    0.5716,
+    0.4955,
+    0.4793
+   ],
+   "mouth_low_confidence": 0.5108,
+   "seesaw_fight_flag (reference)": 0.608
+  },
+  "severe_missed": {
+   "novelty_by_layer": [
+    0.4225,
+    0.3847,
+    0.4254,
+    0.4367,
+    0.4247,
+    0.4323,
+    0.4446,
+    0.4327,
+    0.4337,
+    0.4904,
+    0.5568,
+    0.6413,
+    0.7075
+   ],
+   "znorm_by_layer": [
+    0.5494,
+    0.5588,
+    0.567,
+    0.5581,
+    0.5821,
+    0.5921,
+    0.6004,
+    0.6009,
+    0.5693,
+    0.6425,
+    0.5742,
+    0.4356,
+    0.3724
+   ],
+   "mouth_low_confidence": 0.5622,
+   "seesaw_fight_flag (reference)": 0.4934
+  },
+  "fight": {
+   "novelty_by_layer": [
+    0.5087,
+    0.5751,
+    0.5722,
+    0.5551,
+    0.5482,
+    0.5479,
+    0.5441,
+    0.5549,
+    0.5708,
+    0.6048,
+    0.6028,
+    0.5893,
+    0.6115
+   ],
+   "znorm_by_layer": [
+    0.4619,
+    0.4264,
+    0.4288,
+    0.4352,
+    0.4289,
+    0.428,
+    0.4311,
+    0.4333,
+    0.4386,
+    0.421,
+    0.4264,
+    0.4128,
+    0.3904
+   ],
+   "mouth_low_confidence": 0.5345
+  }
+ },
+ "within_file": {
+  "messy_test.jsonl": {
+   "plain_wrong": {
+    "n_target": 8,
+    "novelty_best_layer": 12,
+    "novelty": 0.7293,
+    "mouth_low_confidence": 0.7504,
+    "seesaw_fight": 0.7505
+   },
+   "severe_missed": {
+    "n_target": 0,
+    "novelty_best_layer": 0,
+    "novelty": null,
+    "mouth_low_confidence": null,
+    "seesaw_fight": null
+   },
+   "fight": {
+    "n_target": 128,
+    "novelty_best_layer": 12,
+    "novelty": 0.6253,
+    "mouth_low_confidence": 0.5792,
+    "seesaw_fight": null
+   }
+  },
+  "messystress_keep30.jsonl": {
+   "plain_wrong": {
+    "n_target": 105,
+    "novelty_best_layer": 0,
+    "novelty": 0.5688,
+    "mouth_low_confidence": 0.5617,
+    "seesaw_fight": 0.7471
+   },
+   "severe_missed": {
+    "n_target": 8,
+    "novelty_best_layer": 12,
+    "novelty": 0.6367,
+    "mouth_low_confidence": 0.5389,
+    "seesaw_fight": 0.5328
+   },
+   "fight": {
+    "n_target": 310,
+    "novelty_best_layer": 0,
+    "novelty": 0.5983,
+    "mouth_low_confidence": 0.525,
+    "seesaw_fight": null
+   }
+  },
+  "messystress_keep50_strays3.jsonl": {
+   "plain_wrong": {
+    "n_target": 121,
+    "novelty_best_layer": 12,
+    "novelty": 0.6146,
+    "mouth_low_confidence": 0.4579,
+    "seesaw_fight": 0.3912
+   },
+   "severe_missed": {
+    "n_target": 7,
+    "novelty_best_layer": 12,
+    "novelty": 0.6923,
+    "mouth_low_confidence": 0.5359,
+    "seesaw_fight": 0.2063
+   },
+   "fight": {
+    "n_target": 869,
+    "novelty_best_layer": 8,
+    "novelty": 0.5865,
+    "mouth_low_confidence": 0.5936,
+    "seesaw_fight": null
+   }
+  },
+  "messystress_strays5.jsonl": {
+   "plain_wrong": {
+    "n_target": 105,
+    "novelty_best_layer": 7,
+    "novelty": 0.7387,
+    "mouth_low_confidence": 0.4646,
+    "seesaw_fight": 0.466
+   },
+   "severe_missed": {
+    "n_target": 11,
+    "novelty_best_layer": 12,
+    "novelty": 0.6669,
+    "mouth_low_confidence": 0.5933,
+    "seesaw_fight": 0.4591
+   },
+   "fight": {
+    "n_target": 899,
+    "novelty_best_layer": 9,
+    "novelty": 0.5542,
+    "mouth_low_confidence": 0.6048,
+    "seesaw_fight": null
+   }
+  }
+ }
+}

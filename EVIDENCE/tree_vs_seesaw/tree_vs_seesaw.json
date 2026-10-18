@@ -1,0 +1,94 @@
+{
+ "n_train": 200000,
+ "n_test": 10000,
+ "sure_line": 0.9,
+ "tree_full": {
+  "depth": 176,
+  "leaves": 4967
+ },
+ "tree_leafy": {
+  "depth": 107,
+  "leaves": 965,
+  "min_samples_leaf": 50
+ },
+ "accuracy": {
+  "tree_full": 0.9744,
+  "tree_leafy": 0.938,
+  "seesaw": 0.983
+ },
+ "full_tree_ever_unsure": "never: every fully grown leaf is one answer",
+ "sounds_sure_while_fighting": {
+  "seesaw_fights": 1260,
+  "tree_sure": 8534,
+  "tree_sure_and_seesaw_fights": 774,
+  "one_in": 12.9,
+  "tree_right_when_sure_and_calm": 0.9982,
+  "tree_right_when_sure_but_fighting": 0.9793,
+  "seesaw_right_when_calm": 0.9906,
+  "seesaw_right_when_fighting": 0.9302
+ },
+ "where_the_tree_is_wrong": {
+  "share_of_patients_flagged_fighting": 0.126,
+  "tree_sure_mistakes": 30,
+  "of_those_flagged_fighting": 16,
+  "share_flagged": 0.5333,
+  "full_tree_mistakes": 256,
+  "full_tree_mistakes_flagged_fighting": 122,
+  "full_tree_share_flagged": 0.4766
+ },
+ "one_answer_removed": {
+  "patients": 9991,
+  "tree_full_changed": 186,
+  "seesaw_changed": 121,
+  "tree_full_share": 0.0186,
+  "seesaw_share": 0.0121
+ },
+ "seesaw_order_shuffles": {
+  "tried": 10000,
+  "identical": 10000
+ },
+ "full_tree_first_questions": [
+  {
+   "depth": 0,
+   "asks": "E_77",
+   "question": "Do you have a cough that produces colored or more abundant sputum than usual?",
+   "patients": 200000
+  },
+  {
+   "depth": 1,
+   "asks": "E_41",
+   "question": "Have you been in contact with a person with similar symptoms in the past 2 weeks?",
+   "patients": 182327
+  },
+  {
+   "depth": 1,
+   "asks": "E_55_@_V_197",
+   "question": "Do you feel pain somewhere? -> epigastric",
+   "patients": 17673
+  },
+  {
+   "depth": 2,
+   "asks": "E_146",
+   "question": "Are you taking any new oral anticoagulants ((NOACs)?",
+   "patients": 170696
+  },
+  {
+   "depth": 2,
+   "asks": "E_204_@_V_1",
+   "question": "Have you traveled out of the country in the last 4 weeks? -> West Africa",
+   "patients": 11631
+  },
+  {
+   "depth": 2,
+   "asks": "E_226",
+   "question": "Are you more likely to develop common allergies than the general population?",
+   "patients": 17481
+  },
+  {
+   "depth": 2,
+   "asks": "E_55_@_V_160",
+   "question": "Do you feel pain somewhere? -> breast(L)",
+   "patients": 192
+  }
+ ]
+}

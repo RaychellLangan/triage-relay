@@ -1,0 +1,68 @@
+<python env>\lib\site-packages\torch\cuda\__init__.py:58: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+<python env>\lib\site-packages\transformers\integrations\sdpa_attention.py:96: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at <torch build>  attn_output = torch.nn.functional.scaled_dot_product_attention(
+`loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`.
+arm gpt2: 124.4M params on cuda; start val loss 4.5011, dept acc 0.000, English 3.677
+step     50 loss 0.400 val 0.1809 dept 0.809 urg 0.668 H 0.76b KL 2.229 Eng +5.0% head 0.241% margins steps-2950.0000 english-98.9505 readout-98.9976
+step    100 loss 0.094 val 0.0515 dept 0.959 urg 0.852 H 0.22b KL 4.905 Eng +5.4% head 0.285% margins steps-2900.0000 english-98.9462 readout-98.9972
+step    150 loss 0.112 val 0.0223 dept 0.977 urg 0.957 H 0.07b KL 6.188 Eng +6.5% head 0.310% margins steps-2850.0000 english-98.9346 readout-98.9969
+step    200 loss 0.009 val 0.0262 dept 0.967 urg 0.971 H 0.07b KL 8.471 Eng +8.0% head 0.339% margins steps-2800.0000 english-98.9203 readout-98.9966 val-98.8246
+step    250 loss 0.058 val 0.0173 dept 0.980 urg 0.982 H 0.04b KL 7.664 Eng +9.6% head 0.362% margins steps-2750.0000 english-98.9036 readout-98.9964 val-99.2236
+step    300 loss 0.019 val 0.0135 dept 0.982 urg 0.988 H 0.02b KL 8.376 Eng +10.8% head 0.379% margins steps-2700.0000 english-98.8917 readout-98.9962 val-99.2232
+step    350 loss 0.000 val 0.0198 dept 0.980 urg 0.986 H 0.02b KL 8.812 Eng +10.7% head 0.396% margins steps-2650.0000 english-98.8932 readout-98.9960 val-98.5263
+step    400 loss 0.006 val 0.0087 dept 0.986 urg 0.984 H 0.03b KL 8.335 Eng +9.9% head 0.408% margins steps-2600.0000 english-98.9007 readout-98.9959 val-99.3507
+step    450 loss 0.000 val 0.0083 dept 0.990 urg 0.988 H 0.02b KL 8.484 Eng +10.5% head 0.417% margins steps-2550.0000 english-98.8952 readout-98.9958 val-99.0451
+step    500 loss 0.000 val 0.0146 dept 0.982 urg 0.992 H 0.02b KL 9.993 Eng +12.7% head 0.440% margins steps-2500.0000 english-98.8729 readout-98.9956 val-98.2532
+step    550 loss 0.029 val 0.0088 dept 0.986 urg 0.990 H 0.02b KL 9.052 Eng +11.0% head 0.450% margins steps-2450.0000 english-98.8902 readout-98.9955 val-98.9415
+step    600 loss 0.001 val 0.0114 dept 0.990 urg 0.990 H 0.01b KL 9.476 Eng +10.9% head 0.461% margins steps-2400.0000 english-98.8906 readout-98.9954 val-98.6289
+step    650 loss 0.020 val 0.0050 dept 0.998 urg 0.992 H 0.02b KL 8.933 Eng +10.4% head 0.469% margins steps-2350.0000 english-98.8961 readout-98.9953 val-99.4014
+step    700 loss 0.039 val 0.0060 dept 1.000 urg 0.990 H 0.01b KL 10.140 Eng +12.7% head 0.477% margins steps-2300.0000 english-98.8731 readout-98.9952 val-98.7956
+step    750 loss 0.009 val 0.0047 dept 0.990 urg 0.996 H 0.02b KL 9.239 Eng +13.0% head 0.483% margins steps-2250.0000 english-98.8704 readout-98.9952 val-99.0659
+step    800 loss 0.000 val 0.0039 dept 0.994 urg 0.992 H 0.02b KL 8.933 Eng +13.1% head 0.494% margins steps-2200.0000 english-98.8691 readout-98.9951 val-99.1613
+step    850 loss 0.001 val 0.0033 dept 0.994 urg 0.994 H 0.01b KL 9.812 Eng +11.7% head 0.501% margins steps-2150.0000 english-98.8834 readout-98.9950 val-99.1626
+step    900 loss 0.002 val 0.0038 dept 0.996 urg 0.994 H 0.01b KL 10.127 Eng +12.8% head 0.506% margins steps-2100.0000 english-98.8720 readout-98.9949 val-98.8403
+step    950 loss 0.000 val 0.0052 dept 0.992 urg 0.994 H 0.01b KL 10.662 Eng +13.6% head 0.512% margins steps-2050.0000 english-98.8639 readout-98.9949 val-98.4122
+step   1000 loss 0.000 val 0.0059 dept 0.994 urg 0.992 H 0.01b KL 10.697 Eng +15.5% head 0.521% margins steps-2000.0000 english-98.8449 readout-98.9948 val-98.1923
+step   1050 loss 0.022 val 0.0085 dept 0.990 urg 0.992 H 0.02b KL 9.258 Eng +14.7% head 0.528% margins steps-1950.0000 english-98.8527 readout-98.9947 val-97.4172
+step   1100 loss 0.000 val 0.0057 dept 0.994 urg 0.994 H 0.01b KL 10.444 Eng +14.6% head 0.538% margins steps-1900.0000 english-98.8538 readout-98.9946 val-98.2720
+step   1150 loss 0.004 val 0.0019 dept 0.994 urg 0.998 H 0.01b KL 8.733 Eng +12.3% head 0.545% margins steps-1850.0000 english-98.8766 readout-98.9946 val-99.4215
+step   1200 loss 0.005 val 0.0115 dept 0.986 urg 0.994 H 0.02b KL 9.380 Eng +13.4% head 0.550% margins steps-1800.0000 english-98.8660 readout-98.9945 val-93.9605
+step   1250 loss 0.006 val 0.0121 dept 0.969 urg 0.990 H 0.09b KL 6.746 Eng +13.7% head 0.571% margins steps-1750.0000 english-98.8635 readout-98.9943 val-93.6004
+step   1300 loss 0.000 val 0.0074 dept 0.986 urg 0.994 H 0.02b KL 9.755 Eng +14.6% head 0.602% margins steps-1700.0000 english-98.8537 readout-98.9940 val-96.0880
+step   1350 loss 0.001 val 0.0033 dept 0.996 urg 0.996 H 0.01b KL 10.338 Eng +13.8% head 0.612% margins steps-1650.0000 english-98.8622 readout-98.9939 val-98.2769
+step   1400 loss 0.000 val 0.0038 dept 0.998 urg 0.994 H 0.01b KL 10.859 Eng +15.3% head 0.620% margins steps-1600.0000 english-98.8468 readout-98.9938 val-98.0044
+step   1450 loss 0.020 val 0.0029 dept 0.998 urg 0.996 H 0.00b KL 11.380 Eng +17.6% head 0.624% margins steps-1550.0000 english-98.8242 readout-98.9938 val-98.4539
+step   1500 loss 0.000 val 0.0037 dept 0.998 urg 0.994 H 0.00b KL 11.534 Eng +17.4% head 0.628% margins steps-1500.0000 english-98.8256 readout-98.9937 val-98.0262
+step   1550 loss 0.009 val 0.0021 dept 0.998 urg 0.996 H 0.00b KL 11.440 Eng +17.8% head 0.636% margins steps-1450.0000 english-98.8225 readout-98.9936 val-98.9190
+step   1600 loss 0.001 val 0.0029 dept 0.994 urg 0.996 H 0.01b KL 11.255 Eng +18.2% head 0.642% margins steps-1400.0000 english-98.8180 readout-98.9936 val-98.4873
+step   1650 loss 0.004 val 0.0022 dept 0.996 urg 0.998 H 0.01b KL 11.514 Eng +17.7% head 0.650% margins steps-1350.0000 english-98.8229 readout-98.9935 val-98.8330
+step   1700 loss 0.000 val 0.0034 dept 0.992 urg 0.996 H 0.01b KL 10.827 Eng +17.8% head 0.662% margins steps-1300.0000 english-98.8219 readout-98.9934 val-98.2139
+step   1750 loss 0.000 val 0.0056 dept 0.992 urg 0.992 H 0.01b KL 11.123 Eng +22.8% head 0.668% margins steps-1250.0000 english-98.7721 readout-98.9933 val-97.0377
+step   1800 loss 0.013 val 0.0048 dept 0.992 urg 0.984 H 0.02b KL 11.055 Eng +19.5% head 0.675% margins steps-1200.0000 english-98.8049 readout-98.9932 val-97.4906
+step   1850 loss 0.001 val 0.0045 dept 0.992 urg 0.994 H 0.01b KL 11.597 Eng +20.0% head 0.683% margins steps-1150.0000 english-98.7998 readout-98.9932 val-97.6363
+step   1900 loss 0.000 val 0.0075 dept 0.990 urg 0.988 H 0.01b KL 11.101 Eng +22.9% head 0.701% margins steps-1100.0000 english-98.7709 readout-98.9930 val-96.0598
+step   1950 loss 0.000 val 0.0009 dept 0.998 urg 0.998 H 0.01b KL 10.976 Eng +22.1% head 0.712% margins steps-1050.0000 english-98.7789 readout-98.9929 val-99.5094
+step   2000 loss 0.001 val 0.0020 dept 0.996 urg 0.994 H 0.01b KL 10.343 Eng +20.7% head 0.722% margins steps-1000.0000 english-98.7928 readout-98.9928 val-97.8592
+step   2050 loss 0.004 val 0.0019 dept 0.998 urg 0.996 H 0.01b KL 10.697 Eng +20.7% head 0.728% margins steps-950.0000 english-98.7926 readout-98.9927 val-97.9981
+step   2100 loss 0.010 val 0.0043 dept 0.998 urg 0.986 H 0.01b KL 10.975 Eng +21.3% head 0.741% margins steps-900.0000 english-98.7866 readout-98.9926 val-95.3612
+step   2150 loss 0.000 val 0.0012 dept 1.000 urg 0.998 H 0.01b KL 11.482 Eng +22.2% head 0.747% margins steps-850.0000 english-98.7781 readout-98.9925 val-98.6773
+step   2200 loss 0.000 val 0.0042 dept 0.994 urg 0.998 H 0.00b KL 11.006 Eng +22.1% head 0.755% margins steps-800.0000 english-98.7787 readout-98.9925 val-95.5152
+step   2250 loss 0.000 val 0.0019 dept 0.994 urg 0.998 H 0.01b KL 10.677 Eng +21.5% head 0.773% margins steps-750.0000 english-98.7853 readout-98.9923 val-98.0035
+step   2300 loss 0.002 val 0.0042 dept 0.996 urg 0.992 H 0.01b KL 10.956 Eng +21.4% head 0.787% margins steps-700.0000 english-98.7855 readout-98.9921 val-95.5082
+step   2350 loss 0.001 val 0.0023 dept 0.996 urg 0.998 H 0.01b KL 11.080 Eng +20.6% head 0.802% margins steps-650.0000 english-98.7942 readout-98.9920 val-97.5152
+step   2400 loss 0.000 val 0.0054 dept 0.994 urg 0.992 H 0.01b KL 10.663 Eng +20.2% head 0.808% margins steps-600.0000 english-98.7981 readout-98.9919 val-94.2193
+step   2450 loss 0.000 val 0.0074 dept 0.994 urg 0.986 H 0.01b KL 10.959 Eng +21.3% head 0.815% margins steps-550.0000 english-98.7868 readout-98.9919 val-92.0921
+step   2500 loss 0.000 val 0.0057 dept 0.996 urg 0.996 H 0.00b KL 11.326 Eng +21.8% head 0.822% margins steps-500.0000 english-98.7820 readout-98.9918 val-93.8708
+step   2550 loss 0.000 val 0.0044 dept 0.992 urg 0.998 H 0.01b KL 11.583 Eng +24.1% head 0.826% margins steps-450.0000 english-98.7593 readout-98.9917 val-95.3117
+step   2600 loss 0.000 val 0.0058 dept 0.992 urg 0.998 H 0.01b KL 11.140 Eng +23.2% head 0.832% margins steps-400.0000 english-98.7683 readout-98.9917 val-93.7650
+step   2650 loss 0.022 val 0.0015 dept 1.000 urg 0.996 H 0.01b KL 10.511 Eng +21.9% head 0.840% margins steps-350.0000 english-98.7806 readout-98.9916 val-98.4114
+step   2700 loss 0.000 val 0.0014 dept 0.998 urg 0.996 H 0.01b KL 11.098 Eng +22.4% head 0.852% margins steps-300.0000 english-98.7757 readout-98.9915 val-98.4635
+step   2750 loss 0.000 val 0.0083 dept 0.992 urg 0.992 H 0.01b KL 11.011 Eng +23.8% head 0.858% margins steps-250.0000 english-98.7619 readout-98.9914 val-91.0562
+step   2800 loss 0.000 val 0.0018 dept 0.998 urg 0.994 H 0.01b KL 11.854 Eng +23.9% head 0.862% margins steps-200.0000 english-98.7607 readout-98.9914 val-98.0686
+step   2850 loss 0.015 val 0.0009 dept 1.000 urg 0.994 H 0.00b KL 11.622 Eng +23.6% head 0.865% margins steps-150.0000 english-98.7643 readout-98.9914 val-98.9890
+step   2900 loss 0.019 val 0.0012 dept 0.998 urg 0.998 H 0.01b KL 11.546 Eng +23.3% head 0.869% margins steps-100.0000 english-98.7673 readout-98.9913 val-98.6754
+step   2950 loss 0.003 val 0.0094 dept 0.992 urg 0.986 H 0.01b KL 11.625 Eng +25.5% head 0.877% margins steps-50.0000 english-98.7447 readout-98.9912 val-89.9088
+step   3000 loss 0.000 val 0.0044 dept 0.996 urg 0.996 H 0.00b KL 11.548 Eng +25.9% head 0.887% margins steps+0.0000 english-98.7406 readout-98.9911 val-95.3068
+stopped at step 3000 after 34.6 min because it ran out of steps
+peak GPU memory allocated: 9.32 GB
+rolled back to step 1950 (val 0.0009, dept acc 0.998)

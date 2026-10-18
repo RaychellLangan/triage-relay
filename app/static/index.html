@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Triage Relay</title>
+<link rel="stylesheet" href="fonts/fonts.css">   <!-- served from this server: no outside calls -->
+<style>
+  /* Layout: a big-button kiosk for patients; staff screens are a list on the left and the chosen patient on the right. */
+  :root {
+    --bg: #eef2f1; --panel: #ffffff; --ink: #15201f; --muted: #5b6a68; --line: #d4dcda; --wash: #e4ecea; --teal: #0f7c76;
+    --imm: #d63c3c; --vurg: #e8792b; --urg: #d8a31a; --std: #3b7fd1; --non: #2e9a5b;
+    --yes: #2e8a52; --person: #c46a1c; --no: #b8433f; --idea: #5b5fa8;
+    --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif; --body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+    --bg: #101716; --panel: #172120; --ink: #e6edeb; --muted: #94a4a1; --line: #2a3735; --wash: #1e2a28; --teal: #4cc2b8;
+    --imm: #f06262; --vurg: #f29b55; --urg: #e8c14a; --std: #6aa5ef; --non: #5cc184; --yes: #5cc184; --person: #ee9a52; --no: #ec7a74; --idea: #9da1ec; color-scheme: dark; } }
+  :root[data-theme="dark"] { --bg: #101716; --panel: #172120; --ink: #e6edeb; --muted: #94a4a1; --line: #2a3735; --wash: #1e2a28; --teal: #4cc2b8;
+    --imm: #f06262; --vurg: #f29b55; --urg: #e8c14a; --std: #6aa5ef; --non: #5cc184; --yes: #5cc184; --person: #ee9a52; --no: #ec7a74; --idea: #9da1ec; color-scheme: dark; }
+  * { box-sizing: border-box; scrollbar-color: var(--teal) var(--wash); }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.5 var(--body); }
+  h1, h2, h3 { font-family: var(--display); margin: 0; line-height: 1.15; text-wrap: balance; }
+  button { font: inherit; cursor: pointer; }
+  button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
+  .top { display: flex; align-items: center; gap: 12px; padding: 10px 18px; background: var(--panel); border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+  .top h1 { font-size: 1.25rem; } .top .who { margin-left: auto; color: var(--muted); font-size: .9rem; }
+  .tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+  .pill { border: 1px solid var(--line); background: var(--wash); color: var(--ink); border-radius: 999px; padding: 6px 14px; font-size: .9rem; }
+  .pill.on { background: var(--teal); border-color: var(--teal); color: var(--panel); }
+  main { padding: 18px; max-width: 1500px; margin: 0 auto; }
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; min-width: 0; overflow-wrap: anywhere; }
+  .muted { color: var(--muted); } .small { font-size: .85rem; } .mono { font-family: var(--mono); }
+  .dot { display: inline-block; width: 11px; height: 11px; border-radius: 50%; margin-right: 6px; box-shadow: 0 0 8px currentColor; vertical-align: 0; }
+  .urg { display: inline-block; border-radius: 6px; padding: 2px 9px; font: 700 .8rem var(--display); letter-spacing: .03em; color: var(--panel); text-transform: uppercase; }
+  .verdict { display: inline-block; border-radius: 6px; padding: 3px 10px; font: 700 .85rem var(--display); color: var(--panel); text-transform: uppercase; letter-spacing: .04em; }
+  .split { display: grid; grid-template-columns: minmax(0, 380px) minmax(0, 1fr); gap: 16px; }
+  @media (max-width: 900px) { .split { grid-template-columns: minmax(0, 1fr); } }
+  .row { display: grid; grid-template-columns: 54px minmax(0, 1fr) auto; gap: 10px; align-items: center; padding: 10px; border-radius: 10px; cursor: pointer; border-left: 5px solid var(--c, var(--line)); margin-bottom: 6px; background: var(--bg); }
+  .row:hover, .row.sel { background: var(--wash); }
+  .ticket { font: 700 1.1rem var(--mono); }
+  table { border-collapse: collapse; width: 100%; } th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font: 500 .75rem var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .tablewrap { overflow-x: auto; }
+  .btn { border: none; border-radius: 10px; padding: 9px 16px; background: var(--teal); color: var(--panel); font-weight: 700; }
+  .btn.ghost { background: var(--wash); color: var(--ink); border: 1px solid var(--line); }
+  .btn.warn { background: var(--person); } .btn.bad { background: var(--no); }
+  input, select, textarea { font: inherit; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); max-width: 100%; }
+  dl.kv { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 6px 12px; margin: 0; } dl.kv dt { color: var(--muted); } dl.kv dd { margin: 0; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; } .chip { background: var(--wash); border: 1px solid var(--line); border-radius: 6px; padding: 2px 9px; font-size: .88rem; }
+  .chip.no { text-decoration: line-through; opacity: .7; }
+  .flag { border-radius: 10px; padding: 10px 12px; background: color-mix(in srgb, var(--imm) 14%, var(--panel)); border: 1px solid var(--imm); }
+  .note { border-radius: 10px; padding: 10px 12px; background: color-mix(in srgb, var(--std) 12%, var(--panel)); border: 1px solid var(--std); }
+  .stack { display: grid; gap: 12px; }
+  /* ---- kiosk ---- */
+  .kiosk { max-width: 920px; margin: 0 auto; display: grid; gap: 22px; padding-block: 18px 40px; }
+  .kiosk h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
+  .kiosk .lead { font-size: 1.25rem; color: var(--muted); }
+  .big { border: none; border-radius: 18px; padding: 22px 26px; font: 700 1.35rem var(--display); color: #fff; background: var(--c, var(--teal));
+         box-shadow: 0 6px 0 color-mix(in srgb, var(--c, var(--teal)) 60%, #000), 0 0 22px color-mix(in srgb, var(--c, var(--teal)) 35%, transparent); }
+  .big:active { transform: translateY(3px); box-shadow: 0 3px 0 color-mix(in srgb, var(--c, var(--teal)) 60%, #000); }
+  .tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 14px; }
+  .tile { border: 3px solid var(--c); border-radius: 18px; padding: 18px 14px; background: color-mix(in srgb, var(--c) 14%, var(--panel)); color: var(--ink);
+          font: 700 1.15rem var(--display); display: grid; gap: 6px; justify-items: center; text-align: center; }
+  .tile .g { font-size: 2rem; line-height: 1; }
+  .tile[aria-pressed="true"] { background: var(--c); color: #fff; }
+  .q { display: grid; gap: 12px; padding: 18px; border-radius: 16px; background: var(--panel); border: 2px solid var(--line); }
+  .q p { font-size: 1.25rem; margin: 0; }
+  .yn { display: flex; gap: 12px; flex-wrap: wrap; }
+  .yn button { flex: 1 1 140px; border-radius: 14px; padding: 16px; font: 700 1.2rem var(--display); border: 3px solid var(--c); background: var(--panel); color: var(--ink); }
+  .yn button[aria-pressed="true"] { background: var(--c); color: #fff; }
+  textarea.words { width: 100%; min-height: 150px; font-size: 1.25rem; border-radius: 14px; padding: 14px; border: 3px solid var(--teal); }
+  .keypad { display: grid; grid-template-columns: repeat(3, minmax(0, 90px)); gap: 10px; }
+  .keypad button { padding: 16px; font: 700 1.4rem var(--display); border-radius: 12px; border: 2px solid var(--line); background: var(--panel); color: var(--ink); }
+  .sexes { display: flex; gap: 12px; flex-wrap: wrap; }
+  .demo { font-size: .8rem; color: var(--muted); }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div class="top">
+  <h1>Triage Relay</h1>
+  <div class="tabs" id="tabs"></div>
+  <span class="who" id="who"></span>
+  <button class="pill" id="theme" title="light or dark">◐</button>
+</div>
+<main id="view"></main>
+
+<script>
+const DEPT = { "Cardiology": "#e0607e", "ENT": "#3aa7b3", "Emergency (resus)": "#ff7f2a", "Gastroenterology": "#c49a1e", "General medicine": "#8d949b",
+  "Haematology": "#b5455d", "Infectious diseases": "#6aa538", "Mental health": "#8c6fd0", "Neurology": "#4f83e0", "Oncology": "#c66fcc",
+  "Paediatrics": "#e5a33f", "Respiratory": "#2fae80", "Rheumatology": "#9c7f74", "Trauma and orthopaedics": "#7f93b8" };
+const URG = { "Immediate": "var(--imm)", "Very urgent": "var(--vurg)", "Nurse to assess": "var(--idea)", "Urgent": "var(--urg)", "Standard": "var(--std)", "Non-urgent": "var(--non)" };
+// an injury the AI did not read has no level yet: it sits after the Immediate and Very urgent patients, before routine ones
+const URG_ORDER = ["Immediate", "Very urgent", "Nurse to assess", "Urgent", "Standard", "Non-urgent"];
+const VC = { "yes": "var(--yes)", "maybe yes": "var(--yes)", "hand to a person": "var(--person)", "maybe no": "var(--person)", "unsure": "var(--person)", "no": "var(--no)", "no idea": "var(--idea)" };
+const VWORD = { "yes": "clear", "maybe yes": "probably clear", "hand to a person": "needs a person", "maybe no": "unsure", "unsure": "unsure", "no": "not sure, check", "no idea": "no idea yet" };
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const dot = d => DEPT[d] ? `<span class="dot" style="color:${DEPT[d]};background:${DEPT[d]}"></span>` : "";
+const urg = u => u ? `<span class="urg" style="background:${URG[u] || "var(--muted)"}">${esc(u)}</span>` : "";
+const verdict = v => `<span class="verdict" style="background:${VC[v] || "var(--person)"}">${esc(VWORD[v] || v)}</span>`;
+let ME = JSON.parse(sessionStorageGet("me") || "null");
+function sessionStorageGet(k) { try { return sessionStorage.getItem(k); } catch (e) { return null; } }
+function sessionStorageSet(k, v) { try { v === null ? sessionStorage.removeItem(k) : sessionStorage.setItem(k, v); } catch (e) {} }
+async function api(path, body) {
+  // relative paths ("api/..."), so the app works wherever it is served from, including under a folder on a shared host
+  const r = await fetch(path.replace(/^\//, ""), { method: body ? "POST" : "GET", headers: { "X-Token": ME?.token || "" }, body: body ? JSON.stringify(body) : undefined });
+  if (r.status === 429) {     // the public demo's per-visitor limit: say so plainly instead of failing silently
+    const j = await r.json(); let n = document.getElementById("busy");
+    if (!n) { n = document.createElement("div"); n.id = "busy"; n.style.cssText = "position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:9;padding:12px 22px;border-radius:12px;background:var(--panel, #1a2a28);border:2px solid #E8792B;font-weight:700;max-width:90vw"; document.body.appendChild(n); }
+    n.textContent = j.error; setTimeout(() => n.remove(), 6000); throw new Error("rate limited"); }
+  // logins live in the server's memory: after a restart the old one is gone, so go back to the login screen instead of failing silently
+  if (r.status === 403 && ME && !(await fetch("api/me", { headers: { "X-Token": ME.token } }).then(x => x.json())).role) {
+    ME = null; sessionStorageSet("me", null); location.hash = "#login"; throw new Error("login expired"); }
+  return r.json();
+}
+const SCREENS = { kiosk: "Patient kiosk", reception: "Reception", nurse: "Triage nurse", ward: "Ward heads-up", review: "Reviewer", setup: "Setup" };
+const CAN = { reception: ["reception"], nurse: ["reception", "nurse"], ward: ["ward"], reviewer: ["review", "nurse"], admin: ["reception", "nurse", "ward", "review", "setup"],
+  demo: ["reception", "nurse", "ward", "review", "setup"] };
+function tabs() {
+  const allowed = ["kiosk", ...(ME ? CAN[ME.role] : [])];
+  const here = location.hash.slice(1).split("/")[0] || "kiosk";
+  document.getElementById("tabs").innerHTML = allowed.map(s => `<a class="pill ${s === here ? "on" : ""}" href="#${s}" style="text-decoration:none">${SCREENS[s]}</a>`).join("") +
+    (ME ? "" : `<a class="pill ${here === "login" ? "on" : ""}" href="#login" style="text-decoration:none">Staff login</a>`);
+  document.getElementById("who").innerHTML = ME ? `${ME.role === "demo" ? `<span class="urg" style="background:var(--idea)">demo mode</span> ` : esc(ME.role)}${ME.ward ? " · " + esc(ME.ward) : ""} · <a href="#" id="logout">log out</a>` : "";
+  const lo = document.getElementById("logout");
+  if (lo) lo.onclick = async e => { e.preventDefault(); await api("/api/logout", {}); ME = null; sessionStorageSet("me", null); location.hash = "#kiosk"; route(); };
+}
+
+// =========================== KIOSK ===========================
+// the phrase each tile adds is written in words the translator's vocabulary has (checked against its tokenizer)
+const AREAS = [["Chest", "🫀", "pain in my chest", "#e0607e"], ["Breathing", "🫁", "I'm short of breath", "#2fae80"], ["Head", "🧠", "pain in my head", "#4f83e0"],
+  ["Throat or ears", "👂", "sore throat or pain in my ear", "#3aa7b3"], ["Tummy", "🍽️", "pain in my belly", "#c49a1e"], ["Skin", "✋", "a rash on my skin", "#c66fcc"],
+  ["Back", "🧍", "pain in my back", "#9c7f74"], ["Arms or legs", "🦵", "pain in my arm or leg", "#7f93b8"], ["Unwell all over", "🌡️", "I feel unwell and feverish", "#e5a33f"],
+  ["Worried or anxious", "💭", "I feel anxious", "#8c6fd0"]];
+const BACK = { you: "hello", flags: "you", injury: "flags", where: "injury", words: "where" };
+let K = {}, IDLE = null;
+// a shared tablet: if nobody touches it for 90 s mid-way (or 20 s on the ticket), it clears and starts again, so the next person never sees someone else's answers
+function idleReset() { clearTimeout(IDLE); if (!K.step || K.step === "hello" || K.step === "busy") return;
+  IDLE = setTimeout(() => { if ((location.hash.slice(1) || "kiosk") === "kiosk") kiosk(); }, K.step === "done" ? 20000 : 90000); }
+document.addEventListener("pointerdown", () => idleReset()); document.addEventListener("keydown", () => idleReset());
+const backBtn = step => BACK[step] ? `<button class="big" id="back" style="--c:var(--muted)">Back</button> ` : "";
+function kiosk(step) {
+  const v = document.getElementById("view");
+  if (!step) { K = { name: "", age: "", sex: "", areas: [], words: "", answers: {}, custom: {}, flags: [], wrong: [], added: "" }; step = "hello"; }
+  K.step = step;
+  idleReset();
+  if (step === "hello") v.innerHTML = `<div class="kiosk">
+      <h2>Hello. Let's get you seen.</h2><p class="lead">A few quick questions, then someone will call you. Tap the big buttons.</p>
+      <div><button class="big" id="go">Start</button></div>
+      <div class="note" style="font-size:1.05rem"><b>Your information stays here.</b> This system runs on this hospital's own computer. It does not send what you tell it to any AI company, and nothing you type is used to train it.
+        <details style="margin-top:8px"><summary style="cursor:pointer;font-weight:700">Read more</summary>
+        <div class="stack" style="margin-top:10px;gap:10px">
+          <p style="margin:0"><b>What is the AI here?</b> Two very small language models, each about 27,000 times smaller than GPT-3, the model that came just before ChatGPT. Their only job is to turn your words into a checklist of symptoms. They cannot chat, browse the internet, or send anything anywhere.</p>
+          <p style="margin:0"><b>What were they trained on?</b> Made-up practice patients from a public research dataset (DDXPlus, from the Mila research institute), plus everyday ways of saying things that we wrote ourselves. No real person's medical records were used.</p>
+          <p style="margin:0"><b>Who decides where you go?</b> Not a trained AI. The route comes from simple, readable counts and from published NHS and clinical standards, which staff can see and check. A nurse reviews it, and you will always speak to a person before any medical decision.</p>
+          <p style="margin:0"><b>Does it learn from me?</b> No. It is never trained on what you tell it. If a nurse corrects where a patient was sent, that correction stays on this hospital's computer as a note for staff. It is not sent to anyone.</p>
+          <p style="margin:0"><b>What is kept?</b> What you type and answer is kept on this hospital's system for the staff looking after you. This is a demonstration: please do not enter real personal details.</p>
+        </div></details></div>
+      <p class="demo">Demonstration only, with synthetic training data. This does not diagnose anything. If you feel very unwell, tell a member of staff now.</p></div>`;
+  if (step === "you") v.innerHTML = `<div class="kiosk">
+      <h2>About you</h2>
+      <label>First name (optional)<br><input id="k-name" value="${esc(K.name)}" style="font-size:1.2rem"></label>
+      <div><div class="lead">Your age</div><div style="font:700 2rem var(--display);min-height:2.6rem" id="k-age">${K.age === "0" ? "under 1" : esc(K.age) || "&nbsp;"}</div>
+        <div class="keypad">${[1,2,3,4,5,6,7,8,9,"⌫",0,"OK"].map(k => `<button data-k="${k}">${k}</button>`).join("")}</div></div>
+      <div><div class="lead">You are</div><div class="sexes">${[["F", "Female", "#d17bd6"], ["M", "Male", "#3b7fd1"], ["", "Prefer not to say", "#8d949b"]].map(([k, l, c]) =>
+        `<button class="tile" style="--c:${c};min-width:170px" aria-pressed="${K.sex === k && K.sexSet}" data-s="${k}">${l}</button>`).join("")}</div></div>
+      <div>${backBtn(step)}<button class="big" id="go">Next</button></div></div>`;
+  if (step === "flags") v.innerHTML = `<div class="kiosk">
+      <h2>Is any of these happening right now?</h2><p class="lead">Tap any that apply. If none do, tap "None of these".</p>
+      <div class="stack">${K.redFlags.map(f => `<button class="tile" style="--c:var(--imm);justify-items:start;text-align:left" aria-pressed="${K.flags.includes(f.id)}" data-f="${esc(f.id)}">${esc(f.text)}</button>`).join("")}</div>
+      <div>${backBtn(step)}<button class="big" id="go" style="--c:${K.flags.length ? "var(--imm)" : "var(--teal)"}">${K.flags.length ? "Next" : "None of these"}</button></div>
+      <p class="demo">From NHS guidance on stroke (FAST), heart attack and sepsis.</p></div>`;
+  if (step === "injury") v.innerHTML = `<div class="kiosk">
+      <h2>Is this from an injury or accident?</h2><p class="lead">For example a fall, a knock, a cut, a burn, a bite, or being kicked.</p>
+      <div class="sexes"><button class="tile" style="--c:var(--vurg);min-width:220px" data-inj="yes">Yes, an injury</button>
+        <button class="tile" style="--c:var(--teal);min-width:220px" data-inj="no">No</button></div>
+      <div>${backBtn(step)}</div></div>`;
+  if (step === "where") v.innerHTML = `<div class="kiosk">
+      <h2>Where is the problem?</h2><p class="lead">Tap all that apply.</p>
+      <div class="tiles">${AREAS.map(([l, g, , c], i) => `<button class="tile" style="--c:${c}" aria-pressed="${K.areas.includes(i)}" data-a="${i}"><span class="g">${g}</span>${l}</button>`).join("")}</div>
+      <div>${backBtn(step)}<button class="big" id="go">Next</button></div></div>`;
+  if (step === "words") v.innerHTML = `<div class="kiosk">
+      <h2>Tell us in your own words</h2><p class="lead">What's wrong, where it hurts, how bad, since when. Any way you like.</p>
+      <textarea class="words" id="k-words" placeholder="e.g. my chest feels tight and it goes down my left arm, started an hour ago">${esc(K.words)}</textarea>
+      <p class="lead" id="k-need" style="color:var(--person)" hidden>Please write a few words, or go back and tap where the problem is.</p>
+      <div>${backBtn(step)}<button class="big" id="go">Next</button></div></div>`;
+  if (step === "taps") v.innerHTML = `<div class="kiosk">
+      <h2>A few quick questions</h2><p class="lead">These help us send you to the right place.</p>
+      <div class="stack" id="qs">${K.questions.map(q => qcard(q.code, q.text, K.answers)).join("")}
+        ${(K.round === 0 ? K.customQs : []).map(q => qcard("custom:" + q.id, q.text, K.custom)).join("")}</div>
+      <div><button class="big" id="go">Next</button></div></div>`;
+  if (step === "check") v.innerHTML = `<div class="kiosk">
+      <h2>Did we get this right?</h2>
+      <p class="lead">This is our first take on what you've told us, to help guide you through our hospital. A nurse will review it, and you will always talk to a person before any medical decision is made. Please check it matches what you said.</p>
+      <div class="stack">${K.understood.map(u => `<div class="q" style="display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap">
+        <p style="${K.wrong.includes(u.code) ? "text-decoration:line-through;opacity:.55" : ""}">${esc(u.text)}</p>
+        <button class="tile" style="--c:var(--person);padding:10px 16px;font-size:1rem" aria-pressed="${K.wrong.includes(u.code)}" data-nr="${esc(u.code)}">${K.wrong.includes(u.code) ? "Not right (undo)" : "Not right"}</button></div>`).join("")
+        || `<p class="lead">We didn't pick out anything specific. A nurse will go through it with you.</p>`}</div>
+      <label class="lead">Anything we missed? (optional)<br><textarea class="words" id="k-added" style="min-height:90px">${esc(K.added || "")}</textarea></label>
+      <div><button class="big" id="go">${K.wrong.length ? "Send with my changes" : "Yes, that's right"}</button></div></div>`;
+  if (step === "busy") v.innerHTML = `<div class="kiosk"><h2>One moment…</h2><p class="lead">Reading what you told us.</p></div>`;
+  if (step === "done") v.innerHTML = `<div class="kiosk" style="text-align:center;justify-items:center">
+      <h2>Thank you${K.name ? ", " + esc(K.name) : ""}.</h2>${K.urgent ? `<p class="flag" style="font:700 1.4rem var(--display)">Please tell a member of staff now. Show them this number.</p>` : `<p class="lead">Please take a seat. A member of staff will call you.</p>`}
+      <div style="font:700 4rem var(--mono);color:var(--teal)">#${K.id}</div><p class="muted">Your ticket number</p>
+      <button class="big" id="again" style="--c:var(--muted)">Next patient</button></div>`;
+  wireKiosk();
+}
+function qcard(code, text, store) {
+  const a = store[code.replace("custom:", "")] ?? store[code];
+  return `<div class="q"><p>${esc(text)}</p><div class="yn" data-code="${esc(code)}">
+    ${[["yes", "Yes", "var(--non)"], ["no", "No", "var(--std)"], ["unsure", "Not sure", "var(--muted)"]].map(([k, l, c]) => `<button style="--c:${c}" aria-pressed="${a === k}" data-v="${k}">${l}</button>`).join("")}</div></div>`;
+}
+function wireKiosk() {
+  const go = document.getElementById("go"), v = document.getElementById("view");
+  v.onclick = async e => {
+    const t = e.target.closest("button"); if (!t) return;
+    if (t.dataset.k !== undefined) { const k = t.dataset.k; K.name = document.getElementById("k-name").value;
+      if (k === "⌫") K.age = K.age.slice(0, -1); else if (k === "OK") {} else if (K.age === "0") K.age = k; else if (K.age.length < 3) K.age += k; kiosk("you"); return; }
+    if (t.dataset.s !== undefined) { K.name = document.getElementById("k-name").value; K.sex = t.dataset.s; K.sexSet = true; kiosk("you"); return; }
+    if (t.dataset.nr !== undefined) { const c = t.dataset.nr; K.added = document.getElementById("k-added").value;
+      K.wrong = K.wrong.includes(c) ? K.wrong.filter(x => x !== c) : [...K.wrong, c]; kiosk("check"); return; }
+    if (t.dataset.inj !== undefined) { K.injury = t.dataset.inj === "yes"; return kiosk("where"); }
+    if (t.dataset.f !== undefined) { const f = t.dataset.f; K.flags = K.flags.includes(f) ? K.flags.filter(x => x !== f) : [...K.flags, f]; kiosk("flags"); return; }
+    if (t.dataset.a !== undefined) { const i = +t.dataset.a; K.areas = K.areas.includes(i) ? K.areas.filter(x => x !== i) : [...K.areas, i]; kiosk("where"); return; }
+    if (t.dataset.v !== undefined) { const code = t.parentElement.dataset.code; if (code.startsWith("custom:")) K.custom[code.slice(7)] = t.dataset.v; else K.answers[code] = t.dataset.v;
+      t.parentElement.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", b === t)); return; }
+    if (t.id === "again") { kiosk(); return; }
+    if (t.id === "back") { if (K.step === "you") K.name = document.getElementById("k-name").value;
+      if (K.step === "words") K.words = document.getElementById("k-words").value; return kiosk(BACK[K.step]); }
+    if (t.id !== "go") return;
+    if (K.step === "hello") return kiosk("you");
+    if (K.step === "you") { K.name = document.getElementById("k-name").value;
+      if (!K.cfg) K.cfg = await api("/api/kiosk_config");
+      K.redFlags = K.cfg.red_flags || []; return kiosk(K.redFlags.length ? "flags" : "injury"); }
+    if (K.step === "flags") {
+      if (!K.flags.length) return kiosk("injury");
+      // a red flag skips everything else: straight onto every staff list, and the patient is told to speak to staff now
+      kiosk("busy");
+      const r = await api("/api/intake/start", { name: K.name, age: K.age, sex: K.sex, words: "", red_flags: K.flags, injury: false, areas: [] });
+      K.id = r.id; K.urgent = true; return kiosk("done");
+    }
+    if (K.step === "where") return kiosk("words");
+    if (K.step === "words") {
+      K.words = document.getElementById("k-words").value;
+      if (!K.words.trim() && !K.areas.length && !K.flags.length) { document.getElementById("k-need").hidden = false; return; }
+      const words = K.words.trim();
+      kiosk("busy");
+      const [r, cfg] = await Promise.all([api("/api/intake/start", { name: K.name, age: K.age, sex: K.sex, words, red_flags: K.flags, injury: !!K.injury, areas: K.areas.map(i => AREAS[i][0]) }), api("/api/kiosk_config")]);
+      if (r.done) { K.id = r.id; K.urgent = !!r.red_flag; return kiosk("done"); }
+      Object.assign(K, { id: r.id, questions: r.questions, customQs: cfg.custom_questions || [], round: 0 });
+      return kiosk("taps");
+    }
+    if (K.step === "check") {
+      K.added = document.getElementById("k-added").value;
+      kiosk("busy");
+      await api("/api/intake/confirm", { id: K.id, wrong: K.wrong, added: K.added });
+      return kiosk("done");
+    }
+    if (K.step === "taps") {
+      const answers = {}; for (const q of K.questions) if (K.answers[q.code]) answers[q.code] = K.answers[q.code];
+      kiosk("busy");
+      const r = await api("/api/intake/answer", { id: K.id, answers, custom: K.round === 0 ? K.custom : {} });
+      if (r.done) { K.understood = r.understood || []; K.wrong = []; return kiosk("check"); }
+      K.round++; K.questions = r.questions; return kiosk("taps");
+    }
+  };
+}
+
+// =========================== STAFF ===========================
+let SEL = null, TIMER = null;
+const urgRank = c => URG_ORDER.indexOf(c.decision?.urgency);
+// waiting patients first (most urgent, then longest waiting); anyone already seen drops to the bottom, greyed
+const rf = c => (c.decision?.red_flags || []).length ? 0 : 1;
+const byQueue = (a, b) => (a.status === "seen") - (b.status === "seen") || rf(a) - rf(b) || urgRank(a) - urgRank(b) || a.id - b.id;
+const ageText = a => String(a) === "0" ? "under 1" : esc(a);
+const ageSex = c => `${c.age ? ageText(c.age) : `<span class="muted">age not given</span>`} ${esc(c.sex)}`;
+const VIT = { temp: "Temp", hr: "HR", bp: "BP", rr: "RR", spo2: "SpO2", o2: "O2", acvpu: "ACVPU" };
+const NEWSC = { low: "var(--non)", "low-medium": "var(--urg)", medium: "var(--vurg)", high: "var(--imm)" };
+const flagBanner = d => (d.red_flags || []).length ? `<div class="flag"><b>Red flag, look now:</b> ${d.red_flags.map(esc).join(" · ")} <span class="small muted">(ticked at the kiosk; NHS guidance; the flag chose the department)</span></div>` : "";
+const qsofa = q => q ? ` <span class="urg" style="background:${q.flag ? "var(--imm)" : "var(--non)"}">qSOFA ${q.total}/3</span>` : "";
+const news = n => n ? `<span class="urg" style="background:${NEWSC[n.risk]}">NEWS2 ${n.total} · ${esc(n.risk)}</span>${n.missing.length ? ` <span class="small muted">missing: ${n.missing.map(k => VIT[k] || k).join(", ")}</span>` : ""}` : "";
+let DIRTY = false;     // the nurse has picked answers or typed observations that are not saved yet: the 5 s refresh waits
+async function staffList(screen, extra = "") {
+  const cs = await api(`/api/cases?screen=${screen}${extra}`);
+  return Array.isArray(cs) ? cs : [];
+}
+async function reception() {
+  const cs = (await staffList("reception")).sort(byQueue);
+  document.getElementById("view").innerHTML = `<div class="panel"><h2>Waiting room</h2><p class="muted small">Sorted by urgency, then arrival. Reception sees where each person goes, not what might be wrong.</p>
+    <div class="tablewrap"><table><tr><th>Ticket</th><th>Name</th><th>Age / sex</th><th>Arrived</th><th>Urgency</th><th>Send to</th><th>Status</th><th></th></tr>
+    ${cs.map(c => `<tr style="${c.status === "seen" ? "opacity:.5" : ""}"><td class="ticket">#${c.id}</td><td>${esc(c.name)}</td><td>${ageSex(c)}</td><td class="mono">${esc(c.arrived)}</td>
+      <td>${urg(c.decision.urgency)}${(c.decision.red_flags || []).length ? ` <span class="urg" style="background:var(--imm)">red flag</span>` : ""}</td><td>${dot(c.decision.department)}${esc(c.decision.department)}${c.decision.verdict !== "yes" ? ` <span class="small muted">(nurse to confirm)</span>` : ""}</td>
+      <td>${esc(STATUS_WORD[c.status] || c.status)}${flashFor(c.id)}</td><td><button class="btn ghost" data-st="called" data-id="${c.id}">Called</button> <button class="btn ghost" data-st="sent" data-id="${c.id}">Sent</button></td></tr>`).join("") ||
+      `<tr><td colspan="8" class="muted">Nobody waiting. Use the Patient kiosk to check someone in.</td></tr>`}</table></div></div>`;
+  wireStatus(reception);
+}
+let FLASH = null;   // {id, text}: the visible "done" after a status button, so a nurse can see it worked
+const STATUS_WORD = { waiting: "Waiting", called: "Called", sent: "Sent to department", seen: "Seen" };
+function wireStatus(again) {
+  document.getElementById("view").querySelectorAll("[data-st]").forEach(b => b.onclick = async () => {
+    b.disabled = true; b.textContent = "Saving…";
+    const r = await api("/api/case/status", { id: +b.dataset.id, status: b.dataset.st });
+    FLASH = { id: +b.dataset.id, text: r && !r.error ? `${STATUS_WORD[b.dataset.st] || b.dataset.st}: saved` : "Not saved, try again", ok: r && !r.error };
+    setTimeout(() => { FLASH = null; }, 6000);
+    again(); });
+}
+const flashFor = id => FLASH && FLASH.id === id ? ` <span class="verdict" style="background:${FLASH.ok ? "var(--yes)" : "var(--no)"}">${FLASH.ok ? "✓ " : ""}${esc(FLASH.text)}</span>` : "";
+async function nurse() {
+  const cs = (await staffList("nurse")).sort(byQueue);
+  const depts = await api("/api/departments");
+  const c = cs.find(x => x.id === SEL) || cs[0];
+  if (c) SEL = c.id;
+  const d = c?.decision;
+  const held = new Set((c?.for_nurse_q || []).map(q => q.code));
+  const askQs = (d?.ask_codes || []).filter(q => !held.has(q.code));   // each question shown once
+  document.getElementById("view").innerHTML = `<div class="split">
+    <div class="panel"><h2 style="margin-bottom:10px">Patients</h2>${cs.map(x => `<div class="row ${x.id === SEL ? "sel" : ""}" style="--c:${URG[x.decision.urgency]};${x.status === "seen" ? "opacity:.5" : ""}" data-id="${x.id}">
+      <span class="ticket">#${x.id}</span><span><b>${esc(x.name)}</b> <span class="muted small">${ageSex(x)} · ${esc(x.arrived)}${x.status === "seen" ? " · seen" : ""}</span><br>${dot(x.decision.department)}${esc(x.decision.department)}</span>
+      <span>${verdict(x.decision.verdict)}</span></div>`).join("") || `<p class="muted">No patients yet.</p>`}</div>
+    <div class="panel stack">${c ? `
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><h2>#${c.id} ${esc(c.name)}</h2>${urg(d.urgency)} ${verdict(d.verdict)} <span class="pill">${esc(STATUS_WORD[c.status] || c.status)}</span>${flashFor(c.id)}</div>
+      ${flagBanner(d)}
+      ${d.outside_scope ? `<div class="flag" style="border-color:var(--idea);background:color-mix(in srgb, var(--idea) 14%, var(--panel))"><b>${esc(d.outside_scope)}</b></div>` : ""}
+      ${c.patient_check ? `<div class="${c.patient_check.state === "changed" ? "flag" : "note"}" style="${c.patient_check.state === "changed" ? "border-color:var(--person);background:color-mix(in srgb, var(--person) 12%, var(--panel))" : ""}"><b>Patient's check:</b> ${c.patient_check.state === "confirmed" ? "confirmed the summary matches what they said" : c.patient_check.state === "changed" ? "changed the summary" : "has not checked the summary yet"}
+        ${(c.patient_check.removed || []).length ? `<br>Said these were not right (taken out, route worked out again): ${c.patient_check.removed.map(esc).join(" · ")}` : ""}
+        ${c.patient_check.added ? `<br>Added, in their words: “${esc(c.patient_check.added)}”` : ""}</div>` : ""}
+      ${(d.rules_applied || []).length ? `<div class="note"><b>Rules taught by your team</b> <span class="small muted">approved by a reviewer; each is one extra push on the department seesaw</span>
+        ${d.rules_applied.map(r => `<div style="margin-top:6px">Rule #${r.id} → ${dot(r.to)}<b>${esc(r.to)}</b>: ${esc(r.effect)}<br><span class="small muted">applies to patients who said: ${r.fields.map(esc).join(" · ")}${r.why ? ` · “${esc(r.why)}”` : ""}</span></div>`).join("")}</div>` : ""}
+      ${(c.similar_corrections || []).length ? `<div class="panel" style="background:var(--bg)"><b>Corrections on similar patients</b> <span class="small muted">shown when this patient gave most of the same answers; notes only, they never change the route</span>
+        ${c.similar_corrections.map(n => `<div class="small" style="margin-top:6px">#${n.id}: ${dot(n.from)}${esc(n.from)} → ${dot(n.to)}<b>${esc(n.to)}</b> · this patient gave ${n.shared} of its ${n.of} answers · ${esc(n.status)}${n.why ? ` · “${esc(n.why)}”` : ""}</div>`).join("")}</div>` : ""}
+      ${d.danger && d.danger.severity <= 2 && !(d.red_flags || []).length ? `<div class="flag"><b>Danger first:</b> ${esc(d.danger.condition)} is still in play (severity ${d.danger.severity} of 5), so this routes to ${dot(d.danger.department)}<b>${esc(d.danger.department)}</b>${d.likely_department !== d.danger.department ? `, although ${esc(d.likely_department)} is more likely` : ""}.</div>` : ""}
+      ${d.unavailable_note ? `<div class="note">${esc(d.unavailable_note)}</div>` : ""}
+      <dl class="kv">
+        <dt>Route to</dt><dd>${dot(d.department)}<b>${esc(d.department)}</b></dd>
+        <dt>Heads-up</dt><dd>${(d.runners_up || []).map(r => `${dot(r.department)}${esc(r.department)} <span class="small muted">gap ${r.gap.toFixed(1)}</span>`).join(" · ")}</dd>
+        ${d.second_reader ? `<dt>Second reader</dt><dd>${dot(d.second_reader.department)}${esc(d.second_reader.department)} <span class="small muted">${Math.round(d.second_reader.confidence * 100)}% sure</span></dd>
+        <dt>Familiar case?</dt><dd>${d.facts.familiar > 0 ? "yes, like cases seen before" : "<b>new</b>: unlike most cases seen before"}</dd>` : ""}
+        ${(c.areas || []).length ? `<dt>Body areas tapped</dt><dd>${c.areas.map(esc).join(" · ")}</dd>` : ""}
+        <dt>Still in play</dt><dd>${(d.in_play || []).map(p => `${esc(p.condition)} <span class="small muted">(sev ${p.severity})</span>`).join(" · ")}</dd>
+      </dl>
+      <div><b>In their own words</b><div class="panel" style="background:var(--bg);margin-top:6px">${esc(c.words)}</div></div>
+      ${(() => { const row = (label, items, cls = "") => (items || []).length ? `<div style="margin-top:8px"><span class="small muted">${label}</span><div class="chips" style="margin-top:4px">${items.map(s => `<span class="chip ${cls}">${esc(s)}</span>`).join("")}</div></div>` : "";
+        const fromWords = c.said_words || (c.said_words === undefined ? c.said : []);
+        return `<div><b>What the system read</b>${d.outside_scope ? `<p class="small muted" style="margin:6px 0 0">Not read by the AI.</p>` : ""}
+          ${row("From their own words", fromWords)}${row("Answered yes to the system's questions", [...(c.said_yes_q || []), ...(c.custom_yes || [])])}
+          ${row("Answered no to the system's questions", c.said_no, "no")}${row("Removed by the patient at the check", (c.patient_check || {}).removed, "no")}</div>`; })()}
+      ${(c.for_nurse_q || []).length ? `<div class="note"><b>The system wanted to ask these</b> <span class="small muted">Kept off the waiting-room screen by your setup, so they are yours to ask in person.</span>
+        <div class="stack" style="margin-top:8px">${c.for_nurse_q.map(q => `<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><span style="flex:1 1 260px">${esc(q.text)}</span>
+          ${[["yes", "Yes", "var(--non)"], ["no", "No", "var(--std)"], ["unsure", "Not sure", "var(--muted)"]].map(([k, l, col]) => `<button class="pill" data-rq="${esc(q.code)}" data-ra="${k}" style="border-color:${col}">${l}</button>`).join("")}</div>`).join("")}</div></div>` : ""}
+      <div class="panel" style="background:var(--bg)"><b>Ask more questions</b> <span class="small muted">The system picks the questions that would settle this best (most dangerous possibility first).</span>
+        <div id="refine" class="stack" style="margin-top:8px">${askQs.map(q => `<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><span style="flex:1 1 260px">${esc(q.text)}</span>
+          ${[["yes", "Yes", "var(--non)"], ["no", "No", "var(--std)"], ["unsure", "Not sure", "var(--muted)"]].map(([k, l, col]) => `<button class="pill" data-rq="${esc(q.code)}" data-ra="${k}" style="border-color:${col}">${l}</button>`).join("")}</div>`).join("") || `<span class="muted small">No more useful questions.</span>`}</div>
+        ${askQs.length || (c.for_nurse_q || []).length ? `<div style="margin-top:8px"><button class="btn" id="n-refine">Update the card</button> <span class="small muted">uses every answer picked on this card</span></div>` : ""}</div>
+      <div class="panel" style="background:var(--bg)"><b>Observations and notes</b> <span class="small muted">Recorded for the team and shown to the ward. Not used for routing in this build.</span>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:8px">
+          ${[["temp", "Temperature °C"], ["hr", "Heart rate /min"], ["bp", "Blood pressure (e.g. 128/80)"], ["rr", "Breathing rate /min"], ["spo2", "Oxygen saturation %"]].map(([k, l]) =>
+            `<label class="small">${l}<br><input data-vit="${k}" inputmode="decimal" value="${esc((c.vitals || {})[k] || "")}" style="width:100%"></label>`).join("")}
+          <label class="small">Breathing<br><select data-vit="o2" style="width:100%">${[["", "not recorded"], ["air", "room air"], ["oxygen", "on oxygen"]].map(([k, l]) => `<option value="${k}" ${(c.vitals || {}).o2 === k ? "selected" : ""}>${l}</option>`).join("")}</select></label>
+          <label class="small">Alertness (ACVPU)<br><select data-vit="acvpu" style="width:100%">${[["", "not recorded"], ["A", "Alert"], ["C", "New confusion"], ["V", "Responds to voice"], ["P", "Responds to pain"], ["U", "Unresponsive"]].map(([k, l]) => `<option value="${k}" ${(c.vitals || {}).acvpu === k ? "selected" : ""}>${l}</option>`).join("")}</select></label></div>
+        <div style="margin-top:8px">${c.news2 ? news(c.news2) + qsofa(c.qsofa) + ` <span class="small muted">NEWS2: Royal College of Physicians chart (NICE's preferred adult sepsis check). qSOFA: Sepsis-3 quick check (breathing 22+, not alert, systolic 100 or under; 2+ flags). Worked out from these observations, for the team; not used for routing.</span>` : `<span class="small muted">Save observations to see the NEWS2 score (the published early-warning chart).</span>`}</div>
+        <textarea id="n-notes" style="width:100%;margin-top:8px;min-height:70px" placeholder="Notes for the team">${esc(c.notes || "")}</textarea>
+        <div style="margin-top:6px"><button class="btn ghost" id="n-save">Save observations and notes</button> <span id="n-saved" class="small muted"></span></div></div>
+      <div class="panel" style="background:var(--bg);opacity:.6"><b>Suggested first checks</b> <span class="urg" style="background:var(--idea)">next build phase</span>
+        <p class="small muted" style="margin:6px 0 0">Light-touch suggestions for bedside checks (for example an ECG when a heart condition is in play) need a clinician-written mapping. The training data has no observations or test results, so this build does not suggest any.</p></div>
+      <div class="panel" style="background:var(--bg)"><b>Not right?</b> Send this patient elsewhere and say why. A reviewer decides whether it becomes a rule.
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><select id="n-dept">${depts.map(x => `<option ${x === d.department ? "selected" : ""}>${esc(x)}</option>`).join("")}</select>
+        <input id="n-why" placeholder="why" size="28"><button class="btn warn" id="n-correct">Correct</button>
+        <button class="btn" data-st="seen" data-id="${c.id}">Confirm and mark seen</button></div></div>
+      <p class="small muted">Not a diagnosis. Conditions listed are what the system kept in play while routing.</p>` : `<p class="muted">Pick a patient.</p>`}</div></div>`;
+  document.getElementById("view").querySelectorAll(".row").forEach(r => r.onclick = () => { SEL = +r.dataset.id; DIRTY = false; nurse(); });
+  DIRTY = false;
+  document.getElementById("view").querySelectorAll("[data-vit], #n-notes, #n-why").forEach(i => i.addEventListener("input", () => { DIRTY = true; }));
+  const nc = document.getElementById("n-correct");
+  if (nc) nc.onclick = async () => { const r = await api("/api/correct", { id: c.id, department: document.getElementById("n-dept").value, why: document.getElementById("n-why").value });
+    if (r.error) { nc.insertAdjacentHTML("afterend", ` <span class="small" style="color:var(--no)">${esc(r.error)}</span>`); return; } nurse(); };
+  const RA = {};
+  document.getElementById("view").querySelectorAll("[data-rq]").forEach(b => b.onclick = () => { RA[b.dataset.rq] = b.dataset.ra; DIRTY = true;
+    document.getElementById("view").querySelectorAll(`[data-rq="${CSS.escape(b.dataset.rq)}"]`).forEach(x => x.classList.toggle("on", x.dataset.ra === b.dataset.ra)); });
+  const nr = document.getElementById("n-refine");
+  if (nr) nr.onclick = async () => { nr.textContent = "Updating…"; await api("/api/case/refine", { id: c.id, answers: RA }); nurse(); };
+  const ns = document.getElementById("n-save");
+  if (ns) ns.onclick = async () => { const vit = {}; document.getElementById("view").querySelectorAll("[data-vit]").forEach(i => vit[i.dataset.vit] = i.value);
+    await api("/api/case/notes", { id: c.id, vitals: vit, notes: document.getElementById("n-notes").value }); DIRTY = false; nurse(); };
+  wireStatus(nurse);
+}
+async function ward() {
+  const depts = await api("/api/departments");
+  const mine = ME.ward || location.hash.split("/")[1] && decodeURIComponent(location.hash.split("/")[1]) || depts[0];
+  const cs = (await staffList("ward", `&ward=${encodeURIComponent(mine)}`)).filter(c => c.status !== "seen").sort((a, b) => urgRank(a) - urgRank(b));
+  const coming = cs.filter(c => c.decision.department === mine), maybe = cs.filter(c => c.decision.department !== mine);
+  const card = (c, sure) => `<div class="row" style="--c:${URG[c.decision.urgency]};cursor:default"><span class="ticket">#${c.id}</span>
+    <span>${urg(c.decision.urgency)} <span class="muted small">arrived ${esc(c.arrived)} · ${esc(c.status)}</span><br><span class="small">${(c.said || []).slice(0, 3).map(esc).join(" · ")}</span>
+      ${(c.decision.red_flags || []).length ? `<br><span class="urg" style="background:var(--imm)">red flag</span> <span class="small">${c.decision.red_flags.map(esc).join(" · ")}</span>` : ""}${c.news2 ? `<br>${news(c.news2)}${qsofa(c.qsofa)}` : ""}${c.vitals && Object.keys(c.vitals).length ? `<br><span class="small mono">${Object.entries(c.vitals).map(([k, v]) => `${esc(VIT[k] || k)} ${esc(v)}`).join(" · ")}</span>` : ""}${c.notes ? `<br><span class="small">Nurse: ${esc(c.notes)}</span>` : ""}</span>
+    <span class="small muted">${sure ? "coming to you" : "possible"}</span></div>`;
+  document.getElementById("view").innerHTML = `<div class="panel stack" style="max-width:900px;margin:0 auto">
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><h2>${dot(mine)}${esc(mine)}</h2>
+      ${["admin", "demo"].includes(ME.role) ? `<select id="w-pick">${depts.map(x => `<option ${x === mine ? "selected" : ""}>${esc(x)}</option>`).join("")}</select>` : ""}</div>
+    <h3>Coming to you (${coming.length})</h3>${coming.map(c => card(c, true)).join("") || `<p class="muted">Nobody routed here right now.</p>`}
+    <h3>Heads-up: might come to you (${maybe.length})</h3>${maybe.map(c => card(c, false)).join("") || `<p class="muted">Nothing on the horizon.</p>`}
+    <p class="small muted">A heads-up only: no diagnosis, just who may be on their way and how urgent.</p></div>`;
+  const wp = document.getElementById("w-pick"); if (wp) wp.onchange = () => { location.hash = "#ward/" + encodeURIComponent(wp.value); };
+}
+async function review() {
+  const cs = await api("/api/corrections");
+  document.getElementById("view").innerHTML = `<div class="panel stack"><h2>Corrections to review</h2>
+    <p class="muted">Each correction starts as this patient only. <b>Approve as rule</b> and it applies to new patients who give all of its key answers: one extra push toward the corrected department, shown on their card. A rule never overrides danger first, and you can revoke it at any time. Or keep it for this case only, or dismiss it. Say why.</p>
+    <p id="rv-msg" class="small" style="color:var(--no)"></p>
+    <div class="tablewrap"><table><tr><th>#</th><th>Change</th><th>Why (nurse)</th><th>Patient said</th><th>Status</th><th>Decide</th></tr>
+    ${(Array.isArray(cs) ? cs : []).map(x => `<tr><td class="mono">${x.id}<br><span class="small muted">case #${x.case}</span></td>
+      <td>${dot(x.from)}${esc(x.from)} → ${dot(x.to)}<b>${esc(x.to)}</b><br><span class="small muted">${esc(x.when)}</span></td><td>${esc(x.why)}</td>
+      <td class="small">${(x.said || []).slice(0, 6).map(esc).join(" · ")}</td><td>${esc(x.status)}<br><span class="small muted">${esc(x.scope)}</span>${x.review_why ? `<br><span class="small">“${esc(x.review_why)}”</span>` : ""}${x.rule_fields_plain ? `<br><span class="small">key answers: ${x.rule_fields_plain.map(esc).join(" · ")}</span>` : ""}</td>
+      <td>${x.status === "proposed" ? `<input id="rv-${x.id}" placeholder="why" size="16"><div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px">
+        <button class="btn" data-rv="${x.id}" data-d="approved as rule">Approve as rule</button><button class="btn ghost" data-rv="${x.id}" data-d="this case only">This case only</button>
+        <button class="btn bad" data-rv="${x.id}" data-d="dismissed">Dismiss</button></div>` : x.status === "approved as rule" ? `<input id="rv-${x.id}" placeholder="why" size="16"><div style="margin-top:6px"><button class="btn bad" data-rv="${x.id}" data-d="revoked">Revoke rule</button></div>` : ""}</td></tr>`).join("") || `<tr><td colspan="6" class="muted">No corrections yet.</td></tr>`}</table></div></div>`;
+  document.getElementById("view").querySelectorAll("[data-rv]").forEach(b => b.onclick = async () => {
+    const r = await api("/api/review", { id: +b.dataset.rv, decision: b.dataset.d, why: document.getElementById("rv-" + b.dataset.rv).value });
+    if (r.error) { document.getElementById("rv-msg").textContent = r.error; return; } review(); });
+}
+async function setup() {
+  const [cfg, depts, QS] = await Promise.all([api("/api/config"), api("/api/departments"), api("/api/questions")]);
+  const v = document.getElementById("view");
+  v.innerHTML = `<div class="stack">
+    <div class="panel stack"><h2>Your departments</h2><p class="muted">Untick anything this site doesn't have, or that is out of action today. Say what happens to patients who would have gone there.</p>
+      <div class="tablewrap"><table><tr><th>Department</th><th>Available</th><th>If not available</th></tr>
+      ${depts.map(d => { const c = cfg.departments[d]; return `<tr><td>${dot(d)}${esc(d)}</td><td><input type="checkbox" data-av="${esc(d)}" ${c.available ? "checked" : ""}></td>
+        <td><select data-act="${esc(d)}"><option value="redirect" ${c.if_unavailable.action === "redirect" ? "selected" : ""}>send to another department</option>
+          <option value="transfer" ${c.if_unavailable.action === "transfer" ? "selected" : ""}>transfer out</option></select>
+          <select data-to="${esc(d)}" ${c.if_unavailable.action === "transfer" ? "hidden" : ""}>${depts.filter(x => x !== d).map(x => `<option ${x === c.if_unavailable.to ? "selected" : ""}>${esc(x)}</option>`).join("")}</select>
+          <input data-tt="${esc(d)}" placeholder="e.g. St Mary's urology" value="${c.if_unavailable.action === "transfer" ? esc(c.if_unavailable.to || "") : ""}" ${c.if_unavailable.action === "transfer" ? "" : "hidden"}></td></tr>`; }).join("")}</table></div></div>
+    <div class="panel stack"><h2>Your own questions</h2><p class="muted">Add a question every patient is asked. If you choose a department, a "yes" sends the patient there as a fixed rule (use this only for hard requirements, like "are you here for a booked appointment?").</p>
+      <div id="cq">${cfg.custom_questions.map((q, i) => `<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px"><input data-qt="${i}" value="${esc(q.text)}" size="50">
+        <select data-qr="${i}"><option value="">just show the answer to staff</option>${depts.map(x => `<option ${x === q.route_to ? "selected" : ""}>${esc(x)}</option>`).join("")}</select>
+        <button class="btn ghost" data-qdel="${i}">Remove</button></div>`).join("")}</div>
+      <div><button class="btn ghost" id="cq-add">Add a question</button></div></div>
+    <div class="panel stack"><h2>Injuries</h2><label>Patients who say it's an injury or accident go to <select id="inj-route">${depts.map(x => `<option ${x === (cfg.injury_route || "Trauma and orthopaedics") ? "selected" : ""}>${esc(x)}</option>`).join("")}</select>, marked "nurse to assess". The AI does not read them: injuries are outside what it was trained on.</label></div>
+    <div class="panel stack"><h2>Red-flag check</h2><label><input type="checkbox" id="rf-on" ${cfg.red_flags !== false ? "checked" : ""}> Ask every patient "is any of these happening right now?" first (NHS guidance: stroke FAST, heart attack, sepsis). A tick marks them Immediate, puts them at the top of every list, and skips the remaining questions.</label></div>
+    <div class="panel stack"><h2>Asked by the nurse, not the kiosk</h2><p class="muted">Questions too personal for a waiting-room screen. When the system wants one of these, it hands it to the triage nurse instead. This is a starting list: change it to suit your site.</p>
+      <div class="chips">${(cfg.nurse_only || []).map(code => `<span class="chip">${esc((QS.find(q => q.code === code) || { text: code }).text)} <button class="pill" data-nodel="${esc(code)}" style="padding:0 8px" title="ask at the kiosk again">×</button></span>`).join("")}</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><select id="no-add" style="flex:1 1 320px"><option value="">Add a question…</option>${QS.filter(q => !(cfg.nurse_only || []).includes(q.code)).map(q => `<option value="${esc(q.code)}">${esc(q.text)}</option>`).join("")}</select>
+        <button class="btn ghost" id="no-addbtn">Hand to nurse</button></div></div>
+    <div class="panel stack"><h2>Questions per patient</h2><label>Rounds of yes/no questions (3 per round): <input type="number" id="rounds" min="0" max="4" value="${cfg.max_rounds}"></label></div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn" id="save">Save setup</button><span id="saved" class="muted"></span>
+      <button class="btn bad" id="reset" style="margin-left:auto">Clear all demo patients</button></div>
+    <p class="small muted">Demo logins: reception 1111 · nurse 2222 · ward 3333 · reviewer 4444 · admin 9999. Demonstration-grade login, not hospital security.</p></div>`;
+  v.querySelectorAll("[data-act]").forEach(s => s.onchange = () => { const d = s.dataset.act;
+    v.querySelector(`[data-to="${CSS.escape(d)}"]`).hidden = s.value === "transfer"; v.querySelector(`[data-tt="${CSS.escape(d)}"]`).hidden = s.value !== "transfer"; });
+  const collect = () => {
+    const out = { departments: {}, custom_questions: [], max_rounds: +document.getElementById("rounds").value, nurse_only: [...(cfg.nurse_only || [])], red_flags: document.getElementById("rf-on").checked, injury_route: document.getElementById("inj-route").value };
+    for (const d of depts) { const act = v.querySelector(`[data-act="${CSS.escape(d)}"]`).value;
+      out.departments[d] = { available: v.querySelector(`[data-av="${CSS.escape(d)}"]`).checked,
+        if_unavailable: { action: act, to: act === "transfer" ? v.querySelector(`[data-tt="${CSS.escape(d)}"]`).value : v.querySelector(`[data-to="${CSS.escape(d)}"]`).value } }; }
+    v.querySelectorAll("[data-qt]").forEach(inp => { const i = inp.dataset.qt; if (inp.value.trim()) out.custom_questions.push({ id: "q" + i + Date.now() % 100000, text: inp.value.trim(), route_to: v.querySelector(`[data-qr="${i}"]`).value || null }); });
+    return out;
+  };
+  document.getElementById("cq-add").onclick = async () => { const c = collect(); c.custom_questions.push({ id: "new", text: "New question?", route_to: null }); await api("/api/config", c); setup(); };
+  v.querySelectorAll("[data-qdel]").forEach(b => b.onclick = async () => { const c = collect(); c.custom_questions.splice(+b.dataset.qdel, 1); await api("/api/config", c); setup(); });
+  v.querySelectorAll("[data-nodel]").forEach(b => b.onclick = async () => { const c = collect(); c.nurse_only = c.nurse_only.filter(x => x !== b.dataset.nodel); await api("/api/config", c); setup(); });
+  document.getElementById("no-addbtn").onclick = async () => { const code = document.getElementById("no-add").value; if (!code) return;
+    const c = collect(); c.nurse_only.push(code); await api("/api/config", c); setup(); };
+  document.getElementById("save").onclick = async () => { await api("/api/config", collect()); document.getElementById("saved").textContent = "Saved. New patients use this setup."; };
+  document.getElementById("reset").onclick = async () => { await api("/api/demo_reset", {}); document.getElementById("saved").textContent = "Demo patients cleared."; };
+}
+async function login() {
+  const depts = await api("/api/departments");
+  const roles = [["reception", "Reception", "#3b7fd1"], ["nurse", "Triage nurse", "#2e9a5b"], ["ward", "Ward", "#e5a33f"], ["reviewer", "Reviewer", "#8c6fd0"], ["admin", "Admin", "#d63c3c"]];
+  let role = "nurse", pin = "";
+  const draw = () => document.getElementById("view").innerHTML = `<div class="kiosk" style="max-width:640px">
+    <h2>Staff login</h2>
+    <button class="big" id="demo" style="--c:var(--idea)">Demo: see every screen</button>
+    <p class="demo">Demo mode opens every screen with no PIN, so you can follow a patient through the whole journey. Clearly not for real use.</p>
+    <div class="tiles">${roles.map(([k, l, c]) => `<button class="tile" style="--c:${c}" aria-pressed="${k === role}" data-r="${k}">${l}</button>`).join("")}</div>
+    ${role === "ward" ? `<label>Which ward? <select id="l-ward">${depts.map(d => `<option>${esc(d)}</option>`).join("")}</select></label>` : ""}
+    <div><div class="lead">PIN</div><div style="font:700 2rem var(--mono);min-height:2.6rem">${"•".repeat(pin.length) || "&nbsp;"}</div>
+      <div class="keypad">${[1,2,3,4,5,6,7,8,9,"⌫",0,"OK"].map(k => `<button data-p="${k}">${k}</button>`).join("")}</div></div>
+    <p id="l-err" class="muted"></p><p class="demo">Demo PINs: reception 1111 · nurse 2222 · ward 3333 · reviewer 4444 · admin 9999.</p></div>`;
+  draw();
+  document.getElementById("view").onclick = async e => {
+    const b = e.target.closest("button"); if (!b) return;
+    if (b.id === "demo") { const r = await api("/api/login", { role: "demo" }); ME = r; sessionStorageSet("me", JSON.stringify(r)); location.hash = "#nurse"; route(); return; }
+    if (b.dataset.r) { role = b.dataset.r; pin = ""; draw(); return; }
+    if (b.dataset.p === undefined) return;
+    if (b.dataset.p === "⌫") { pin = pin.slice(0, -1); draw(); return; }
+    if (b.dataset.p !== "OK") { if (pin.length < 6) pin += b.dataset.p; draw(); return; }
+    const ward = document.getElementById("l-ward")?.value;
+    const r = await api("/api/login", { role, pin, ward });
+    if (r.error) { pin = ""; draw(); document.getElementById("l-err").textContent = r.error; return; }
+    ME = r; sessionStorageSet("me", JSON.stringify(r)); location.hash = "#" + CAN[r.role][0]; route();
+  };
+}
+// =========================== ROUTER ===========================
+function route() {
+  clearInterval(TIMER); DIRTY = false;
+  const here = location.hash.slice(1).split("/")[0] || "kiosk";
+  tabs();
+  document.getElementById("view").onclick = null;
+  if (here === "kiosk") return kiosk();
+  if (here === "login") return login();
+  if (!ME || !CAN[ME.role].includes(here)) { location.hash = "#login"; return; }
+  const f = { reception, nurse, ward, review, setup }[here];
+  f();
+  if (here !== "setup" && here !== "review") TIMER = setInterval(() => { if (!DIRTY && !document.activeElement?.matches("input,select,textarea")) f(); }, 5000);
+}
+window.addEventListener("hashchange", route);
+document.getElementById("theme").onclick = () => { const r = document.documentElement, dark = r.dataset.theme ? r.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches; r.dataset.theme = dark ? "light" : "dark"; };
+route();
+</script>
+</body>
+</html>

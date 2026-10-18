@@ -1,0 +1,25 @@
+<python env>\lib\site-packages\torch\cuda\__init__.py:58: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+<python env>\lib\site-packages\transformers\integrations\sdpa_attention.py:96: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at <torch build>  attn_output = torch.nn.functional.scaled_dot_product_attention(
+fit_acc (rows = embedding, block0.., cols = k in (0, 1, 2, 4, 8) )
+ [[0.159 0.155 0.157 0.162 0.151]
+ [0.92  0.849 0.743 0.655 0.388]
+ [0.871 0.945 0.811 0.743 0.453]
+ [0.926 0.808 0.858 0.728 0.412]
+ [0.979 0.786 0.767 0.675 0.454]
+ [0.989 0.792 0.765 0.596 0.424]
+ [0.997 0.788 0.698 0.545 0.445]] 
+vocabulary baseline fit acc 0.838
+full mouth acc 0.998
+shuffled mouth acc 0.996
+reason_only mouth acc 0.34
+messy mouth acc 0.916
+injected mouth acc 0.958
+keep_0.8 mouth acc 0.98
+keep_0.6 mouth acc 0.948
+keep_0.4 mouth acc 0.866
+keep_0.2 mouth acc 0.678
+stray_1 mouth acc 0.97
+stray_3 mouth acc 0.874
+stray_5 mouth acc 0.802
+saved runs/readings/tiny.npz

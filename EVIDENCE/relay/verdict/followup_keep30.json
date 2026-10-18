@@ -1,0 +1,29 @@
+{
+ "facts": "runs/route_from_fields/verdict/facts_keep30.jsonl",
+ "cases": 1000,
+ "not_routed_at_start": 285,
+ "start_auto_share": 0.715,
+ "rounds": [
+  {
+   "round": 1,
+   "asked_this_round": 285,
+   "now_routed_of_not_routed": 48,
+   "share_resolved": 0.1684,
+   "acc_of_resolved": 0.9792,
+   "acc_of_all_not_routed_cases_now": 0.7123,
+   "mean_questions_per_case_so_far": 3.0,
+   "seconds_per_case_this_round": 0.0097
+  },
+  {
+   "round": 2,
+   "asked_this_round": 237,
+   "now_routed_of_not_routed": 67,
+   "share_resolved": 0.2351,
+   "acc_of_resolved": 0.9701,
+   "acc_of_all_not_routed_cases_now": 0.7404,
+   "mean_questions_per_case_so_far": 5.49,
+   "seconds_per_case_this_round": 0.0093
+  }
+ ],
+ "acc_of_not_routed_at_start": 0.6316
+}

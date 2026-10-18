@@ -1,0 +1,2344 @@
+{
+ "model": "runs/gpt2_nostop/model",
+ "patients": 600,
+ "full_acc": 0.9983,
+ "A_content_blind": {
+  "acc": 0.9183,
+  "changed_vs_full": 0.08,
+  "mean_conf": 0.969,
+  "full_mean_conf": 0.9971
+ },
+ "B_planted_no": {
+  "E_55": {
+   "question": "Do you feel pain somewhere?",
+   "answer_planted": "nowhere",
+   "patients": 119,
+   "department_changed": 0,
+   "changed_share": 0.0,
+   "toward": {}
+  },
+  "E_57": {
+   "question": "Does the pain radiate to another location?",
+   "answer_planted": "nowhere",
+   "patients": 119,
+   "department_changed": 0,
+   "changed_share": 0.0,
+   "toward": {}
+  },
+  "E_54": {
+   "question": "Characterize your pain:",
+   "answer_planted": "NA",
+   "patients": 119,
+   "department_changed": 0,
+   "changed_share": 0.0,
+   "toward": {}
+  },
+  "E_133": {
+   "question": "Where is the affected region located?",
+   "answer_planted": "nowhere",
+   "patients": 480,
+   "department_changed": 0,
+   "changed_share": 0.0,
+   "toward": {}
+  },
+  "E_130": {
+   "question": "What color is the rash?",
+   "answer_planted": "NA",
+   "patients": 480,
+   "department_changed": 2,
+   "changed_share": 0.0042,
+   "toward": {
+    "Respiratory": 2
+   }
+  },
+  "E_135": {
+   "question": "Is the lesion (or are the lesions) larger than 1cm?",
+   "answer_planted": "N",
+   "patients": 480,
+   "department_changed": 0,
+   "changed_share": 0.0,
+   "toward": {}
+  },
+  "E_131": {
+   "question": "Do your lesions peel off?",
+   "answer_planted": "N",
+   "patients": 480,
+   "department_changed": 1,
+   "changed_share": 0.0021,
+   "toward": {
+    "Respiratory": 1
+   }
+  },
+  "E_152": {
+   "question": "Where is the swelling located?",
+   "answer_planted": "nowhere",
+   "patients": 532,
+   "department_changed": 0,
+   "changed_share": 0.0,
+   "toward": {}
+  }
+ },
+ "C_single_question": {
+  "questions": 223,
+  "with_training_stats": 223,
+  "model_pick_equals_data_top_department": 0.5157,
+  "most_confident_25": [
+   {
+    "q": "E_155",
+    "question": "Do you feel your heart is beating fast (racing), irregularly (missing a beat) or do you feel palpitations?",
+    "model_pick": "Cardiology",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 0.657,
+    "times_asked_in_30k": 2322
+   },
+   {
+    "q": "E_148",
+    "question": "Are you feeling nauseous or do you feel like vomiting?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 0.239,
+    "times_asked_in_30k": 3189
+   },
+   {
+    "q": "E_9",
+    "question": "Do you have swollen or painful lymph nodes?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Infectious diseases",
+    "data_share": 0.65,
+    "times_asked_in_30k": 1200
+   },
+   {
+    "q": "E_212",
+    "question": "Have you noticed that the tone of your voice has become deeper, softer or hoarse?",
+    "model_pick": "ENT",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "ENT",
+    "data_share": 1.0,
+    "times_asked_in_30k": 936
+   },
+   {
+    "q": "E_84",
+    "question": "Do you feel weakness in both arms and/or both legs?",
+    "model_pick": "Neurology",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Neurology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 808
+   },
+   {
+    "q": "E_178",
+    "question": "Have you noticed any unusual bleeding or bruising related to your consultation today?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Infectious diseases",
+    "data_share": 1.0,
+    "times_asked_in_30k": 16
+   },
+   {
+    "q": "E_45",
+    "question": "Have you been coughing up blood?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.57,
+    "times_asked_in_30k": 2975
+   },
+   {
+    "q": "E_194",
+    "question": "Have you noticed a high pitched sound when breathing in?",
+    "model_pick": "ENT",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "ENT",
+    "data_share": 0.551,
+    "times_asked_in_30k": 1280
+   },
+   {
+    "q": "E_176",
+    "question": "Did you previously, or do you currently, have any weakness/paralysis in one or more of your limbs or in your face?",
+    "model_pick": "Neurology",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Neurology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 676
+   },
+   {
+    "q": "E_202",
+    "question": "Does the person have a whooping cough?",
+    "model_pick": "Paediatrics",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Paediatrics",
+    "data_share": 1.0,
+    "times_asked_in_30k": 58
+   },
+   {
+    "q": "E_170",
+    "question": "Do you have severe itching in one or both eyes?",
+    "model_pick": "ENT",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "ENT",
+    "data_share": 1.0,
+    "times_asked_in_30k": 597
+   },
+   {
+    "q": "E_169",
+    "question": "Is your nose or the back of your throat itchy?",
+    "model_pick": "ENT",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "ENT",
+    "data_share": 1.0,
+    "times_asked_in_30k": 642
+   },
+   {
+    "q": "E_175",
+    "question": "Have you noticed any new fatigue, generalized and vague discomfort, diffuse (widespread) muscle aches or a change in your general well-being related to your consultation today?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.692,
+    "times_asked_in_30k": 1268
+   },
+   {
+    "q": "E_192",
+    "question": "Do you feel that muscle spasms or soreness in your neck are keeping you from turning your head to one side?",
+    "model_pick": "Neurology",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Neurology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 500
+   },
+   {
+    "q": "E_164",
+    "question": "Do you feel your heart is beating very irregularly or in a disorganized pattern?",
+    "model_pick": "Cardiology",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 441
+   },
+   {
+    "q": "E_193",
+    "question": "Do you have annoying muscle spasms in your face, neck or any other part of your body?",
+    "model_pick": "Neurology",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Neurology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 494
+   },
+   {
+    "q": "E_71",
+    "question": "Do you have high cholesterol or do you take medications to treat high cholesterol?",
+    "model_pick": "Cardiology",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 1291
+   },
+   {
+    "q": "E_115",
+    "question": "Have you had unprotected sex with more than one partner in the last 6 months?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Infectious diseases",
+    "data_share": 1.0,
+    "times_asked_in_30k": 596
+   },
+   {
+    "q": "E_25",
+    "question": "Have any of your family members been diagnosed with cluster headaches?",
+    "model_pick": "Neurology",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Neurology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 483
+   },
+   {
+    "q": "E_2",
+    "question": "Are you infected with the human immunodeficiency virus (HIV)?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 0.58,
+    "times_asked_in_30k": 721
+   },
+   {
+    "q": "E_61",
+    "question": "Are you currently using intravenous drugs?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Infectious diseases",
+    "data_share": 1.0,
+    "times_asked_in_30k": 767
+   },
+   {
+    "q": "E_27",
+    "question": "Have you ever had a sexually transmitted infection?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Infectious diseases",
+    "data_share": 1.0,
+    "times_asked_in_30k": 604
+   },
+   {
+    "q": "E_189",
+    "question": "Have you had sexual intercourse with an HIV-positive partner in the past 12 months?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Infectious diseases",
+    "data_share": 1.0,
+    "times_asked_in_30k": 589
+   },
+   {
+    "q": "E_40",
+    "question": "Have you been in contact with someone who has had pertussis (whoooping cough)?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Infectious diseases",
+    "data_share": 1.0,
+    "times_asked_in_30k": 134
+   },
+   {
+    "q": "E_1",
+    "question": "Are you currently being treated or have you recently been treated with an oral antibiotic for an ear infection?",
+    "model_pick": "ENT",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "ENT",
+    "data_share": 1.0,
+    "times_asked_in_30k": 397
+   }
+  ],
+  "all": [
+   {
+    "q": "E_155",
+    "question": "Do you feel your heart is beating fast (racing), irregularly (missing a beat) or do you feel palpitations?",
+    "model_pick": "Cardiology",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 0.657,
+    "times_asked_in_30k": 2322
+   },
+   {
+    "q": "E_148",
+    "question": "Are you feeling nauseous or do you feel like vomiting?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 0.239,
+    "times_asked_in_30k": 3189
+   },
+   {
+    "q": "E_9",
+    "question": "Do you have swollen or painful lymph nodes?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Infectious diseases",
+    "data_share": 0.65,
+    "times_asked_in_30k": 1200
+   },
+   {
+    "q": "E_212",
+    "question": "Have you noticed that the tone of your voice has become deeper, softer or hoarse?",
+    "model_pick": "ENT",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "ENT",
+    "data_share": 1.0,
+    "times_asked_in_30k": 936
+   },
+   {
+    "q": "E_84",
+    "question": "Do you feel weakness in both arms and/or both legs?",
+    "model_pick": "Neurology",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Neurology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 808
+   },
+   {
+    "q": "E_178",
+    "question": "Have you noticed any unusual bleeding or bruising related to your consultation today?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Infectious diseases",
+    "data_share": 1.0,
+    "times_asked_in_30k": 16
+   },
+   {
+    "q": "E_45",
+    "question": "Have you been coughing up blood?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.57,
+    "times_asked_in_30k": 2975
+   },
+   {
+    "q": "E_194",
+    "question": "Have you noticed a high pitched sound when breathing in?",
+    "model_pick": "ENT",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "ENT",
+    "data_share": 0.551,
+    "times_asked_in_30k": 1280
+   },
+   {
+    "q": "E_176",
+    "question": "Did you previously, or do you currently, have any weakness/paralysis in one or more of your limbs or in your face?",
+    "model_pick": "Neurology",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Neurology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 676
+   },
+   {
+    "q": "E_202",
+    "question": "Does the person have a whooping cough?",
+    "model_pick": "Paediatrics",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Paediatrics",
+    "data_share": 1.0,
+    "times_asked_in_30k": 58
+   },
+   {
+    "q": "E_170",
+    "question": "Do you have severe itching in one or both eyes?",
+    "model_pick": "ENT",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "ENT",
+    "data_share": 1.0,
+    "times_asked_in_30k": 597
+   },
+   {
+    "q": "E_169",
+    "question": "Is your nose or the back of your throat itchy?",
+    "model_pick": "ENT",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "ENT",
+    "data_share": 1.0,
+    "times_asked_in_30k": 642
+   },
+   {
+    "q": "E_175",
+    "question": "Have you noticed any new fatigue, generalized and vague discomfort, diffuse (widespread) muscle aches or a change in your general well-being related to your consultation today?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.692,
+    "times_asked_in_30k": 1268
+   },
+   {
+    "q": "E_192",
+    "question": "Do you feel that muscle spasms or soreness in your neck are keeping you from turning your head to one side?",
+    "model_pick": "Neurology",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Neurology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 500
+   },
+   {
+    "q": "E_164",
+    "question": "Do you feel your heart is beating very irregularly or in a disorganized pattern?",
+    "model_pick": "Cardiology",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 441
+   },
+   {
+    "q": "E_193",
+    "question": "Do you have annoying muscle spasms in your face, neck or any other part of your body?",
+    "model_pick": "Neurology",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Neurology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 494
+   },
+   {
+    "q": "E_71",
+    "question": "Do you have high cholesterol or do you take medications to treat high cholesterol?",
+    "model_pick": "Cardiology",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 1291
+   },
+   {
+    "q": "E_115",
+    "question": "Have you had unprotected sex with more than one partner in the last 6 months?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Infectious diseases",
+    "data_share": 1.0,
+    "times_asked_in_30k": 596
+   },
+   {
+    "q": "E_25",
+    "question": "Have any of your family members been diagnosed with cluster headaches?",
+    "model_pick": "Neurology",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Neurology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 483
+   },
+   {
+    "q": "E_2",
+    "question": "Are you infected with the human immunodeficiency virus (HIV)?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 0.58,
+    "times_asked_in_30k": 721
+   },
+   {
+    "q": "E_61",
+    "question": "Are you currently using intravenous drugs?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Infectious diseases",
+    "data_share": 1.0,
+    "times_asked_in_30k": 767
+   },
+   {
+    "q": "E_27",
+    "question": "Have you ever had a sexually transmitted infection?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Infectious diseases",
+    "data_share": 1.0,
+    "times_asked_in_30k": 604
+   },
+   {
+    "q": "E_189",
+    "question": "Have you had sexual intercourse with an HIV-positive partner in the past 12 months?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Infectious diseases",
+    "data_share": 1.0,
+    "times_asked_in_30k": 589
+   },
+   {
+    "q": "E_40",
+    "question": "Have you been in contact with someone who has had pertussis (whoooping cough)?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Infectious diseases",
+    "data_share": 1.0,
+    "times_asked_in_30k": 134
+   },
+   {
+    "q": "E_1",
+    "question": "Are you currently being treated or have you recently been treated with an oral antibiotic for an ear infection?",
+    "model_pick": "ENT",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "ENT",
+    "data_share": 1.0,
+    "times_asked_in_30k": 397
+   },
+   {
+    "q": "E_123",
+    "question": "Do you have a chronic obstructive pulmonary disease (COPD)?",
+    "model_pick": "Respiratory",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 1.0,
+    "times_asked_in_30k": 2082
+   },
+   {
+    "q": "E_86",
+    "question": "Do you have any close family members who suffer from allergies (any type), hay fever or eczema?",
+    "model_pick": "ENT",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "ENT",
+    "data_share": 1.0,
+    "times_asked_in_30k": 531
+   },
+   {
+    "q": "E_106",
+    "question": "Do you have heart failure?",
+    "model_pick": "Respiratory",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.641,
+    "times_asked_in_30k": 1715
+   },
+   {
+    "q": "E_225",
+    "question": "Do you have close family members who had a cardiovascular disease problem before the age of 50?",
+    "model_pick": "Cardiology",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 1250
+   },
+   {
+    "q": "E_73",
+    "question": "In the last month, have you been in contact with anyone infected with the Ebola virus?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Infectious diseases",
+    "data_share": 1.0,
+    "times_asked_in_30k": 16
+   },
+   {
+    "q": "E_101",
+    "question": "Have you been hospitalized for an asthma attack in the past year?",
+    "model_pick": "Respiratory",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 1.0,
+    "times_asked_in_30k": 404
+   },
+   {
+    "q": "E_72",
+    "question": "Have you had one or several flare ups of chronic obstructive pulmonary disease (COPD) in the past year?",
+    "model_pick": "Respiratory",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 1.0,
+    "times_asked_in_30k": 343
+   },
+   {
+    "q": "E_120",
+    "question": "Do you have polyps in your nose?",
+    "model_pick": "ENT",
+    "model_conf": 1.0,
+    "data_top_department_when_asked": "ENT",
+    "data_share": 1.0,
+    "times_asked_in_30k": 890
+   },
+   {
+    "q": "E_166",
+    "question": "Did you vomit after coughing?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.9999,
+    "data_top_department_when_asked": "Infectious diseases",
+    "data_share": 1.0,
+    "times_asked_in_30k": 194
+   },
+   {
+    "q": "E_112",
+    "question": "Do you wheeze while inhaling or is your breathing noisy after coughing spells?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.9999,
+    "data_top_department_when_asked": "Infectious diseases",
+    "data_share": 1.0,
+    "times_asked_in_30k": 112
+   },
+   {
+    "q": "E_83",
+    "question": "Have you noticed weakness in your facial muscles and/or eyes?",
+    "model_pick": "Neurology",
+    "model_conf": 0.9999,
+    "data_top_department_when_asked": "Neurology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 408
+   },
+   {
+    "q": "E_105",
+    "question": "Have you ever had a heart attack or do you have angina (chest pain)?",
+    "model_pick": "Cardiology",
+    "model_conf": 0.9999,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 0.79,
+    "times_asked_in_30k": 2293
+   },
+   {
+    "q": "E_187",
+    "question": "Did you eat dark-fleshed fish (such as tuna) or Swiss cheese before the reaction occurred?",
+    "model_pick": "Emergency (resus)",
+    "model_conf": 0.9999,
+    "data_top_department_when_asked": "Emergency (resus)",
+    "data_share": 1.0,
+    "times_asked_in_30k": 526
+   },
+   {
+    "q": "E_156",
+    "question": "Have you had weakness or paralysis on one side of the face, which may still be present or completely resolved?",
+    "model_pick": "Neurology",
+    "model_conf": 0.9998,
+    "data_top_department_when_asked": "Neurology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 381
+   },
+   {
+    "q": "E_22",
+    "question": "Do you have a known issue with one of your heart valves?",
+    "model_pick": "Cardiology",
+    "model_conf": 0.9998,
+    "data_top_department_when_asked": "General medicine",
+    "data_share": 0.536,
+    "times_asked_in_30k": 960
+   },
+   {
+    "q": "E_28",
+    "question": "Are there any members of your family who have been diagnosed myasthenia gravis?",
+    "model_pick": "Neurology",
+    "model_conf": 0.9997,
+    "data_top_department_when_asked": "Neurology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 353
+   },
+   {
+    "q": "E_139",
+    "question": "Do you have a known heart defect?",
+    "model_pick": "Cardiology",
+    "model_conf": 0.9996,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 402
+   },
+   {
+    "q": "E_174",
+    "question": "Have you been unintentionally losing weight or have you lost your appetite?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.9995,
+    "data_top_department_when_asked": "Infectious diseases",
+    "data_share": 1.0,
+    "times_asked_in_30k": 166
+   },
+   {
+    "q": "E_227",
+    "question": "Are you immunosuppressed?",
+    "model_pick": "Respiratory",
+    "model_conf": 0.9995,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 1.0,
+    "times_asked_in_30k": 1915
+   },
+   {
+    "q": "E_125",
+    "question": "Have you ever been diagnosed with gastroesophageal reflux?",
+    "model_pick": "ENT",
+    "model_conf": 0.9995,
+    "data_top_department_when_asked": "ENT",
+    "data_share": 0.661,
+    "times_asked_in_30k": 1258
+   },
+   {
+    "q": "E_119",
+    "question": "Have you been diagnosed with chronic sinusitis?",
+    "model_pick": "Respiratory",
+    "model_conf": 0.9995,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 1.0,
+    "times_asked_in_30k": 441
+   },
+   {
+    "q": "E_46",
+    "question": "Have you had 2 or more asthma attacks in the past year?",
+    "model_pick": "Respiratory",
+    "model_conf": 0.9993,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 1.0,
+    "times_asked_in_30k": 431
+   },
+   {
+    "q": "E_223",
+    "question": "Are there members of your family who have been diagnosed with pancreatic cancer?",
+    "model_pick": "Oncology",
+    "model_conf": 0.9993,
+    "data_top_department_when_asked": "Oncology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 433
+   },
+   {
+    "q": "E_210",
+    "question": "Have you recently thrown up blood or something resembling coffee beans?",
+    "model_pick": "Gastroenterology",
+    "model_conf": 0.9992,
+    "data_top_department_when_asked": "Gastroenterology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 543
+   },
+   {
+    "q": "E_177",
+    "question": "Do you currently, or did you ever, have numbness, loss of sensitivity or tingling anywhere on your body?",
+    "model_pick": "Neurology",
+    "model_conf": 0.9992,
+    "data_top_department_when_asked": "Mental health",
+    "data_share": 0.511,
+    "times_asked_in_30k": 734
+   },
+   {
+    "q": "E_4",
+    "question": "Have you or any member of your family ever had croup?",
+    "model_pick": "Paediatrics",
+    "model_conf": 0.999,
+    "data_top_department_when_asked": "Paediatrics",
+    "data_share": 1.0,
+    "times_asked_in_30k": 65
+   },
+   {
+    "q": "E_103",
+    "question": "Have you lost your sense of smell?",
+    "model_pick": "ENT",
+    "model_conf": 0.9988,
+    "data_top_department_when_asked": "ENT",
+    "data_share": 1.0,
+    "times_asked_in_30k": 784
+   },
+   {
+    "q": "E_21",
+    "question": "Have you ever had a spontaneous pneumothorax?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.9988,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 1.0,
+    "times_asked_in_30k": 237
+   },
+   {
+    "q": "E_190",
+    "question": "Have you noticed that you produce more saliva than usual?",
+    "model_pick": "ENT",
+    "model_conf": 0.9987,
+    "data_top_department_when_asked": "ENT",
+    "data_share": 0.874,
+    "times_asked_in_30k": 421
+   },
+   {
+    "q": "E_221",
+    "question": "Are the symptoms or pain increased with coughing, with an effort like lifting a weight or from forcing a bowel movement?",
+    "model_pick": "Gastroenterology",
+    "model_conf": 0.9987,
+    "data_top_department_when_asked": "Gastroenterology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 350
+   },
+   {
+    "q": "E_6",
+    "question": "Do you have chronic pancreatitis?",
+    "model_pick": "Oncology",
+    "model_conf": 0.9987,
+    "data_top_department_when_asked": "Oncology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 351
+   },
+   {
+    "q": "E_38",
+    "question": "Do you have pain or weakness in your jaw?",
+    "model_pick": "Neurology",
+    "model_conf": 0.9985,
+    "data_top_department_when_asked": "Neurology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 346
+   },
+   {
+    "q": "E_157",
+    "question": "Have you recently had numbness, loss of sensation or tingling, in both arms and legs and around your mouth?",
+    "model_pick": "Neurology",
+    "model_conf": 0.9985,
+    "data_top_department_when_asked": "Mental health",
+    "data_share": 0.568,
+    "times_asked_in_30k": 1031
+   },
+   {
+    "q": "E_51",
+    "question": "Have you had diarrhea or an increase in stool frequency?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.9984,
+    "data_top_department_when_asked": "Emergency (resus)",
+    "data_share": 0.441,
+    "times_asked_in_30k": 1807
+   },
+   {
+    "q": "E_50",
+    "question": "Have you had significantly increased sweating?",
+    "model_pick": "Respiratory",
+    "model_conf": 0.9983,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.551,
+    "times_asked_in_30k": 3774
+   },
+   {
+    "q": "E_80",
+    "question": "Have you ever been diagnosed with depression?",
+    "model_pick": "Mental health",
+    "model_conf": 0.9983,
+    "data_top_department_when_asked": "Mental health",
+    "data_share": 1.0,
+    "times_asked_in_30k": 528
+   },
+   {
+    "q": "E_60",
+    "question": "Do you consume energy drinks regularly?",
+    "model_pick": "Cardiology",
+    "model_conf": 0.9976,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 330
+   },
+   {
+    "q": "E_203",
+    "question": "Do you have intense coughing fits?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.9974,
+    "data_top_department_when_asked": "Gastroenterology",
+    "data_share": 0.583,
+    "times_asked_in_30k": 664
+   },
+   {
+    "q": "E_93",
+    "question": "Do you have numbness, loss of sensation or tingling in the feet?",
+    "model_pick": "Neurology",
+    "model_conf": 0.9972,
+    "data_top_department_when_asked": "Neurology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 401
+   },
+   {
+    "q": "E_184",
+    "question": "Do you take medication that dilates your blood vessels?",
+    "model_pick": "Neurology",
+    "model_conf": 0.9972,
+    "data_top_department_when_asked": "Neurology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 428
+   },
+   {
+    "q": "E_145",
+    "question": "Do you have very abundant or very long menstruation periods?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.997,
+    "data_top_department_when_asked": "Haematology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 320
+   },
+   {
+    "q": "E_137",
+    "question": "Have you ever had surgery to remove lymph nodes?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.9969,
+    "data_top_department_when_asked": "General medicine",
+    "data_share": 1.0,
+    "times_asked_in_30k": 627
+   },
+   {
+    "q": "E_96",
+    "question": "Have you gained weight recently?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.9967,
+    "data_top_department_when_asked": "General medicine",
+    "data_share": 1.0,
+    "times_asked_in_30k": 494
+   },
+   {
+    "q": "E_142",
+    "question": "Does your mother suffer from asthma?",
+    "model_pick": "ENT",
+    "model_conf": 0.9964,
+    "data_top_department_when_asked": "Paediatrics",
+    "data_share": 1.0,
+    "times_asked_in_30k": 6
+   },
+   {
+    "q": "E_216",
+    "question": "Do you have pain that is increased with movement?",
+    "model_pick": "Trauma and orthopaedics",
+    "model_conf": 0.9962,
+    "data_top_department_when_asked": "Trauma and orthopaedics",
+    "data_share": 1.0,
+    "times_asked_in_30k": 192
+   },
+   {
+    "q": "E_47",
+    "question": "Do you suffer from Crohn’s disease or ulcerative colitis (UC)?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.9961,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 1.0,
+    "times_asked_in_30k": 378
+   },
+   {
+    "q": "E_121",
+    "question": "Do you have a deviated nasal septum?",
+    "model_pick": "ENT",
+    "model_conf": 0.996,
+    "data_top_department_when_asked": "ENT",
+    "data_share": 1.0,
+    "times_asked_in_30k": 677
+   },
+   {
+    "q": "E_161",
+    "question": "Have you recently had a loss of appetite or do you get full more quickly then usually?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.9958,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.613,
+    "times_asked_in_30k": 1634
+   },
+   {
+    "q": "E_226",
+    "question": "Are you more likely to develop common allergies than the general population?",
+    "model_pick": "ENT",
+    "model_conf": 0.9958,
+    "data_top_department_when_asked": "ENT",
+    "data_share": 0.582,
+    "times_asked_in_30k": 2314
+   },
+   {
+    "q": "E_44",
+    "question": "Do you take corticosteroids?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.9955,
+    "data_top_department_when_asked": "General medicine",
+    "data_share": 0.67,
+    "times_asked_in_30k": 773
+   },
+   {
+    "q": "E_162",
+    "question": "Have you had an involuntary weight loss over the last 3 months?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.9948,
+    "data_top_department_when_asked": "Infectious diseases",
+    "data_share": 0.545,
+    "times_asked_in_30k": 1536
+   },
+   {
+    "q": "E_14",
+    "question": "Do you have chest pain even at rest?",
+    "model_pick": "Cardiology",
+    "model_conf": 0.9945,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 0.753,
+    "times_asked_in_30k": 547
+   },
+   {
+    "q": "E_138",
+    "question": "Do you suffer from fibromyalgia?",
+    "model_pick": "Mental health",
+    "model_conf": 0.9945,
+    "data_top_department_when_asked": "Mental health",
+    "data_share": 1.0,
+    "times_asked_in_30k": 472
+   },
+   {
+    "q": "E_159",
+    "question": "Did you lose consciousness?",
+    "model_pick": "Neurology",
+    "model_conf": 0.9944,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 0.54,
+    "times_asked_in_30k": 1080
+   },
+   {
+    "q": "E_10",
+    "question": "Are you currently taking or have you recently taken anti-inflammatory drugs (NSAIDs)?",
+    "model_pick": "ENT",
+    "model_conf": 0.9943,
+    "data_top_department_when_asked": "General medicine",
+    "data_share": 1.0,
+    "times_asked_in_30k": 455
+   },
+   {
+    "q": "E_209",
+    "question": "Are your vaccinations up to date?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.9938,
+    "data_top_department_when_asked": "ENT",
+    "data_share": 0.502,
+    "times_asked_in_30k": 1722
+   },
+   {
+    "q": "E_173",
+    "question": "Do you have a burning sensation that starts in your stomach then goes up into your throat, and can be associated with a bitter taste in your mouth?",
+    "model_pick": "Gastroenterology",
+    "model_conf": 0.9937,
+    "data_top_department_when_asked": "Gastroenterology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 597
+   },
+   {
+    "q": "E_146",
+    "question": "Are you taking any new oral anticoagulants ((NOACs)?",
+    "model_pick": "ENT",
+    "model_conf": 0.9933,
+    "data_top_department_when_asked": "Haematology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 1188
+   },
+   {
+    "q": "E_204",
+    "question": "Have you traveled out of the country in the last 4 weeks?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.993,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.304,
+    "times_asked_in_30k": 30000
+   },
+   {
+    "q": "E_153",
+    "question": "Are you being treated for osteoporosis?",
+    "model_pick": "Trauma and orthopaedics",
+    "model_conf": 0.9928,
+    "data_top_department_when_asked": "Trauma and orthopaedics",
+    "data_share": 1.0,
+    "times_asked_in_30k": 144
+   },
+   {
+    "q": "E_52",
+    "question": "Do you have the perception of seeing two images of a single object seen overlapping or adjacent to each other (double vision)?",
+    "model_pick": "Neurology",
+    "model_conf": 0.9926,
+    "data_top_department_when_asked": "Neurology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 387
+   },
+   {
+    "q": "E_109",
+    "question": "Have you ever had deep vein thrombosis (DVT)?",
+    "model_pick": "Cardiology",
+    "model_conf": 0.9926,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 0.552,
+    "times_asked_in_30k": 1004
+   },
+   {
+    "q": "E_107",
+    "question": "Have you ever had a stroke?",
+    "model_pick": "Neurology",
+    "model_conf": 0.9925,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 1.0,
+    "times_asked_in_30k": 424
+   },
+   {
+    "q": "E_208",
+    "question": "Is your BMI less than 18.5, or are you underweight?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.9919,
+    "data_top_department_when_asked": "Haematology",
+    "data_share": 0.611,
+    "times_asked_in_30k": 1897
+   },
+   {
+    "q": "E_114",
+    "question": "Are you more irritable or has your mood been very unstable recently?",
+    "model_pick": "ENT",
+    "model_conf": 0.9912,
+    "data_top_department_when_asked": "ENT",
+    "data_share": 1.0,
+    "times_asked_in_30k": 440
+   },
+   {
+    "q": "E_32",
+    "question": "Do you have a decrease in appetite?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.9911,
+    "data_top_department_when_asked": "Paediatrics",
+    "data_share": 1.0,
+    "times_asked_in_30k": 5
+   },
+   {
+    "q": "E_124",
+    "question": "Do you have asthma or have you ever had to use a bronchodilator in the past?",
+    "model_pick": "ENT",
+    "model_conf": 0.9909,
+    "data_top_department_when_asked": "ENT",
+    "data_share": 0.4,
+    "times_asked_in_30k": 4076
+   },
+   {
+    "q": "E_29",
+    "question": "Do any members of your immediate family have a psychiatric illness?",
+    "model_pick": "Mental health",
+    "model_conf": 0.9894,
+    "data_top_department_when_asked": "Mental health",
+    "data_share": 1.0,
+    "times_asked_in_30k": 398
+   },
+   {
+    "q": "E_205",
+    "question": "Do you suddenly have difficulty or an inability to open your mouth or have jaw pain when opening it?",
+    "model_pick": "Neurology",
+    "model_conf": 0.9883,
+    "data_top_department_when_asked": "Neurology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 497
+   },
+   {
+    "q": "E_63",
+    "question": "Do you have difficulty articulating words/speaking?",
+    "model_pick": "Neurology",
+    "model_conf": 0.9874,
+    "data_top_department_when_asked": "Neurology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 397
+   },
+   {
+    "q": "E_150",
+    "question": "Have you been able to pass stools or gas since your symptoms increased?",
+    "model_pick": "Gastroenterology",
+    "model_conf": 0.984,
+    "data_top_department_when_asked": "Gastroenterology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 317
+   },
+   {
+    "q": "E_132",
+    "question": "Is the rash swollen?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.9829,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.365,
+    "times_asked_in_30k": 5790
+   },
+   {
+    "q": "E_11",
+    "question": "Have you breastfed one of your children for more than 9 months?",
+    "model_pick": "Cardiology",
+    "model_conf": 0.9797,
+    "data_top_department_when_asked": "Rheumatology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 26
+   },
+   {
+    "q": "E_152",
+    "question": "Where is the swelling located?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.9791,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 0.256,
+    "times_asked_in_30k": 3390
+   },
+   {
+    "q": "E_195",
+    "question": "Do you live in the suburbs?",
+    "model_pick": "ENT",
+    "model_conf": 0.9782,
+    "data_top_department_when_asked": "Paediatrics",
+    "data_share": 1.0,
+    "times_asked_in_30k": 3
+   },
+   {
+    "q": "E_224",
+    "question": "Do you have family members who have had lung cancer?",
+    "model_pick": "Oncology",
+    "model_conf": 0.9772,
+    "data_top_department_when_asked": "Oncology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 278
+   },
+   {
+    "q": "E_116",
+    "question": "Have you had a cold in the last 2 weeks?",
+    "model_pick": "ENT",
+    "model_conf": 0.9762,
+    "data_top_department_when_asked": "ENT",
+    "data_share": 0.725,
+    "times_asked_in_30k": 1647
+   },
+   {
+    "q": "E_5",
+    "question": "Have you ever had fluid in your lungs?",
+    "model_pick": "ENT",
+    "model_conf": 0.9755,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 1.0,
+    "times_asked_in_30k": 478
+   },
+   {
+    "q": "E_127",
+    "question": "Do you feel that your eyes produce excessive tears?",
+    "model_pick": "Neurology",
+    "model_conf": 0.9727,
+    "data_top_department_when_asked": "Neurology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 355
+   },
+   {
+    "q": "E_163",
+    "question": "Have you had any vaginal discharge?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.9701,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 1.0,
+    "times_asked_in_30k": 272
+   },
+   {
+    "q": "E_92",
+    "question": "Did your cheeks suddenly turn red?",
+    "model_pick": "ENT",
+    "model_conf": 0.9694,
+    "data_top_department_when_asked": "Emergency (resus)",
+    "data_share": 1.0,
+    "times_asked_in_30k": 521
+   },
+   {
+    "q": "E_167",
+    "question": "Do you think you are pregnant or are you currently pregnant?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.9685,
+    "data_top_department_when_asked": "Haematology",
+    "data_share": 0.654,
+    "times_asked_in_30k": 775
+   },
+   {
+    "q": "E_67",
+    "question": "Do you have bouts of choking or shortness of breath that wake you up at night?",
+    "model_pick": "Respiratory",
+    "model_conf": 0.9672,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 1.0,
+    "times_asked_in_30k": 441
+   },
+   {
+    "q": "E_97",
+    "question": "Do you have a sore throat?",
+    "model_pick": "Respiratory",
+    "model_conf": 0.9671,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.826,
+    "times_asked_in_30k": 2790
+   },
+   {
+    "q": "E_26",
+    "question": "Do you have any family members who have been diagnosed with anemia?",
+    "model_pick": "Haematology",
+    "model_conf": 0.9636,
+    "data_top_department_when_asked": "Haematology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 1048
+   },
+   {
+    "q": "E_113",
+    "question": "Do you have chronic kidney failure?",
+    "model_pick": "Haematology",
+    "model_conf": 0.9629,
+    "data_top_department_when_asked": "Haematology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 1127
+   },
+   {
+    "q": "E_81",
+    "question": "Do you suffer from chronic anxiety?",
+    "model_pick": "Mental health",
+    "model_conf": 0.9587,
+    "data_top_department_when_asked": "Mental health",
+    "data_share": 1.0,
+    "times_asked_in_30k": 555
+   },
+   {
+    "q": "E_111",
+    "question": "Do you feel like you are dying or were you afraid that you were about do die?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.9585,
+    "data_top_department_when_asked": "Mental health",
+    "data_share": 1.0,
+    "times_asked_in_30k": 545
+   },
+   {
+    "q": "E_171",
+    "question": "Do you feel like you are detached from your own body or your surroundings?",
+    "model_pick": "Neurology",
+    "model_conf": 0.9561,
+    "data_top_department_when_asked": "Mental health",
+    "data_share": 1.0,
+    "times_asked_in_30k": 491
+   },
+   {
+    "q": "E_141",
+    "question": "Did you have your first menstrual period before the age of 12?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.9547,
+    "data_top_department_when_asked": "Rheumatology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 114
+   },
+   {
+    "q": "E_215",
+    "question": "Do you have symptoms that get worse after eating?",
+    "model_pick": "Gastroenterology",
+    "model_conf": 0.9545,
+    "data_top_department_when_asked": "Gastroenterology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 590
+   },
+   {
+    "q": "E_213",
+    "question": "Have you recently taken decongestants or other substances that may have stimulant effects?",
+    "model_pick": "Cardiology",
+    "model_conf": 0.9536,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 323
+   },
+   {
+    "q": "E_168",
+    "question": "Do you have trouble keeping your tongue in your mouth?",
+    "model_pick": "Neurology",
+    "model_conf": 0.9521,
+    "data_top_department_when_asked": "Neurology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 524
+   },
+   {
+    "q": "E_89",
+    "question": "Do you constantly feel fatigued or do you have non-restful sleep?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.9516,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 0.363,
+    "times_asked_in_30k": 2671
+   },
+   {
+    "q": "E_144",
+    "question": "Do you have diffuse (widespread) muscle pain?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.9488,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.809,
+    "times_asked_in_30k": 2723
+   },
+   {
+    "q": "E_87",
+    "question": "Do you have any family members who have asthma?",
+    "model_pick": "ENT",
+    "model_conf": 0.9481,
+    "data_top_department_when_asked": "ENT",
+    "data_share": 0.504,
+    "times_asked_in_30k": 764
+   },
+   {
+    "q": "E_76",
+    "question": "Do you feel slightly dizzy or lightheaded?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.9445,
+    "data_top_department_when_asked": "Haematology",
+    "data_share": 0.54,
+    "times_asked_in_30k": 1736
+   },
+   {
+    "q": "E_165",
+    "question": "Have any of your family members ever had a pneumothorax?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.9444,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 1.0,
+    "times_asked_in_30k": 177
+   },
+   {
+    "q": "E_23",
+    "question": "Do you ever temporarily stop breathing while you’re asleep?",
+    "model_pick": "Neurology",
+    "model_conf": 0.9426,
+    "data_top_department_when_asked": "Paediatrics",
+    "data_share": 1.0,
+    "times_asked_in_30k": 7
+   },
+   {
+    "q": "E_151",
+    "question": "Do you have swelling in one or more areas of your body?",
+    "model_pick": "Neurology",
+    "model_conf": 0.9425,
+    "data_top_department_when_asked": "Emergency (resus)",
+    "data_share": 0.274,
+    "times_asked_in_30k": 3002
+   },
+   {
+    "q": "E_90",
+    "question": "Do your symptoms of muscle weakness increase with fatigue and/or stress?",
+    "model_pick": "Neurology",
+    "model_conf": 0.9413,
+    "data_top_department_when_asked": "Neurology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 262
+   },
+   {
+    "q": "E_77",
+    "question": "Do you have a cough that produces colored or more abundant sputum than usual?",
+    "model_pick": "Respiratory",
+    "model_conf": 0.9398,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 1.0,
+    "times_asked_in_30k": 2848
+   },
+   {
+    "q": "E_34",
+    "question": "Do you have an active cancer?",
+    "model_pick": "Oncology",
+    "model_conf": 0.9378,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 575
+   },
+   {
+    "q": "E_39",
+    "question": "Have you felt confused or disorientated lately?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.937,
+    "data_top_department_when_asked": "Infectious diseases",
+    "data_share": 1.0,
+    "times_asked_in_30k": 12
+   },
+   {
+    "q": "E_0",
+    "question": "Have you recently had a viral infection?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.937,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 0.622,
+    "times_asked_in_30k": 1209
+   },
+   {
+    "q": "E_134",
+    "question": "How intense is the pain caused by the rash?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.9358,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.388,
+    "times_asked_in_30k": 5455
+   },
+   {
+    "q": "E_104",
+    "question": "Do you have high blood pressure or do you take medications to treat high blood pressure?",
+    "model_pick": "ENT",
+    "model_conf": 0.9354,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 0.684,
+    "times_asked_in_30k": 2418
+   },
+   {
+    "q": "E_131",
+    "question": "Do your lesions peel off?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.9311,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.365,
+    "times_asked_in_30k": 5790
+   },
+   {
+    "q": "E_207",
+    "question": "Do you live in in a big city?",
+    "model_pick": "ENT",
+    "model_conf": 0.9284,
+    "data_top_department_when_asked": "ENT",
+    "data_share": 0.591,
+    "times_asked_in_30k": 804
+   },
+   {
+    "q": "E_15",
+    "question": "Have you started or taken any antipsychotic medication within the last 7 days?",
+    "model_pick": "Neurology",
+    "model_conf": 0.9243,
+    "data_top_department_when_asked": "Neurology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 525
+   },
+   {
+    "q": "E_222",
+    "question": "Are you exposed to secondhand cigarette smoke on a daily basis?",
+    "model_pick": "Oncology",
+    "model_conf": 0.9238,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.763,
+    "times_asked_in_30k": 2049
+   },
+   {
+    "q": "E_185",
+    "question": "Have you ever had a head trauma?",
+    "model_pick": "Mental health",
+    "model_conf": 0.9233,
+    "data_top_department_when_asked": "Mental health",
+    "data_share": 1.0,
+    "times_asked_in_30k": 513
+   },
+   {
+    "q": "E_136",
+    "question": "How severe is the itching?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.8987,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.365,
+    "times_asked_in_30k": 5790
+   },
+   {
+    "q": "E_98",
+    "question": "Do you have a hiatal hernia?",
+    "model_pick": "Gastroenterology",
+    "model_conf": 0.8943,
+    "data_top_department_when_asked": "Gastroenterology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 537
+   },
+   {
+    "q": "E_179",
+    "question": "Have you noticed light red blood or blood clots in your stool?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.8913,
+    "data_top_department_when_asked": "Haematology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 915
+   },
+   {
+    "q": "E_130",
+    "question": "What color is the rash?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.8878,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.365,
+    "times_asked_in_30k": 5790
+   },
+   {
+    "q": "E_42",
+    "question": "Have you been in contact with or ate something that you have an allergy to?",
+    "model_pick": "ENT",
+    "model_conf": 0.8745,
+    "data_top_department_when_asked": "Emergency (resus)",
+    "data_share": 1.0,
+    "times_asked_in_30k": 630
+   },
+   {
+    "q": "E_65",
+    "question": "Do you have difficulty swallowing, or have a feeling of discomfort/blockage when swallowing?",
+    "model_pick": "Neurology",
+    "model_conf": 0.8738,
+    "data_top_department_when_asked": "Neurology",
+    "data_share": 0.513,
+    "times_asked_in_30k": 772
+   },
+   {
+    "q": "E_154",
+    "question": "Is your skin much paler than usual?",
+    "model_pick": "ENT",
+    "model_conf": 0.8708,
+    "data_top_department_when_asked": "Haematology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 909
+   },
+   {
+    "q": "E_99",
+    "question": "Have you ever had a migraine or is a member of your family known to have migraines?",
+    "model_pick": "Mental health",
+    "model_conf": 0.8705,
+    "data_top_department_when_asked": "Mental health",
+    "data_share": 1.0,
+    "times_asked_in_30k": 396
+   },
+   {
+    "q": "E_74",
+    "question": "Have you noticed a diffuse (widespread) redness in one or both eyes?",
+    "model_pick": "ENT",
+    "model_conf": 0.8659,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 1.0,
+    "times_asked_in_30k": 349
+   },
+   {
+    "q": "E_62",
+    "question": "Do you regularly take stimulant drugs?",
+    "model_pick": "ENT",
+    "model_conf": 0.8579,
+    "data_top_department_when_asked": "Neurology",
+    "data_share": 0.445,
+    "times_asked_in_30k": 1232
+   },
+   {
+    "q": "E_24",
+    "question": "Have you ever had a diagnosis of anemia?",
+    "model_pick": "Haematology",
+    "model_conf": 0.8388,
+    "data_top_department_when_asked": "Haematology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 1194
+   },
+   {
+    "q": "E_140",
+    "question": "Have you recently had stools that were black (like coal)?",
+    "model_pick": "Gastroenterology",
+    "model_conf": 0.8382,
+    "data_top_department_when_asked": "Haematology",
+    "data_share": 0.79,
+    "times_asked_in_30k": 1144
+   },
+   {
+    "q": "E_201",
+    "question": "Do you have a cough?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.8303,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.594,
+    "times_asked_in_30k": 9360
+   },
+   {
+    "q": "E_220",
+    "question": "Do you have pain that is increased when you breathe in deeply?",
+    "model_pick": "ENT",
+    "model_conf": 0.827,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 0.563,
+    "times_asked_in_30k": 1902
+   },
+   {
+    "q": "E_182",
+    "question": "Do you have greenish or yellowish nasal discharge?",
+    "model_pick": "ENT",
+    "model_conf": 0.826,
+    "data_top_department_when_asked": "ENT",
+    "data_share": 1.0,
+    "times_asked_in_30k": 725
+   },
+   {
+    "q": "E_118",
+    "question": "Have you ever had pneumonia?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.8251,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.572,
+    "times_asked_in_30k": 1645
+   },
+   {
+    "q": "E_12",
+    "question": "Do you have a known severe food allergy?",
+    "model_pick": "ENT",
+    "model_conf": 0.8248,
+    "data_top_department_when_asked": "Emergency (resus)",
+    "data_share": 1.0,
+    "times_asked_in_30k": 684
+   },
+   {
+    "q": "E_48",
+    "question": "Do you live with 4 or more people?",
+    "model_pick": "ENT",
+    "model_conf": 0.8235,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.867,
+    "times_asked_in_30k": 2929
+   },
+   {
+    "q": "E_143",
+    "question": "Do you exercise regularly, 4 times per week or more?",
+    "model_pick": "Cardiology",
+    "model_conf": 0.8199,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 799
+   },
+   {
+    "q": "E_126",
+    "question": "Do you have liver cirrhosis?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.8125,
+    "data_top_department_when_asked": "General medicine",
+    "data_share": 1.0,
+    "times_asked_in_30k": 520
+   },
+   {
+    "q": "E_17",
+    "question": "Are you of Asian descent?",
+    "model_pick": "ENT",
+    "model_conf": 0.7949,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 1.0,
+    "times_asked_in_30k": 57
+   },
+   {
+    "q": "E_198",
+    "question": "Do you work in agriculture?",
+    "model_pick": "ENT",
+    "model_conf": 0.7884,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 1.0,
+    "times_asked_in_30k": 647
+   },
+   {
+    "q": "E_214",
+    "question": "Have you noticed a wheezing sound when you exhale?",
+    "model_pick": "Respiratory",
+    "model_conf": 0.7826,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.629,
+    "times_asked_in_30k": 2170
+   },
+   {
+    "q": "E_88",
+    "question": "Do you feel so tired that you are unable to do your usual activities or are you stuck in your bed all day long?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.7732,
+    "data_top_department_when_asked": "Haematology",
+    "data_share": 0.464,
+    "times_asked_in_30k": 2113
+   },
+   {
+    "q": "E_160",
+    "question": "Were you born prematurely or did you suffer any complication at birth?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.7638,
+    "data_top_department_when_asked": "Gastroenterology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 345
+   },
+   {
+    "q": "E_3",
+    "question": "Have you ever had a pericarditis?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.7559,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 0.737,
+    "times_asked_in_30k": 746
+   },
+   {
+    "q": "E_147",
+    "question": "Have you been treated in hospital recently for nausea, agitation, intoxication or aggressive behavior and received medication via an intravenous or intramuscular route?",
+    "model_pick": "Neurology",
+    "model_conf": 0.7528,
+    "data_top_department_when_asked": "Neurology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 529
+   },
+   {
+    "q": "E_30",
+    "question": "Do you feel your abdomen is bloated or distended (swollen due to pressure from inside)?",
+    "model_pick": "Gastroenterology",
+    "model_conf": 0.7504,
+    "data_top_department_when_asked": "Gastroenterology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 360
+   },
+   {
+    "q": "E_66",
+    "question": "Are you experiencing shortness of breath or difficulty breathing in a significant way?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.7276,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.282,
+    "times_asked_in_30k": 11632
+   },
+   {
+    "q": "E_18",
+    "question": "Do you have cystic fibrosis?",
+    "model_pick": "ENT",
+    "model_conf": 0.7164,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 1.0,
+    "times_asked_in_30k": 439
+   },
+   {
+    "q": "E_8",
+    "question": "Do you currently undergo dialysis?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.7141,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 1.0,
+    "times_asked_in_30k": 432
+   },
+   {
+    "q": "E_218",
+    "question": "Do you have symptoms that are increased with physical exertion but alleviated with rest?",
+    "model_pick": "Mental health",
+    "model_conf": 0.7069,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 0.71,
+    "times_asked_in_30k": 2020
+   },
+   {
+    "q": "E_95",
+    "question": "Do you have Parkinson’s disease?",
+    "model_pick": "Neurology",
+    "model_conf": 0.7057,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 1.0,
+    "times_asked_in_30k": 471
+   },
+   {
+    "q": "E_133",
+    "question": "Where is the affected region located?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.7055,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.365,
+    "times_asked_in_30k": 5790
+   },
+   {
+    "q": "E_181",
+    "question": "Do you have nasal congestion or a clear runny nose?",
+    "model_pick": "ENT",
+    "model_conf": 0.7052,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.662,
+    "times_asked_in_30k": 6016
+   },
+   {
+    "q": "E_180",
+    "question": "Are you unable to control the direction of your eyes?",
+    "model_pick": "Neurology",
+    "model_conf": 0.7038,
+    "data_top_department_when_asked": "Neurology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 459
+   },
+   {
+    "q": "E_128",
+    "question": "Have you ever felt like you were suffocating for a very short time associated with inability to breathe or speak?",
+    "model_pick": "Neurology",
+    "model_conf": 0.6981,
+    "data_top_department_when_asked": "Neurology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 454
+   },
+   {
+    "q": "E_186",
+    "question": "Have you ever been diagnosed with obstructive sleep apnea (OSA)?",
+    "model_pick": "General medicine",
+    "model_conf": 0.6946,
+    "data_top_department_when_asked": "General medicine",
+    "data_share": 1.0,
+    "times_asked_in_30k": 489
+   },
+   {
+    "q": "E_188",
+    "question": "Do you have pale stools and dark urine?",
+    "model_pick": "Oncology",
+    "model_conf": 0.6886,
+    "data_top_department_when_asked": "Oncology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 403
+   },
+   {
+    "q": "E_172",
+    "question": "Do you have a hard time opening/raising one or both eyelids?",
+    "model_pick": "Neurology",
+    "model_conf": 0.6851,
+    "data_top_department_when_asked": "Neurology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 841
+   },
+   {
+    "q": "E_135",
+    "question": "Is the lesion (or are the lesions) larger than 1cm?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.6805,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.365,
+    "times_asked_in_30k": 5790
+   },
+   {
+    "q": "E_91",
+    "question": "Do you have a fever (either felt or measured with a thermometer)?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.6798,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.602,
+    "times_asked_in_30k": 6229
+   },
+   {
+    "q": "E_206",
+    "question": "Do you have painful mouth ulcers or sores?",
+    "model_pick": "ENT",
+    "model_conf": 0.6791,
+    "data_top_department_when_asked": "Rheumatology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 225
+   },
+   {
+    "q": "E_100",
+    "question": "Do you currently take hormones?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.6786,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 267
+   },
+   {
+    "q": "E_54",
+    "question": "Characterize your pain:",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.6744,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.32,
+    "times_asked_in_30k": 23434
+   },
+   {
+    "q": "E_69",
+    "question": "Do you have diabetes?",
+    "model_pick": "ENT",
+    "model_conf": 0.6738,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 0.625,
+    "times_asked_in_30k": 2659
+   },
+   {
+    "q": "E_31",
+    "question": "Do you have severe Chronic Obstructive Pulmonary Disease (COPD)?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.6718,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 0.591,
+    "times_asked_in_30k": 783
+   },
+   {
+    "q": "E_82",
+    "question": "Do you feel lightheaded and dizzy or do you feel like you are about to faint?",
+    "model_pick": "ENT",
+    "model_conf": 0.6714,
+    "data_top_department_when_asked": "Haematology",
+    "data_share": 0.368,
+    "times_asked_in_30k": 2730
+   },
+   {
+    "q": "E_94",
+    "question": "Have you had chills or shivers?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.6641,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 1.0,
+    "times_asked_in_30k": 1025
+   },
+   {
+    "q": "E_75",
+    "question": "Do you feel like you are (or were) choking or suffocating?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.6619,
+    "data_top_department_when_asked": "Mental health",
+    "data_share": 1.0,
+    "times_asked_in_30k": 408
+   },
+   {
+    "q": "E_37",
+    "question": "Do you have metastatic cancer?",
+    "model_pick": "Trauma and orthopaedics",
+    "model_conf": 0.648,
+    "data_top_department_when_asked": "Trauma and orthopaedics",
+    "data_share": 1.0,
+    "times_asked_in_30k": 132
+   },
+   {
+    "q": "E_110",
+    "question": "Have you been unable to move or get up for more than 3 consecutive days within the last 4 weeks?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.6463,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 517
+   },
+   {
+    "q": "E_196",
+    "question": "Have you had surgery within the last month?",
+    "model_pick": "Cardiology",
+    "model_conf": 0.6442,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 0.695,
+    "times_asked_in_30k": 1182
+   },
+   {
+    "q": "E_7",
+    "question": "Do you have a poor diet?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.6368,
+    "data_top_department_when_asked": "Haematology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 1146
+   },
+   {
+    "q": "E_16",
+    "question": "Do you feel anxious?",
+    "model_pick": "Mental health",
+    "model_conf": 0.6249,
+    "data_top_department_when_asked": "Mental health",
+    "data_share": 0.573,
+    "times_asked_in_30k": 859
+   },
+   {
+    "q": "E_102",
+    "question": "Are you consulting because you have high blood pressure?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.6204,
+    "data_top_department_when_asked": "Rheumatology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 193
+   },
+   {
+    "q": "E_19",
+    "question": "Have you been diagnosed with hyperthyroidism?",
+    "model_pick": "ENT",
+    "model_conf": 0.6149,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 421
+   },
+   {
+    "q": "E_197",
+    "question": "Do you have a known kidney problem resulting in an inability to retain proteins?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.6077,
+    "data_top_department_when_asked": "General medicine",
+    "data_share": 1.0,
+    "times_asked_in_30k": 550
+   },
+   {
+    "q": "E_199",
+    "question": "Do you work in construction?",
+    "model_pick": "Respiratory",
+    "model_conf": 0.6016,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 1.0,
+    "times_asked_in_30k": 278
+   },
+   {
+    "q": "E_217",
+    "question": "Are your symptoms worse when lying down and alleviated while sitting up?",
+    "model_pick": "Neurology",
+    "model_conf": 0.5906,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 0.409,
+    "times_asked_in_30k": 1627
+   },
+   {
+    "q": "E_211",
+    "question": "Have you vomited several times or have you made several efforts to vomit?",
+    "model_pick": "Gastroenterology",
+    "model_conf": 0.5815,
+    "data_top_department_when_asked": "Gastroenterology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 338
+   },
+   {
+    "q": "E_191",
+    "question": "Are you a former smoker?",
+    "model_pick": "Oncology",
+    "model_conf": 0.5753,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 0.53,
+    "times_asked_in_30k": 721
+   },
+   {
+    "q": "E_219",
+    "question": "Are your symptoms more prominent at night?",
+    "model_pick": "ENT",
+    "model_conf": 0.5696,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.939,
+    "times_asked_in_30k": 942
+   },
+   {
+    "q": "E_158",
+    "question": "Were you diagnosed with endocrine disease or a hormone dysfunction?",
+    "model_pick": "ENT",
+    "model_conf": 0.5624,
+    "data_top_department_when_asked": "General medicine",
+    "data_share": 1.0,
+    "times_asked_in_30k": 455
+   },
+   {
+    "q": "E_20",
+    "question": "Do you have Rheumatoid Arthritis?",
+    "model_pick": "Respiratory",
+    "model_conf": 0.5578,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 1.0,
+    "times_asked_in_30k": 381
+   },
+   {
+    "q": "E_55",
+    "question": "Do you feel pain somewhere?",
+    "model_pick": "ENT",
+    "model_conf": 0.5551,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.32,
+    "times_asked_in_30k": 23434
+   },
+   {
+    "q": "E_200",
+    "question": "Do you work in the mining sector?",
+    "model_pick": "Respiratory",
+    "model_conf": 0.5451,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 1.0,
+    "times_asked_in_30k": 333
+   },
+   {
+    "q": "E_43",
+    "question": "Have you lost consciousness associated with violent and sustained muscle contractions or had an absence episode?",
+    "model_pick": "Neurology",
+    "model_conf": 0.544,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 1.0,
+    "times_asked_in_30k": 344
+   },
+   {
+    "q": "E_149",
+    "question": "Do you take a calcium channel blockers (medication)?",
+    "model_pick": "ENT",
+    "model_conf": 0.5279,
+    "data_top_department_when_asked": "General medicine",
+    "data_share": 1.0,
+    "times_asked_in_30k": 493
+   },
+   {
+    "q": "E_41",
+    "question": "Have you been in contact with a person with similar symptoms in the past 2 weeks?",
+    "model_pick": "Respiratory",
+    "model_conf": 0.5259,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.996,
+    "times_asked_in_30k": 2731
+   },
+   {
+    "q": "E_57",
+    "question": "Does the pain radiate to another location?",
+    "model_pick": "ENT",
+    "model_conf": 0.5233,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.32,
+    "times_asked_in_30k": 23434
+   },
+   {
+    "q": "E_183",
+    "question": "Do you live in a rural area?",
+    "model_pick": "Paediatrics",
+    "model_conf": 0.5205,
+    "data_top_department_when_asked": "Paediatrics",
+    "data_share": 1.0,
+    "times_asked_in_30k": 7
+   },
+   {
+    "q": "E_53",
+    "question": "Do you have pain somewhere, related to your reason for consulting?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.5177,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.323,
+    "times_asked_in_30k": 23091
+   },
+   {
+    "q": "E_129",
+    "question": "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.5023,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.288,
+    "times_asked_in_30k": 4844
+   },
+   {
+    "q": "E_35",
+    "question": "Do you regularly drink coffee or tea?",
+    "model_pick": "Cardiology",
+    "model_conf": 0.4878,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 289
+   },
+   {
+    "q": "E_108",
+    "question": "Do you have a problem with poor circulation?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.4867,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 483
+   },
+   {
+    "q": "E_56",
+    "question": "How intense is the pain?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.4857,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.32,
+    "times_asked_in_30k": 23434
+   },
+   {
+    "q": "E_13",
+    "question": "Do you find that your symptoms have worsened over the last 2 weeks and that progressively less effort is required to cause the symptoms?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.4813,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 442
+   },
+   {
+    "q": "E_70",
+    "question": "Are you significantly overweight compared to people of the same height as you?",
+    "model_pick": "Cardiology",
+    "model_conf": 0.4725,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 0.504,
+    "times_asked_in_30k": 3242
+   },
+   {
+    "q": "E_79",
+    "question": "Do you smoke cigarettes?",
+    "model_pick": "Oncology",
+    "model_conf": 0.4703,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.514,
+    "times_asked_in_30k": 8330
+   },
+   {
+    "q": "E_33",
+    "question": "Do you have pain that improves when you lean forward?",
+    "model_pick": "Neurology",
+    "model_conf": 0.4163,
+    "data_top_department_when_asked": "ENT",
+    "data_share": 1.0,
+    "times_asked_in_30k": 328
+   },
+   {
+    "q": "E_58",
+    "question": "How precisely is the pain located?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.4091,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.32,
+    "times_asked_in_30k": 23434
+   },
+   {
+    "q": "E_59",
+    "question": "How fast did the pain appear?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.4046,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.32,
+    "times_asked_in_30k": 23434
+   },
+   {
+    "q": "E_78",
+    "question": "Do you drink alcohol excessively or do you have an addiction to alcohol?",
+    "model_pick": "Infectious diseases",
+    "model_conf": 0.3935,
+    "data_top_department_when_asked": "Gastroenterology",
+    "data_share": 0.22,
+    "times_asked_in_30k": 3472
+   },
+   {
+    "q": "E_64",
+    "question": "Do you feel out of breath with minimal physical effort?",
+    "model_pick": "Neurology",
+    "model_conf": 0.3737,
+    "data_top_department_when_asked": "Cardiology",
+    "data_share": 1.0,
+    "times_asked_in_30k": 215
+   },
+   {
+    "q": "E_49",
+    "question": "Do you attend or work in a daycare?",
+    "model_pick": "Respiratory",
+    "model_conf": 0.3699,
+    "data_top_department_when_asked": "Respiratory",
+    "data_share": 0.871,
+    "times_asked_in_30k": 2867
+   }
+  ]
+ },
+ "D_demographics": {
+  "age_2": {
+   "acc": 0.9983,
+   "changed_share": 0.0,
+   "changed_by_true_department": {}
+  },
+  "age_40": {
+   "acc": 0.9983,
+   "changed_share": 0.0,
+   "changed_by_true_department": {}
+  },
+  "age_80": {
+   "acc": 0.9983,
+   "changed_share": 0.0,
+   "changed_by_true_department": {}
+  },
+  "sex_swapped": {
+   "acc": 0.9983,
+   "changed_share": 0.0,
+   "changed_by_true_department": {}
+  }
+ }
+}

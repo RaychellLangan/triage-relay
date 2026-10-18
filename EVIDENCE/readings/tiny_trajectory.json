@@ -1,0 +1,376 @@
+{
+ "readings": "runs/readings/tiny.npz",
+ "best_layer (0 = embedding)": 6,
+ "best_k": 0,
+ "fit_acc_k0_by_layer": [
+  0.159,
+  0.92,
+  0.871,
+  0.926,
+  0.979,
+  0.989,
+  0.997
+ ],
+ "fit_acc_bestk_by_layer": [
+  0.162,
+  0.92,
+  0.945,
+  0.926,
+  0.979,
+  0.989,
+  0.997
+ ],
+ "k_by_layer": [
+  4,
+  0,
+  1,
+  0,
+  0,
+  0,
+  0
+ ],
+ "vocab_fit_acc": 0.838,
+ "stresses": {
+  "full": {
+   "mouth_acc": 0.998,
+   "middle_best_layer_acc": 0.996,
+   "vocab_acc": 0.856,
+   "middle_acc_by_layer_bestk": [
+    0.154,
+    0.918,
+    0.944,
+    0.928,
+    0.982,
+    0.988,
+    0.996
+   ],
+   "middle_right_when_mouth_wrong": 0,
+   "middle_wrong_when_mouth_right": 1,
+   "n_mouth_wrong": 1,
+   "AUROC_flag_mouth_wrong": {
+    "mouth_low_confidence (baseline)": 0.9659,
+    "middle_disagrees_with_mouth": 0.499,
+    "middle_low_margin": 0.9679,
+    "middle_unfamiliar": 0.996,
+    "settles_late": 0.499,
+    "flips_on_the_way_up": 0.5,
+    "vocab_disagrees_with_mouth": 0.9289
+   }
+  },
+  "injected": {
+   "mouth_acc": 0.958,
+   "middle_best_layer_acc": 0.952,
+   "vocab_acc": 0.79,
+   "middle_acc_by_layer_bestk": [
+    0.138,
+    0.898,
+    0.91,
+    0.894,
+    0.94,
+    0.946,
+    0.952
+   ],
+   "middle_right_when_mouth_wrong": 6,
+   "middle_wrong_when_mouth_right": 9,
+   "n_mouth_wrong": 21,
+   "AUROC_flag_mouth_wrong": {
+    "mouth_low_confidence (baseline)": 0.9679,
+    "middle_disagrees_with_mouth": 0.6811,
+    "middle_low_margin": 0.9339,
+    "middle_unfamiliar": 0.9373,
+    "settles_late": 0.8663,
+    "flips_on_the_way_up": 0.8107,
+    "vocab_disagrees_with_mouth": 0.8739
+   }
+  },
+  "keep_0.2": {
+   "mouth_acc": 0.678,
+   "middle_best_layer_acc": 0.628,
+   "vocab_acc": 0.384,
+   "middle_acc_by_layer_bestk": [
+    0.068,
+    0.592,
+    0.612,
+    0.626,
+    0.646,
+    0.634,
+    0.628
+   ],
+   "middle_right_when_mouth_wrong": 11,
+   "middle_wrong_when_mouth_right": 36,
+   "n_mouth_wrong": 161,
+   "AUROC_flag_mouth_wrong": {
+    "mouth_low_confidence (baseline)": 0.8548,
+    "middle_disagrees_with_mouth": 0.5618,
+    "middle_low_margin": 0.8041,
+    "middle_unfamiliar": 0.729,
+    "settles_late": 0.7037,
+    "flips_on_the_way_up": 0.6718,
+    "vocab_disagrees_with_mouth": 0.6363
+   }
+  },
+  "keep_0.4": {
+   "mouth_acc": 0.866,
+   "middle_best_layer_acc": 0.848,
+   "vocab_acc": 0.596,
+   "middle_acc_by_layer_bestk": [
+    0.074,
+    0.766,
+    0.776,
+    0.8,
+    0.834,
+    0.854,
+    0.848
+   ],
+   "middle_right_when_mouth_wrong": 10,
+   "middle_wrong_when_mouth_right": 19,
+   "n_mouth_wrong": 67,
+   "AUROC_flag_mouth_wrong": {
+    "mouth_low_confidence (baseline)": 0.8969,
+    "middle_disagrees_with_mouth": 0.59,
+    "middle_low_margin": 0.8651,
+    "middle_unfamiliar": 0.8433,
+    "settles_late": 0.6623,
+    "flips_on_the_way_up": 0.6442,
+    "vocab_disagrees_with_mouth": 0.7039
+   }
+  },
+  "keep_0.6": {
+   "mouth_acc": 0.948,
+   "middle_best_layer_acc": 0.942,
+   "vocab_acc": 0.724,
+   "middle_acc_by_layer_bestk": [
+    0.086,
+    0.842,
+    0.876,
+    0.892,
+    0.928,
+    0.94,
+    0.942
+   ],
+   "middle_right_when_mouth_wrong": 4,
+   "middle_wrong_when_mouth_right": 7,
+   "n_mouth_wrong": 26,
+   "AUROC_flag_mouth_wrong": {
+    "mouth_low_confidence (baseline)": 0.9291,
+    "middle_disagrees_with_mouth": 0.6465,
+    "middle_low_margin": 0.9202,
+    "middle_unfamiliar": 0.9432,
+    "settles_late": 0.8053,
+    "flips_on_the_way_up": 0.7555,
+    "vocab_disagrees_with_mouth": 0.8692
+   }
+  },
+  "keep_0.8": {
+   "mouth_acc": 0.98,
+   "middle_best_layer_acc": 0.98,
+   "vocab_acc": 0.8,
+   "middle_acc_by_layer_bestk": [
+    0.106,
+    0.884,
+    0.916,
+    0.894,
+    0.964,
+    0.972,
+    0.98
+   ],
+   "middle_right_when_mouth_wrong": 3,
+   "middle_wrong_when_mouth_right": 3,
+   "n_mouth_wrong": 10,
+   "AUROC_flag_mouth_wrong": {
+    "mouth_low_confidence (baseline)": 0.9853,
+    "middle_disagrees_with_mouth": 0.6969,
+    "middle_low_margin": 0.9761,
+    "middle_unfamiliar": 0.9831,
+    "settles_late": 0.7594,
+    "flips_on_the_way_up": 0.6998,
+    "vocab_disagrees_with_mouth": 0.8541
+   }
+  },
+  "messy": {
+   "mouth_acc": 0.916,
+   "middle_best_layer_acc": 0.892,
+   "vocab_acc": 0.306,
+   "middle_acc_by_layer_bestk": [
+    0.072,
+    0.86,
+    0.866,
+    0.844,
+    0.884,
+    0.896,
+    0.892
+   ],
+   "middle_right_when_mouth_wrong": 12,
+   "middle_wrong_when_mouth_right": 24,
+   "n_mouth_wrong": 42,
+   "AUROC_flag_mouth_wrong": {
+    "mouth_low_confidence (baseline)": 0.9126,
+    "middle_disagrees_with_mouth": 0.6405,
+    "middle_low_margin": 0.8662,
+    "middle_unfamiliar": 0.7862,
+    "settles_late": 0.7916,
+    "flips_on_the_way_up": 0.7773,
+    "vocab_disagrees_with_mouth": 0.6096
+   }
+  },
+  "reason_only": {
+   "mouth_acc": 0.34,
+   "middle_best_layer_acc": 0.24,
+   "vocab_acc": 0.13,
+   "middle_acc_by_layer_bestk": [
+    0.074,
+    0.278,
+    0.266,
+    0.304,
+    0.272,
+    0.246,
+    0.24
+   ],
+   "middle_right_when_mouth_wrong": 8,
+   "middle_wrong_when_mouth_right": 58,
+   "n_mouth_wrong": 330,
+   "AUROC_flag_mouth_wrong": {
+    "mouth_low_confidence (baseline)": 0.777,
+    "middle_disagrees_with_mouth": 0.3703,
+    "middle_low_margin": 0.684,
+    "middle_unfamiliar": 0.5837,
+    "settles_late": 0.6751,
+    "flips_on_the_way_up": 0.6331,
+    "vocab_disagrees_with_mouth": 0.5002
+   }
+  },
+  "shuffled": {
+   "mouth_acc": 0.996,
+   "middle_best_layer_acc": 0.994,
+   "vocab_acc": 0.856,
+   "middle_acc_by_layer_bestk": [
+    0.154,
+    0.914,
+    0.944,
+    0.918,
+    0.98,
+    0.986,
+    0.994
+   ],
+   "middle_right_when_mouth_wrong": 1,
+   "middle_wrong_when_mouth_right": 2,
+   "n_mouth_wrong": 2,
+   "AUROC_flag_mouth_wrong": {
+    "mouth_low_confidence (baseline)": 0.8484,
+    "middle_disagrees_with_mouth": 0.748,
+    "middle_low_margin": 0.6817,
+    "middle_unfamiliar": 0.9608,
+    "settles_late": 0.5,
+    "flips_on_the_way_up": 0.503,
+    "vocab_disagrees_with_mouth": 0.9287
+   }
+  },
+  "stray_1": {
+   "mouth_acc": 0.97,
+   "middle_best_layer_acc": 0.96,
+   "vocab_acc": 0.83,
+   "middle_acc_by_layer_bestk": [
+    0.146,
+    0.854,
+    0.86,
+    0.86,
+    0.928,
+    0.948,
+    0.96
+   ],
+   "middle_right_when_mouth_wrong": 3,
+   "middle_wrong_when_mouth_right": 8,
+   "n_mouth_wrong": 15,
+   "AUROC_flag_mouth_wrong": {
+    "mouth_low_confidence (baseline)": 0.9588,
+    "middle_disagrees_with_mouth": 0.6251,
+    "middle_low_margin": 0.9384,
+    "middle_unfamiliar": 0.9626,
+    "settles_late": 0.6915,
+    "flips_on_the_way_up": 0.6907,
+    "vocab_disagrees_with_mouth": 0.8196
+   }
+  },
+  "stray_3": {
+   "mouth_acc": 0.874,
+   "middle_best_layer_acc": 0.896,
+   "vocab_acc": 0.752,
+   "middle_acc_by_layer_bestk": [
+    0.114,
+    0.732,
+    0.786,
+    0.768,
+    0.86,
+    0.884,
+    0.896
+   ],
+   "middle_right_when_mouth_wrong": 24,
+   "middle_wrong_when_mouth_right": 13,
+   "n_mouth_wrong": 63,
+   "AUROC_flag_mouth_wrong": {
+    "mouth_low_confidence (baseline)": 0.9044,
+    "middle_disagrees_with_mouth": 0.7153,
+    "middle_low_margin": 0.8363,
+    "middle_unfamiliar": 0.8598,
+    "settles_late": 0.6603,
+    "flips_on_the_way_up": 0.6508,
+    "vocab_disagrees_with_mouth": 0.8039
+   }
+  },
+  "stray_5": {
+   "mouth_acc": 0.802,
+   "middle_best_layer_acc": 0.818,
+   "vocab_acc": 0.658,
+   "middle_acc_by_layer_bestk": [
+    0.082,
+    0.666,
+    0.68,
+    0.696,
+    0.77,
+    0.806,
+    0.818
+   ],
+   "middle_right_when_mouth_wrong": 31,
+   "middle_wrong_when_mouth_right": 23,
+   "n_mouth_wrong": 99,
+   "AUROC_flag_mouth_wrong": {
+    "mouth_low_confidence (baseline)": 0.8109,
+    "middle_disagrees_with_mouth": 0.6935,
+    "middle_low_margin": 0.8021,
+    "middle_unfamiliar": 0.8065,
+    "settles_late": 0.6538,
+    "flips_on_the_way_up": 0.6417,
+    "vocab_disagrees_with_mouth": 0.7456
+   }
+  }
+ },
+ "pooled_all_stresses_AUROC_flag_mouth_wrong": {
+  "n": 6000,
+  "n_mouth_wrong": 837,
+  "mouth_low_confidence (baseline)": 0.9274,
+  "middle_disagrees_with_mouth": 0.5944,
+  "middle_low_margin": 0.902,
+  "middle_unfamiliar": 0.8838,
+  "settles_late": 0.7377,
+  "flips_on_the_way_up": 0.7189,
+  "vocab_disagrees_with_mouth": 0.7423
+ },
+ "ood_vs_full_AUROC": {
+  "ood_english": {
+   "n_ood": 6,
+   "mouth_low_confidence": 0.9907,
+   "middle_unfamiliar": 0.956,
+   "middle_low_margin": 0.988,
+   "far_from_calibration (znorm)": 0.4537,
+   "mean_mouth_conf_on_ood": 0.918
+  },
+  "ood_wordsalad": {
+   "n_ood": 200,
+   "mouth_low_confidence": 0.5436,
+   "middle_unfamiliar": 0.6203,
+   "middle_low_margin": 0.5538,
+   "far_from_calibration (znorm)": 0.3857,
+   "mean_mouth_conf_on_ood": 0.993
+  }
+ }
+}

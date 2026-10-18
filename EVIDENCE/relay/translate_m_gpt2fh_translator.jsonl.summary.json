@@ -1,0 +1,11 @@
+{
+ "model": "runs/m_gpt2fh_translator/model",
+ "n": 1000,
+ "field_precision": 0.0105,
+ "field_recall": 0.012,
+ "field_f1": 0.0112,
+ "exact_field_set": 0.0,
+ "dept_acc_via_seesaw": 0.163,
+ "urgency_acc_via_seesaw": 0.331,
+ "fight_share": 0.515
+}

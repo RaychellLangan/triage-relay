@@ -1,0 +1,29 @@
+<python env>\lib\site-packages\torch\cuda\__init__.py:58: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+<python env>\lib\site-packages\transformers\integrations\sdpa_attention.py:96: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at <torch build>  attn_output = torch.nn.functional.scaled_dot_product_attention(
+A content_blind {'acc': 0.9183, 'changed_vs_full': 0.08, 'mean_conf': 0.969, 'full_mean_conf': 0.9971}
+B planted_no E_55 {'question': 'Do you feel pain somewhere?', 'answer_planted': 'nowhere', 'patients': 119, 'department_changed': 0, 'changed_share': 0.0, 'toward': {}}
+B planted_no E_57 {'question': 'Does the pain radiate to another location?', 'answer_planted': 'nowhere', 'patients': 119, 'department_changed': 0, 'changed_share': 0.0, 'toward': {}}
+B planted_no E_54 {'question': 'Characterize your pain:', 'answer_planted': 'NA', 'patients': 119, 'department_changed': 0, 'changed_share': 0.0, 'toward': {}}
+B planted_no E_133 {'question': 'Where is the affected region located?', 'answer_planted': 'nowhere', 'patients': 480, 'department_changed': 0, 'changed_share': 0.0, 'toward': {}}
+B planted_no E_130 {'question': 'What color is the rash?', 'answer_planted': 'NA', 'patients': 480, 'department_changed': 2, 'changed_share': 0.0042, 'toward': {'Respiratory': 2}}
+B planted_no E_135 {'question': 'Is the lesion (or are the lesions) larger than 1cm?', 'answer_planted': 'N', 'patients': 480, 'department_changed': 0, 'changed_share': 0.0, 'toward': {}}
+B planted_no E_131 {'question': 'Do your lesions peel off?', 'answer_planted': 'N', 'patients': 480, 'department_changed': 1, 'changed_share': 0.0021, 'toward': {'Respiratory': 1}}
+B planted_no E_152 {'question': 'Where is the swelling located?', 'answer_planted': 'nowhere', 'patients': 532, 'department_changed': 0, 'changed_share': 0.0, 'toward': {}}
+C single: model pick == the department that question is most often asked for, in 0.5157 of 223
+    1.0 Cardiology | data: Cardiology 0.657 | Do you feel your heart is beating fast (racing), irregularly (missing a beat) or
+    1.0 Infectious diseases | data: Cardiology 0.239 | Are you feeling nauseous or do you feel like vomiting?
+    1.0 Infectious diseases | data: Infectious diseases 0.65 | Do you have swollen or painful lymph nodes?
+    1.0 ENT | data: ENT 1.0 | Have you noticed that the tone of your voice has become deeper, softer or hoarse
+    1.0 Neurology | data: Neurology 1.0 | Do you feel weakness in both arms and/or both legs?
+    1.0 Infectious diseases | data: Infectious diseases 1.0 | Have you noticed any unusual bleeding or bruising related to your consultation t
+    1.0 Infectious diseases | data: Respiratory 0.57 | Have you been coughing up blood?
+    1.0 ENT | data: ENT 0.551 | Have you noticed a high pitched sound when breathing in?
+    1.0 Neurology | data: Neurology 1.0 | Did you previously, or do you currently, have any weakness/paralysis in one or m
+    1.0 Paediatrics | data: Paediatrics 1.0 | Does the person have a whooping cough?
+    1.0 ENT | data: ENT 1.0 | Do you have severe itching in one or both eyes?
+    1.0 ENT | data: ENT 1.0 | Is your nose or the back of your throat itchy?
+D age_2 {'acc': 0.9983, 'changed_share': 0.0, 'changed_by_true_department': {}}
+D age_40 {'acc': 0.9983, 'changed_share': 0.0, 'changed_by_true_department': {}}
+D age_80 {'acc': 0.9983, 'changed_share': 0.0, 'changed_by_true_department': {}}
+D sex_swapped {'acc': 0.9983, 'changed_share': 0.0, 'changed_by_true_department': {}}

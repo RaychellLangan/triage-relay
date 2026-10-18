@@ -1,0 +1,12 @@
+<python env>\lib\site-packages\torch\cuda\__init__.py:58: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+<python env>\lib\site-packages\transformers\integrations\sdpa_attention.py:96: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at <torch build>  attn_output = torch.nn.functional.scaled_dot_product_attention(
+arm tiny: 5.2M params on cuda; start val loss 6.8610, dept acc 0.038
+`loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`.
+step    250 loss 0.055 val 0.0318 dept 0.991 urg 0.974 H 0.19b KL 2.739 head 102.355% margins steps-19750.0000
+step    500 loss 0.008 val 0.0088 dept 0.996 urg 0.992 H 0.05b KL 3.766 head 111.245% margins steps-19500.0000
+step    750 loss 0.008 val 0.0073 dept 0.996 urg 0.992 H 0.03b KL 4.173 head 115.918% margins steps-19250.0000
+step   1000 loss 0.009 val 0.0060 dept 0.997 urg 0.992 H 0.02b KL 4.618 head 119.467% margins steps-19000.0000 val-0.1943
+step   1250 loss 0.005 val 0.0066 dept 0.998 urg 0.991 H 0.01b KL 4.754 head 122.230% margins steps-18750.0000 val+0.0793
+stopped at step 1250 after 6.5 min because crossed val
+rolled back to step 1000 (val 0.0060, dept acc 0.997)

@@ -1,0 +1,10 @@
+{
+ "machine": "Codex",
+ "gpu": "NVIDIA GeForce RTX 4070 SUPER",
+ "torch": "2.4.1+cu121",
+ "hip": null,
+ "cases": 1000,
+ "seconds": 25.96,
+ "ms_per_case": 25.96,
+ "cases_per_second": 38.5
+}

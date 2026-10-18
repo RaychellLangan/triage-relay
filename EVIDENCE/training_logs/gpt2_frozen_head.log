@@ -1,0 +1,15 @@
+<python env>\lib\site-packages\torch\cuda\__init__.py:58: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+<python env>\lib\site-packages\transformers\integrations\sdpa_attention.py:96: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at <torch build>  attn_output = torch.nn.functional.scaled_dot_product_attention(
+`loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`.
+arm gpt2_frozen_head: 124.4M params on cuda; start val loss 4.5011, dept acc 0.000, English 3.677
+step     10 loss 1.006 val 0.6613 dept 0.371 urg 0.496 H 1.56b KL 1.868 Eng +1.8% head 0.000% margins steps-3990.0000 english-0.0323
+step     20 loss 0.386 val 0.3457 dept 0.447 urg 0.377 H 1.70b KL 1.558 Eng +3.7% head 0.000% margins steps-3980.0000 english-0.0130
+step     30 loss 0.316 val 0.2692 dept 0.680 urg 0.471 H 1.59b KL 1.442 Eng +4.2% head 0.000% margins steps-3970.0000 english-0.0076
+step     40 loss 0.212 val 0.1961 dept 0.846 urg 0.559 H 0.88b KL 1.973 Eng +4.3% head 0.000% margins steps-3960.0000 english-0.0073 val-0.2917
+step     50 loss 0.379 val 0.1680 dept 0.873 urg 0.648 H 0.60b KL 2.731 Eng +4.9% head 0.000% margins steps-3950.0000 english-0.0008 val-0.1631
+step     60 loss 0.140 val 0.1164 dept 0.914 urg 0.746 H 0.43b KL 3.191 Eng +4.7% head 0.000% margins steps-3940.0000 english-0.0031 val-0.3272
+step     70 loss 0.230 val 0.0908 dept 0.908 urg 0.811 H 0.34b KL 4.456 Eng +5.0% head 0.000% margins steps-3930.0000 english+0.0004 val-0.2398
+stopped at step 70 after 3.3 min because crossed english
+peak GPU memory allocated: 8.62 GB
+rolled back to step 60 (val 0.1164, dept acc 0.914)

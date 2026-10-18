@@ -1,0 +1,18 @@
+{
+ "plain": {
+  "dept_acc": 0.895,
+  "under_triage": 0.031,
+  "severe_missed_of_severe": 0.0685,
+  "over_triage": 0.05,
+  "mean_in_play": 2.03
+ },
+ "danger_first": {
+  "dept_acc": 0.754,
+  "under_triage": 0.014,
+  "severe_missed_of_severe": 0.0377,
+  "over_triage": 0.274,
+  "mean_in_play": 2.03
+ },
+ "n": 1000,
+ "n_severe_cases": 292
+}

@@ -1,0 +1,58 @@
+{
+ "patients": 134529,
+ "truth_department_counts": {
+  "Respiratory": 41439,
+  "Cardiology": 21703,
+  "ENT": 16869,
+  "Neurology": 10943,
+  "Gastroenterology": 8377,
+  "Infectious diseases": 7725,
+  "Haematology": 6842,
+  "Emergency (resus)": 6285,
+  "Oncology": 4503,
+  "General medicine": 3734,
+  "Mental health": 3387,
+  "Rheumatology": 1564,
+  "Trauma and orthopaedics": 778,
+  "Paediatrics": 380
+ },
+ "truth_department_is_top_department": 0.6676,
+ "top_department_share": {
+  "5": 0.2697,
+  "25": 0.3701,
+  "50": 0.4688,
+  "75": 0.6405,
+  "95": 1.0
+ },
+ "gap_top_department_minus_second": {
+  "5": 0.0168,
+  "25": 0.1068,
+  "50": 0.2314,
+  "75": 0.4095,
+  "95": 1.0
+ },
+ "share_department_gap_under_0.10": 0.2369,
+ "share_top_department_over_0.80": 0.1161,
+ "mass_on_severity_1_or_2": {
+  "5": 0.0,
+  "25": 0.0681,
+  "50": 0.3685,
+  "75": 0.5875,
+  "95": 0.7701
+ },
+ "share_with_over_0.25_mass_on_severity_1_or_2": 0.6207,
+ "most_common_torn_department_pairs (gap < 0.10)": {
+  "Cardiology / Respiratory": 8999,
+  "Cardiology / Neurology": 6412,
+  "Emergency (resus) / Gastroenterology": 2507,
+  "Cardiology / Gastroenterology": 2181,
+  "ENT / Respiratory": 1913,
+  "Cardiology / ENT": 1268,
+  "Cardiology / Emergency (resus)": 1075,
+  "Infectious diseases / Respiratory": 947,
+  "Gastroenterology / Respiratory": 821,
+  "Emergency (resus) / Neurology": 811,
+  "Cardiology / Haematology": 807,
+  "Cardiology / Oncology": 517
+ }
+}

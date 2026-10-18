@@ -1,0 +1,108 @@
+<python env>\lib\site-packages\torch\cuda\__init__.py:58: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+<python env>\lib\site-packages\transformers\integrations\sdpa_attention.py:96: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at <torch build>  attn_output = torch.nn.functional.scaled_dot_product_attention(
+full {'dept_acc': 0.825, 'mean_confidence': 0.8326, 'mean_entropy_bits': 0.7626, 'confidently_wrong_share': 0.005}
+shuffled {'dept_acc': 0.78, 'mean_confidence': 0.8144, 'mean_entropy_bits': 0.8385, 'confidently_wrong_share': 0.006}
+reason_only {'dept_acc': 0.274, 'mean_confidence': 0.6543, 'mean_entropy_bits': 1.5275, 'confidently_wrong_share': 0.076}
+keep_0.8 {'dept_acc': 0.776, 'mean_confidence': 0.8222, 'mean_entropy_bits': 0.8101, 'confidently_wrong_share': 0.009}
+keep_0.6 {'dept_acc': 0.699, 'mean_confidence': 0.7893, 'mean_entropy_bits': 0.943, 'confidently_wrong_share': 0.018}
+keep_0.4 {'dept_acc': 0.587, 'mean_confidence': 0.7487, 'mean_entropy_bits': 1.1081, 'confidently_wrong_share': 0.034}
+keep_0.2 {'dept_acc': 0.479, 'mean_confidence': 0.7065, 'mean_entropy_bits': 1.2822, 'confidently_wrong_share': 0.052}
+stray_1 {'dept_acc': 0.769, 'mean_confidence': 0.8204, 'mean_entropy_bits': 0.8268, 'confidently_wrong_share': 0.011}
+stray_2 {'dept_acc': 0.743, 'mean_confidence': 0.8126, 'mean_entropy_bits': 0.8642, 'confidently_wrong_share': 0.019}
+stray_3 {'dept_acc': 0.728, 'mean_confidence': 0.8028, 'mean_entropy_bits': 0.9198, 'confidently_wrong_share': 0.024}
+stray_5 {'dept_acc': 0.702, 'mean_confidence': 0.7872, 'mean_entropy_bits': 0.999, 'confidently_wrong_share': 0.019}
+leave_one_out {
+ "answers_tried": {
+  "own_symptom": 10138,
+  "own_antecedent": 4423,
+  "not_listed_for_condition": 0
+ },
+ "answers_that_flip": {
+  "own_symptom": 267,
+  "own_antecedent": 306,
+  "not_listed_for_condition": 0
+ },
+ "flip_rate": {
+  "own_symptom": 0.0263,
+  "own_antecedent": 0.0692,
+  "not_listed_for_condition": null
+ },
+ "top_flipping_questions": [
+  [
+   "E_204",
+   38,
+   "Have you traveled out of the country in the last 4 weeks?"
+  ],
+  [
+   "E_55",
+   32,
+   "Do you feel pain somewhere?"
+  ],
+  [
+   "E_124",
+   20,
+   "Do you have asthma or have you ever had to use a bronchodilator in the past?"
+  ],
+  [
+   "E_57",
+   18,
+   "Does the pain radiate to another location?"
+  ],
+  [
+   "E_155",
+   18,
+   "Do you feel your heart is beating fast (racing), irregularly (missing a beat) or do you feel palpitations?"
+  ],
+  [
+   "E_78",
+   18,
+   "Do you drink alcohol excessively or do you have an addiction to alcohol?"
+  ],
+  [
+   "E_226",
+   17,
+   "Are you more likely to develop common allergies than the general population?"
+  ],
+  [
+   "E_212",
+   16,
+   "Have you noticed that the tone of your voice has become deeper, softer or hoarse?"
+  ],
+  [
+   "E_53",
+   15,
+   "Do you have pain somewhere, related to your reason for consulting?"
+  ],
+  [
+   "E_201",
+   14,
+   "Do you have a cough?"
+  ],
+  [
+   "E_104",
+   14,
+   "Do you have high blood pressure or do you take medications to treat high blood pressure?"
+  ],
+  [
+   "E_186",
+   14,
+   "Have you ever been diagnosed with obstructive sleep apnea (OSA)?"
+  ],
+  [
+   "E_2",
+   13,
+   "Are you infected with the human immunodeficiency virus (HIV)?"
+  ],
+  [
+   "E_54",
+   13,
+   "Characterize your pain:"
+  ],
+  [
+   "E_223",
+   12,
+   "Are there members of your family who have been diagnosed with pancreatic cancer?"
+  ]
+ ]
+}

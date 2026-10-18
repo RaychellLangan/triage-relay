@@ -1,0 +1,61 @@
+{
+ "counted_on": "runs/route_from_fields/verdict3/facts_val_all.jsonl",
+ "n_right": 4527,
+ "n_wrong": 473,
+ "banded": true,
+ "levers": {
+  "department_calm": {
+   "yes": 0.28463,
+   "no": -0.26552
+  },
+  "router_agrees": {
+   "yes": 0.54678,
+   "no": -0.91947
+  },
+  "translator_sure": {
+   "edges": [
+    0.367,
+    0.8252,
+    0.9542,
+    0.987
+   ],
+   "band_push": [
+    0.10864,
+    -0.01141,
+    0.04954,
+    -0.07112,
+    -0.07057
+   ]
+  },
+  "router_sure": {
+   "edges": [
+    0.9505,
+    0.9937,
+    0.9979,
+    0.9994
+   ],
+   "band_push": [
+    -0.60589,
+    0.04439,
+    0.40234,
+    0.51251,
+    0.78831
+   ]
+  },
+  "familiar": {
+   "edges": [
+    -0.922,
+    -0.676,
+    -0.266,
+    0.252
+   ],
+   "band_push": [
+    -0.58004,
+    -0.13165,
+    0.31698,
+    0.79243,
+    0.90829
+   ]
+  }
+ }
+}

@@ -1,0 +1,33 @@
+models: w
+OK  # 1 no               -> Cardiology             Immediate   (expect Cardiology) | read 10: Feel sick; Sweating a lot; Has pain related to this visit; Pain feels heavy; Pain feels sharp; Pain feels sickening; Pain in: upper chest; Pain in: upper stomac
+OK  # 2 no               -> Respiratory            Non-urgent  (expect Respiratory) | read 13: Blocked nose; I've got a cough; No travel abroad; Pain feels nagging; Pain feels tender; Pain feels heavy; Pain 2/10; Pain does not spread; Pain pinpointed 5/10
+OK  # 3 hand to a person -> Respiratory            Urgent      (expect Respiratory) | read 4: I have COPD; Wheezy; I'm short of breath; I smoke
+OK  # 4 yes              -> Gastroenterology       Urgent      (expect Gastroenterology) | read 9: Heartburn; Worse after I eat; Worse lying down, better sitting up; Pain feels stabbing; Pain feels pulling; Pain feels burning; Pain feels sickening; Pain feels
+OK  # 5 yes              -> Cardiology             Very urgent (expect Cardiology) | read 6: My heart's racing; Has pain related to this visit; Pain feels throbbing; Pain does not spread; Pain came on fast 8/10; A bit dizzy
+OK  # 6 no               -> Paediatrics            Very urgent (expect Paediatrics) | read 2: Does the person have a whooping cough; Worse at night
+OK  # 7 yes              -> Emergency (resus)      Immediate   (expect Emergency (resus)) | read 3: Swelling; I passed out; I ate something I'm allergic to
+--  # 8 hand to a person -> Cardiology             Immediate   (expect Respiratory) | read 8: Pain feels sharp; Pain in: upper chest; Pain in: right breast; Pain in: left breast; Pain in: right side of my chest; Pain pinpointed 6/10; Pain came on fast 9/
+--  # 9 no               -> Infectious diseases    Immediate   (expect Mental health) | read 7: I feel like I'm dying; I've got a cough; Had 2 or more asthma attacks in the past year; Pain 4/10; Pain does not spread; Pain pinpointed 10/10; Pain came on fas
+OK  #10 yes              -> Respiratory            Urgent      (expect Respiratory) | read 8: Aching all over; I've got a cough; Pain 7/10; Pain does not spread; Pain pinpointed 5/10; Pain came on fast 0/10; I've got a fever; Chills
+--  #11 no               -> Infectious diseases    Immediate   (expect Neurology) | read 3: I exercise a lot; Started or taken any antipsychotic medication within the last 7 days; Weak arms and legs
+OK  #12 maybe yes        -> Gastroenterology       Very urgent (expect Gastroenterology) | read 12: Black poo; I threw up blood; Pain feels shooting; Pain feels stabbing; Pain feels severe; Pain feels sickening; Pain 9/10; Spreads to: right shoulder blade; Spr
+--  #13 hand to a person -> Gastroenterology       Urgent      (expect Neurology) | read 5: I feel like I'm dying; Heartburn; Has pain related to this visit; Pain pinpointed 6/10; Pain came on fast 8/10
+--  #14 no               -> Respiratory            Immediate   (expect Cardiology) | read 8: High blood pressure; Has pain related to this visit; Spreads to: upper chest; Spreads to: back of my right arm; Spreads to: back of my left arm; Spreads to: lef
+OK  #15 hand to a person -> ENT                    Very urgent (expect ENT) | read 4: Has pain related to this visit; Pain does not spread; Pain pinpointed 6/10; I've got a fever
+OK  #16 hand to a person -> Respiratory            Immediate   (expect Respiratory) | read 15: I have heart failure; Worse lying down, better sitting up; Pain feels nagging; Pain feels pulling; Pain feels heavy; Pain feels sharp; Pain 8/10; Spreads to: ri
+--  #17 no               -> Respiratory            Urgent      (expect ENT) | read 5: Pain feels tender; Pain does not spread; Pain pinpointed 5/10; A bit dizzy; Sore throat
+--  #18 no               -> Paediatrics            Urgent      (expect ENT) | read 15: Can't smell anything; High blood pressure; Weakness in my arm or face; Blocked nose; Pain feels nagging; Pain feels heavy; Pain feels sharp; Pain 4/10; Spreads 
+--  #19 no               -> Emergency (resus)      Immediate   (expect Gastroenterology) | read 1: A high pitched noise when I breathe in
+OK  #20 yes              -> Haematology            Standard    (expect Haematology) | read 4: Have very abundant or very long menstruation periods; Really pale; I'm short of breath; Always tired
+OK  #21 no               -> Infectious diseases    Immediate   (expect Infectious diseases) | read 2: Travelled to South East Asia (last 4 weeks); Coughing up blood
+OK  #22 yes              -> Neurology              Very urgent (expect Neurology) | read 1: Started or taken any antipsychotic medication within the last 7 days
+OK  #23 no               -> Oncology               Urgent      (expect Oncology) | read 5: Feel sick; Losing weight without trying; Has pain related to this visit; Pain in: belly; Spreads to: upper back
+--  #24 hand to a person -> Emergency (resus)      Very urgent (expect Rheumatology) | read 2: A rash; Did my cheeks suddenly turn red
+--  #25 no               -> Neurology              Very urgent (expect Cardiology) | read 3: Weakness in my arm or face; I'm short of breath; A bit dizzy
+--  #26 hand to a person -> Cardiology             Very urgent (expect Trauma and orthopaedics) | read 5: Been unable to move or get up for more than 3 consecutive days within the last 4 weeks; I've got a cough; Has pain related to this visit; Pain does not spread; 
+--  #27 hand to a person -> Respiratory            Standard    (expect Paediatrics) | read 3: Blocked nose; Wheezy; Pain does not spread
+--  #28 no               -> Haematology            Standard    (expect Neurology) | read 6: Really pale; Pain feels cramping; Pain feels draining; Pain does not spread; Pain pinpointed 6/10; Pain came on fast 0/10
+OK  #29 maybe yes        -> Cardiology             Very urgent (expect Cardiology) | read 5: I've had a blood clot in my leg before; Has pain related to this visit; Pain feels tender; Pain pinpointed 7/10; I'm short of breath
+OK  #30 yes              -> Infectious diseases    Urgent      (expect Infectious diseases) | read 3: Had unprotected sex with more than one partner in the last 6 months; Swollen glands; Sore throat
+
+route matches expectation: 17/30 | routed on its own: 9 (9 of them right) | the rest go to a person

@@ -1,0 +1,477 @@
+[
+ {
+  "id": 1,
+  "name": "Sam",
+  "age": "30",
+  "sex": "M",
+  "words": "sore throat for three days, runny nose, bit of a cough, no fever",
+  "text": "30m sore throat for three days, runny nose, bit of a cough, no fever",
+  "arrived": "22:12",
+  "status": "waiting",
+  "yes": [
+   "E_181",
+   "E_201",
+   "E_204_@_V_10",
+   "E_54_@_V_154",
+   "E_54_@_V_161",
+   "E_54_@_V_183",
+   "E_56_@_7",
+   "E_57_@_V_123",
+   "E_58_@_2",
+   "E_59_@_5",
+   "E_76",
+   "E_91",
+   "E_97"
+  ],
+  "no": [],
+  "conf": {
+   "E_54_@_V_154": 0.32,
+   "E_54_@_V_161": 0.596,
+   "E_54_@_V_183": 0.323,
+   "E_56_@_7": 0.231,
+   "E_57_@_V_123": 0.52,
+   "E_58_@_2": 0.19,
+   "E_59_@_5": 0.207,
+   "E_76": 0.998,
+   "E_91": 0.993,
+   "E_97": 1.0,
+   "E_181": 1.0,
+   "E_201": 1.0,
+   "E_204_@_V_10": 0.995
+  },
+  "rounds": 2,
+  "custom_answers": {},
+  "asked": [
+   "E_94",
+   "E_88",
+   "E_129",
+   "E_161",
+   "E_227",
+   "E_222"
+  ],
+  "red_flags": [],
+  "read": [
+   "E_181",
+   "E_201",
+   "E_204_@_V_10",
+   "E_54_@_V_154",
+   "E_54_@_V_161",
+   "E_54_@_V_183",
+   "E_56_@_7",
+   "E_57_@_V_123",
+   "E_58_@_2",
+   "E_59_@_5",
+   "E_76",
+   "E_91",
+   "E_97"
+  ],
+  "injury": false,
+  "areas": [],
+  "nothing_read": false,
+  "for_nurse": [],
+  "decision": {
+   "department": "ENT",
+   "urgency": "Non-urgent",
+   "likely_department": "Respiratory",
+   "unavailable_note": null,
+   "rules_applied": [],
+   "danger": {
+    "condition": "URTI",
+    "severity": 5,
+    "department": "Respiratory"
+   },
+   "in_play": [
+    {
+     "condition": "URTI",
+     "department": "Respiratory",
+     "severity": 5,
+     "gap": 0.0
+    }
+   ],
+   "runners_up": [
+    {
+     "department": "Infectious diseases",
+     "gap": 10.333
+    },
+    {
+     "department": "General medicine",
+     "gap": 15.424
+    }
+   ],
+   "heads_up": [
+    "Infectious diseases",
+    "General medicine"
+   ],
+   "second_reader": {
+    "department": "ENT",
+    "confidence": 0.586
+   },
+   "novelty": 0.30276,
+   "facts": {
+    "evidence": 1.0,
+    "department_calm": -1.0,
+    "router_agrees": -1.0,
+    "translator_sure": -0.62,
+    "router_sure": 0.1725,
+    "familiar": -1.0
+   },
+   "verdict": "no",
+   "lean": -0.9904,
+   "ask_next": [
+    "Have you had chills or shivers?",
+    "Do you feel so tired that you are unable to do your usual activities or are you stuck in your bed all day long?",
+    "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?"
+   ],
+   "ask_codes": [
+    {
+     "code": "E_94",
+     "text": "Have you had chills or shivers?"
+    },
+    {
+     "code": "E_88",
+     "text": "Do you feel so tired that you are unable to do your usual activities or are you stuck in your bed all day long?"
+    },
+    {
+     "code": "E_129",
+     "text": "Do you have any lesions, redness or problems on your skin that you believe are related to the condition you are consulting for?"
+    }
+   ]
+  },
+  "finished": "22:12",
+  "custom_yes": [],
+  "said": [
+   "Blocked nose",
+   "I've got a cough",
+   "No travel abroad",
+   "Pain feels nagging",
+   "Pain feels tender",
+   "Pain feels heavy",
+   "Pain 7/10",
+   "Pain does not spread",
+   "Can point to exactly where it hurts: 2/10",
+   "How suddenly it came on: 5/10",
+   "A bit dizzy",
+   "I've got a fever",
+   "Sore throat"
+  ],
+  "said_no": [],
+  "said_words": [
+   "Blocked nose",
+   "I've got a cough",
+   "No travel abroad",
+   "Pain feels nagging",
+   "Pain feels tender",
+   "Pain feels heavy",
+   "Pain 7/10",
+   "Pain does not spread",
+   "Can point to exactly where it hurts: 2/10",
+   "How suddenly it came on: 5/10",
+   "A bit dizzy",
+   "I've got a fever",
+   "Sore throat"
+  ],
+  "said_yes_q": [],
+  "for_nurse_q": [],
+  "patient_check": {
+   "state": "confirmed",
+   "time": "22:12",
+   "removed": [],
+   "added": ""
+  },
+  "log": [
+   "22:12 patient checked the summary: confirmed",
+   "22:12 nurse corrected to ENT: upper airway: ENT sees these here"
+  ],
+  "corrected_to": "ENT"
+ },
+ {
+  "id": 2,
+  "name": "Priya",
+  "age": "34",
+  "sex": "F",
+  "words": "heartburn and acid coming up, worse lying down, some chest pain",
+  "text": "34f heartburn and acid coming up, worse lying down, some chest pain",
+  "arrived": "22:12",
+  "status": "waiting",
+  "yes": [
+   "E_173",
+   "E_217",
+   "E_53"
+  ],
+  "no": [],
+  "conf": {
+   "E_53": 0.889,
+   "E_173": 0.937,
+   "E_217": 0.43
+  },
+  "rounds": 2,
+  "custom_answers": {},
+  "asked": [
+   "E_5",
+   "E_8",
+   "E_215",
+   "E_67",
+   "E_98",
+   "E_106"
+  ],
+  "red_flags": [],
+  "read": [
+   "E_173",
+   "E_217",
+   "E_53"
+  ],
+  "injury": false,
+  "areas": [],
+  "nothing_read": false,
+  "for_nurse": [],
+  "decision": {
+   "department": "Gastroenterology",
+   "urgency": "Urgent",
+   "likely_department": "Gastroenterology",
+   "unavailable_note": null,
+   "rules_applied": [],
+   "danger": {
+    "condition": "GERD",
+    "severity": 3,
+    "department": "Gastroenterology"
+   },
+   "in_play": [
+    {
+     "condition": "GERD",
+     "department": "Gastroenterology",
+     "severity": 3,
+     "gap": 0.0
+    }
+   ],
+   "runners_up": [
+    {
+     "department": "Cardiology",
+     "gap": 8.619
+    },
+    {
+     "department": "Respiratory",
+     "gap": 9.397
+    }
+   ],
+   "heads_up": [
+    "Cardiology",
+    "Respiratory"
+   ],
+   "second_reader": {
+    "department": "Gastroenterology",
+    "confidence": 0.984
+   },
+   "novelty": 0.07447,
+   "facts": {
+    "evidence": 1.0,
+    "department_calm": 1.0,
+    "router_agrees": 1.0,
+    "translator_sure": -0.14,
+    "router_sure": 0.9679,
+    "familiar": -0.798
+   },
+   "verdict": "maybe yes",
+   "lean": 0.5643,
+   "ask_next": [
+    "Have you ever had fluid in your lungs?",
+    "Do you currently undergo dialysis?",
+    "Do you have symptoms that get worse after eating?"
+   ],
+   "ask_codes": [
+    {
+     "code": "E_5",
+     "text": "Have you ever had fluid in your lungs?"
+    },
+    {
+     "code": "E_8",
+     "text": "Do you currently undergo dialysis?"
+    },
+    {
+     "code": "E_215",
+     "text": "Do you have symptoms that get worse after eating?"
+    }
+   ]
+  },
+  "finished": "22:12",
+  "custom_yes": [],
+  "said": [
+   "Heartburn",
+   "Worse lying down, better sitting up",
+   "Has pain related to this visit"
+  ],
+  "said_no": [],
+  "said_words": [
+   "Heartburn",
+   "Worse lying down, better sitting up",
+   "Has pain related to this visit"
+  ],
+  "said_yes_q": [],
+  "for_nurse_q": [],
+  "patient_check": {
+   "state": "confirmed",
+   "time": "22:12",
+   "removed": [],
+   "added": ""
+  },
+  "log": [
+   "22:12 patient checked the summary: confirmed"
+  ]
+ },
+ {
+  "id": 3,
+  "name": "Tom",
+  "age": "50",
+  "sex": "M",
+  "words": "high temperature, aching all over, chills, cough, really tired since yesterday",
+  "text": "50m high temperature, aching all over, chills, cough, really tired since yesterday",
+  "arrived": "22:12",
+  "status": "waiting",
+  "yes": [
+   "E_144",
+   "E_201",
+   "E_56_@_7",
+   "E_57_@_V_123",
+   "E_58_@_5",
+   "E_59_@_0",
+   "E_91",
+   "E_94"
+  ],
+  "no": [],
+  "conf": {
+   "E_56_@_7": 0.277,
+   "E_57_@_V_123": 0.476,
+   "E_58_@_5": 0.173,
+   "E_59_@_0": 0.223,
+   "E_91": 0.9,
+   "E_94": 0.999,
+   "E_144": 0.998,
+   "E_201": 0.999
+  },
+  "rounds": 1,
+  "custom_answers": {},
+  "asked": [
+   "E_178",
+   "E_95",
+   "E_107"
+  ],
+  "red_flags": [],
+  "read": [
+   "E_144",
+   "E_201",
+   "E_56_@_7",
+   "E_57_@_V_123",
+   "E_58_@_5",
+   "E_59_@_0",
+   "E_91",
+   "E_94"
+  ],
+  "injury": false,
+  "areas": [],
+  "nothing_read": false,
+  "for_nurse": [],
+  "decision": {
+   "department": "Respiratory",
+   "urgency": "Urgent",
+   "likely_department": "Respiratory",
+   "unavailable_note": null,
+   "rules_applied": [],
+   "danger": {
+    "condition": "Influenza",
+    "severity": 3,
+    "department": "Respiratory"
+   },
+   "in_play": [
+    {
+     "condition": "Influenza",
+     "department": "Respiratory",
+     "severity": 3,
+     "gap": 0.0
+    },
+    {
+     "condition": "Pneumonia",
+     "department": "Respiratory",
+     "severity": 3,
+     "gap": 0.243
+    }
+   ],
+   "runners_up": [
+    {
+     "department": "Infectious diseases",
+     "gap": 10.575
+    },
+    {
+     "department": "ENT",
+     "gap": 15.569
+    }
+   ],
+   "heads_up": [
+    "Infectious diseases",
+    "ENT"
+   ],
+   "second_reader": {
+    "department": "Respiratory",
+    "confidence": 0.995
+   },
+   "novelty": 0.0651,
+   "facts": {
+    "evidence": 1.0,
+    "department_calm": 1.0,
+    "router_agrees": 1.0,
+    "translator_sure": -0.654,
+    "router_sure": 0.99,
+    "familiar": -0.752
+   },
+   "verdict": "yes",
+   "lean": 0.7937,
+   "ask_next": [],
+   "ask_codes": [
+    {
+     "code": "E_178",
+     "text": "Have you noticed any unusual bleeding or bruising related to your consultation today?"
+    },
+    {
+     "code": "E_95",
+     "text": "Do you have Parkinson’s disease?"
+    },
+    {
+     "code": "E_107",
+     "text": "Have you ever had a stroke?"
+    }
+   ]
+  },
+  "finished": "22:12",
+  "custom_yes": [],
+  "said": [
+   "Aching all over",
+   "I've got a cough",
+   "Pain 7/10",
+   "Pain does not spread",
+   "Can point to exactly where it hurts: 5/10",
+   "How suddenly it came on: 0/10",
+   "I've got a fever",
+   "Chills"
+  ],
+  "said_no": [],
+  "said_words": [
+   "Aching all over",
+   "I've got a cough",
+   "Pain 7/10",
+   "Pain does not spread",
+   "Can point to exactly where it hurts: 5/10",
+   "How suddenly it came on: 0/10",
+   "I've got a fever",
+   "Chills"
+  ],
+  "said_yes_q": [],
+  "for_nurse_q": [],
+  "patient_check": {
+   "state": "confirmed",
+   "time": "22:12",
+   "removed": [],
+   "added": ""
+  },
+  "log": [
+   "22:12 patient checked the summary: confirmed"
+  ]
+ }
+]

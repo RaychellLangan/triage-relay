@@ -1,0 +1,6 @@
+# Install PyTorch for your hardware first (ROCm build for AMD GPUs, CUDA build for NVIDIA, or CPU):
+#   https://pytorch.org/get-started/locally/
+# The two tiny transformers also run on a CPU (the app does: about 0.7 s per patient).
+transformers==4.57.1
+tokenizers==0.22.1
+numpy>=1.26

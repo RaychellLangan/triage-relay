@@ -1,0 +1,27 @@
+{
+ "counted_on": "runs/route_from_fields/verdict2/facts_val_all.jsonl",
+ "n_right": 4527,
+ "n_wrong": 473,
+ "levers": {
+  "department_calm": {
+   "yes": 0.28463,
+   "no": -0.26552
+  },
+  "router_agrees": {
+   "yes": 0.54678,
+   "no": -0.91947
+  },
+  "translator_sure": {
+   "yes": -0.00776,
+   "no": 0.10589
+  },
+  "router_sure": {
+   "yes": 0.03496,
+   "no": -0.79126
+  },
+  "familiar": {
+   "yes": 0.90083,
+   "no": -0.1857
+  }
+ }
+}

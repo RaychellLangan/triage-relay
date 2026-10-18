@@ -1,0 +1,86 @@
+{
+ "messy_test.jsonl": {
+  "plain": {
+   "dept_acc": 0.992,
+   "under": 0.006,
+   "severe_missed": 0.0,
+   "over": 0.006
+  },
+  "danger_first": {
+   "dept_acc": 0.985,
+   "under": 0.0,
+   "severe_missed": 0.0,
+   "over": 0.041
+  },
+  "parallel": {
+   "dept_acc": 0.99,
+   "under": 0.006,
+   "severe_missed": 0.0035,
+   "over": 0.059
+  },
+  "danger_engine_wanted_more_than_anything_in_play": 0.046
+ },
+ "messystress_strays5.jsonl": {
+  "plain": {
+   "dept_acc": 0.895,
+   "under": 0.031,
+   "severe_missed": 0.0685,
+   "over": 0.05
+  },
+  "danger_first": {
+   "dept_acc": 0.754,
+   "under": 0.014,
+   "severe_missed": 0.0377,
+   "over": 0.274
+  },
+  "parallel": {
+   "dept_acc": 0.846,
+   "under": 0.027,
+   "severe_missed": 0.0514,
+   "over": 0.194
+  },
+  "danger_engine_wanted_more_than_anything_in_play": 0.073
+ },
+ "messystress_keep30.jsonl": {
+  "plain": {
+   "dept_acc": 0.895,
+   "under": 0.085,
+   "severe_missed": 0.089,
+   "over": 0.051
+  },
+  "danger_first": {
+   "dept_acc": 0.872,
+   "under": 0.01,
+   "severe_missed": 0.0274,
+   "over": 0.182
+  },
+  "parallel": {
+   "dept_acc": 0.895,
+   "under": 0.034,
+   "severe_missed": 0.0651,
+   "over": 0.158
+  },
+  "danger_engine_wanted_more_than_anything_in_play": 0.065
+ },
+ "messystress_keep50_strays3.jsonl": {
+  "plain": {
+   "dept_acc": 0.879,
+   "under": 0.042,
+   "severe_missed": 0.0788,
+   "over": 0.073
+  },
+  "danger_first": {
+   "dept_acc": 0.766,
+   "under": 0.01,
+   "severe_missed": 0.024,
+   "over": 0.295
+  },
+  "parallel": {
+   "dept_acc": 0.85,
+   "under": 0.022,
+   "severe_missed": 0.0514,
+   "over": 0.231
+  },
+  "danger_engine_wanted_more_than_anything_in_play": 0.089
+ }
+}

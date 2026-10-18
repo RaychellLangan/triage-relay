@@ -1,0 +1,37 @@
+{
+ "n": 4000,
+ "seesaw_wrong": {
+  "n_target": 339,
+  "fieldcount+length": 0.7746,
+  "+novelty": 0.8738,
+  "+mouth_conf": 0.8369,
+  "+novelty+mouth_conf": 0.8824,
+  "novelty_AUROC_within_fieldcount_tercile (few -> many)": [
+   0.792,
+   0.8101,
+   0.8525
+  ],
+  "target_rate_by_tercile": [
+   0.1874,
+   0.0697,
+   0.0097
+  ]
+ },
+ "severe_missed": {
+  "n_target": 26,
+  "fieldcount+length": 0.781,
+  "+novelty": 0.8649,
+  "+mouth_conf": 0.8875,
+  "+novelty+mouth_conf": 0.8975,
+  "novelty_AUROC_within_fieldcount_tercile (few -> many)": [
+   0.7432,
+   0.8562,
+   null
+  ],
+  "target_rate_by_tercile": [
+   0.0177,
+   0.003,
+   0.0
+  ]
+ }
+}

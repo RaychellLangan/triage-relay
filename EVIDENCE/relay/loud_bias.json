@@ -1,0 +1,157 @@
+{
+ "expected_force": {
+  "Larygospasm": 0.56,
+  "Tuberculosis": 3.4,
+  "Bronchitis": 6.56,
+  "Bronchiolitis": 7.07,
+  "Acute laryngitis": 7.25,
+  "Myocarditis": 7.56,
+  "Croup": 8.06,
+  "URTI": 9.23,
+  "Pericarditis": 9.31,
+  "Pulmonary neoplasm": 9.72,
+  "Viral pharyngitis": 10.26,
+  "Whooping cough": 10.54,
+  "Guillain-Barr\u00e9 syndrome": 12.23,
+  "Bronchiectasis": 12.59,
+  "Ebola": 12.72,
+  "Chagas": 12.75,
+  "Allergic sinusitis": 12.98,
+  "PSVT": 13.11,
+  "Acute COPD exacerbation / infection": 13.15,
+  "Spontaneous pneumothorax": 14.11,
+  "Acute otitis media": 14.12,
+  "Atrial fibrillation": 14.21,
+  "Bronchospasm / acute asthma exacerbation": 14.26,
+  "Epiglottitis": 16.35,
+  "Stable angina": 16.5,
+  "Boerhaave": 16.95,
+  "Myasthenia gravis": 17.7,
+  "Cluster headache": 19.4,
+  "Influenza": 20.21,
+  "Chronic rhinosinusitis": 20.31,
+  "Acute rhinosinusitis": 21.28,
+  "Unstable angina": 22.1,
+  "Spontaneous rib fracture": 22.35,
+  "Scombroid food poisoning": 23.19,
+  "Possible NSTEMI / STEMI": 24.65,
+  "GERD": 24.65,
+  "Acute dystonic reactions": 25.13,
+  "Pancreatic neoplasm": 25.63,
+  "Anemia": 34.2,
+  "SLE": 35.31,
+  "Pulmonary embolism": 36.72,
+  "Inguinal hernia": 37.36,
+  "Sarcoidosis": 38.31,
+  "Panic attack": 38.62,
+  "Acute pulmonary edema": 38.81,
+  "Pneumonia": 42.2,
+  "Anaphylaxis": 46.7,
+  "HIV (initial infection)": 52.65,
+  "Localized edema": 66.04
+ },
+ "messy_test.jsonl": {
+  "force": {
+   "dept_acc": 0.992,
+   "under": 0.006,
+   "severe_missed": 0.0,
+   "over": 0.006
+  },
+  "ratio": {
+   "dept_acc": 0.99,
+   "under": 0.009,
+   "severe_missed": 0.007,
+   "over": 0.005
+  },
+  "force_danger": {
+   "dept_acc": 0.985,
+   "under": 0.0,
+   "severe_missed": 0.0,
+   "over": 0.041
+  },
+  "ratio_danger": {
+   "dept_acc": 0.967,
+   "under": 0.0,
+   "severe_missed": 0.0,
+   "over": 0.051
+  }
+ },
+ "messystress_strays5.jsonl": {
+  "force": {
+   "dept_acc": 0.895,
+   "under": 0.031,
+   "severe_missed": 0.0685,
+   "over": 0.05
+  },
+  "ratio": {
+   "dept_acc": 0.847,
+   "under": 0.043,
+   "severe_missed": 0.0993,
+   "over": 0.085
+  },
+  "force_danger": {
+   "dept_acc": 0.754,
+   "under": 0.014,
+   "severe_missed": 0.0377,
+   "over": 0.274
+  },
+  "ratio_danger": {
+   "dept_acc": 0.665,
+   "under": 0.018,
+   "severe_missed": 0.0445,
+   "over": 0.373
+  }
+ },
+ "messystress_keep30.jsonl": {
+  "force": {
+   "dept_acc": 0.895,
+   "under": 0.085,
+   "severe_missed": 0.089,
+   "over": 0.051
+  },
+  "ratio": {
+   "dept_acc": 0.894,
+   "under": 0.076,
+   "severe_missed": 0.1027,
+   "over": 0.058
+  },
+  "force_danger": {
+   "dept_acc": 0.872,
+   "under": 0.01,
+   "severe_missed": 0.0274,
+   "over": 0.182
+  },
+  "ratio_danger": {
+   "dept_acc": 0.822,
+   "under": 0.016,
+   "severe_missed": 0.0411,
+   "over": 0.219
+  }
+ },
+ "messystress_keep50_strays3.jsonl": {
+  "force": {
+   "dept_acc": 0.879,
+   "under": 0.042,
+   "severe_missed": 0.0788,
+   "over": 0.073
+  },
+  "ratio": {
+   "dept_acc": 0.839,
+   "under": 0.051,
+   "severe_missed": 0.1096,
+   "over": 0.121
+  },
+  "force_danger": {
+   "dept_acc": 0.766,
+   "under": 0.01,
+   "severe_missed": 0.024,
+   "over": 0.295
+  },
+  "ratio_danger": {
+   "dept_acc": 0.664,
+   "under": 0.017,
+   "severe_missed": 0.0445,
+   "over": 0.424
+  }
+ }
+}

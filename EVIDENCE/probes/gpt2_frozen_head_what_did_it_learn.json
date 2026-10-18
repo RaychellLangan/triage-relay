@@ -1,0 +1,164 @@
+{
+ "model": "runs/gpt2_frozen_head/model",
+ "patients": 1000,
+ "full": {
+  "dept_acc": 0.918,
+  "mean_confidence": 0.919,
+  "mean_entropy_bits": 0.3885,
+  "confidently_wrong_share": 0.013
+ },
+ "shuffled": {
+  "dept_acc": 0.91,
+  "mean_confidence": 0.9081,
+  "mean_entropy_bits": 0.4496,
+  "confidently_wrong_share": 0.011
+ },
+ "reason_only": {
+  "dept_acc": 0.246,
+  "mean_confidence": 0.7207,
+  "mean_entropy_bits": 1.2805,
+  "confidently_wrong_share": 0.239
+ },
+ "keep_0.8": {
+  "dept_acc": 0.859,
+  "mean_confidence": 0.8883,
+  "mean_entropy_bits": 0.5194,
+  "confidently_wrong_share": 0.017
+ },
+ "keep_0.6": {
+  "dept_acc": 0.779,
+  "mean_confidence": 0.8416,
+  "mean_entropy_bits": 0.7227,
+  "confidently_wrong_share": 0.034
+ },
+ "keep_0.4": {
+  "dept_acc": 0.633,
+  "mean_confidence": 0.7982,
+  "mean_entropy_bits": 0.9004,
+  "confidently_wrong_share": 0.082
+ },
+ "keep_0.2": {
+  "dept_acc": 0.499,
+  "mean_confidence": 0.7453,
+  "mean_entropy_bits": 1.1289,
+  "confidently_wrong_share": 0.103
+ },
+ "stray_1": {
+  "dept_acc": 0.886,
+  "mean_confidence": 0.8945,
+  "mean_entropy_bits": 0.4846,
+  "confidently_wrong_share": 0.018
+ },
+ "stray_2": {
+  "dept_acc": 0.843,
+  "mean_confidence": 0.8794,
+  "mean_entropy_bits": 0.5365,
+  "confidently_wrong_share": 0.027
+ },
+ "stray_3": {
+  "dept_acc": 0.824,
+  "mean_confidence": 0.87,
+  "mean_entropy_bits": 0.5933,
+  "confidently_wrong_share": 0.039
+ },
+ "stray_5": {
+  "dept_acc": 0.776,
+  "mean_confidence": 0.8513,
+  "mean_entropy_bits": 0.6728,
+  "confidently_wrong_share": 0.048
+ },
+ "leave_one_out": {
+  "answers_tried": {
+   "own_symptom": 10138,
+   "own_antecedent": 4423,
+   "not_listed_for_condition": 0
+  },
+  "answers_that_flip": {
+   "own_symptom": 201,
+   "own_antecedent": 194,
+   "not_listed_for_condition": 0
+  },
+  "flip_rate": {
+   "own_symptom": 0.0198,
+   "own_antecedent": 0.0439,
+   "not_listed_for_condition": null
+  },
+  "top_flipping_questions": [
+   [
+    "E_204",
+    33,
+    "Have you traveled out of the country in the last 4 weeks?"
+   ],
+   [
+    "E_55",
+    22,
+    "Do you feel pain somewhere?"
+   ],
+   [
+    "E_155",
+    19,
+    "Do you feel your heart is beating fast (racing), irregularly (missing a beat) or do you feel palpitations?"
+   ],
+   [
+    "E_212",
+    18,
+    "Have you noticed that the tone of your voice has become deeper, softer or hoarse?"
+   ],
+   [
+    "E_223",
+    13,
+    "Are there members of your family who have been diagnosed with pancreatic cancer?"
+   ],
+   [
+    "E_124",
+    10,
+    "Do you have asthma or have you ever had to use a bronchodilator in the past?"
+   ],
+   [
+    "E_222",
+    10,
+    "Are you exposed to secondhand cigarette smoke on a daily basis?"
+   ],
+   [
+    "E_224",
+    10,
+    "Do you have family members who have had lung cancer?"
+   ],
+   [
+    "E_148",
+    9,
+    "Are you feeling nauseous or do you feel like vomiting?"
+   ],
+   [
+    "E_5",
+    9,
+    "Have you ever had fluid in your lungs?"
+   ],
+   [
+    "E_136",
+    8,
+    "How severe is the itching?"
+   ],
+   [
+    "E_2",
+    8,
+    "Are you infected with the human immunodeficiency virus (HIV)?"
+   ],
+   [
+    "E_57",
+    8,
+    "Does the pain radiate to another location?"
+   ],
+   [
+    "E_152",
+    8,
+    "Where is the swelling located?"
+   ],
+   [
+    "E_54",
+    7,
+    "Characterize your pain:"
+   ]
+  ]
+ }
+}

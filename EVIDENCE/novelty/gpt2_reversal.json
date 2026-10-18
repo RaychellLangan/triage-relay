@@ -1,0 +1,120 @@
+{
+ "model": "runs/gpt2/model",
+ "n": 4000,
+ "n_severe_missed": 26,
+ "n_wrong": 339,
+ "length_AUROC": {
+  "severe_missed": 0.2649,
+  "wrong": 0.2925
+ },
+ "fieldcount_AUROC": {
+  "severe_missed": 0.1788,
+  "wrong": 0.2207
+ },
+ "layers": [
+  {
+   "layer": 0,
+   "A_severe": 0.5065,
+   "B_severe_top8_removed": 0.5094,
+   "A_wrong": 0.5157,
+   "B_wrong_top8_removed": 0.5199,
+   "corr_A_length": 0.316
+  },
+  {
+   "layer": 1,
+   "A_severe": 0.3701,
+   "B_severe_top8_removed": 0.5048,
+   "A_wrong": 0.4557,
+   "B_wrong_top8_removed": 0.4816,
+   "corr_A_length": 0.061
+  },
+  {
+   "layer": 2,
+   "A_severe": 0.3954,
+   "B_severe_top8_removed": 0.5079,
+   "A_wrong": 0.4628,
+   "B_wrong_top8_removed": 0.5064,
+   "corr_A_length": -0.006
+  },
+  {
+   "layer": 3,
+   "A_severe": 0.3701,
+   "B_severe_top8_removed": 0.4652,
+   "A_wrong": 0.4825,
+   "B_wrong_top8_removed": 0.5143,
+   "corr_A_length": -0.201
+  },
+  {
+   "layer": 4,
+   "A_severe": 0.3423,
+   "B_severe_top8_removed": 0.5135,
+   "A_wrong": 0.4676,
+   "B_wrong_top8_removed": 0.5525,
+   "corr_A_length": -0.189
+  },
+  {
+   "layer": 5,
+   "A_severe": 0.3446,
+   "B_severe_top8_removed": 0.5716,
+   "A_wrong": 0.4567,
+   "B_wrong_top8_removed": 0.5735,
+   "corr_A_length": -0.176
+  },
+  {
+   "layer": 6,
+   "A_severe": 0.362,
+   "B_severe_top8_removed": 0.5586,
+   "A_wrong": 0.4434,
+   "B_wrong_top8_removed": 0.5674,
+   "corr_A_length": -0.123
+  },
+  {
+   "layer": 7,
+   "A_severe": 0.3499,
+   "B_severe_top8_removed": 0.5816,
+   "A_wrong": 0.4501,
+   "B_wrong_top8_removed": 0.5642,
+   "corr_A_length": -0.126
+  },
+  {
+   "layer": 8,
+   "A_severe": 0.342,
+   "B_severe_top8_removed": 0.6386,
+   "A_wrong": 0.443,
+   "B_wrong_top8_removed": 0.5645,
+   "corr_A_length": -0.086
+  },
+  {
+   "layer": 9,
+   "A_severe": 0.4755,
+   "B_severe_top8_removed": 0.5727,
+   "A_wrong": 0.5274,
+   "B_wrong_top8_removed": 0.558,
+   "corr_A_length": -0.094
+  },
+  {
+   "layer": 10,
+   "A_severe": 0.5516,
+   "B_severe_top8_removed": 0.6153,
+   "A_wrong": 0.5556,
+   "B_wrong_top8_removed": 0.5545,
+   "corr_A_length": -0.077
+  },
+  {
+   "layer": 11,
+   "A_severe": 0.6081,
+   "B_severe_top8_removed": 0.6526,
+   "A_wrong": 0.5921,
+   "B_wrong_top8_removed": 0.555,
+   "corr_A_length": -0.037
+  },
+  {
+   "layer": 12,
+   "A_severe": 0.6529,
+   "B_severe_top8_removed": 0.6627,
+   "A_wrong": 0.6292,
+   "B_wrong_top8_removed": 0.5931,
+   "corr_A_length": -0.075
+  }
+ ]
+}

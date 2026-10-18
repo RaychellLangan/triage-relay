@@ -1,0 +1,11 @@
+{
+ "readings": "runs/readings/tiny.npz",
+ "n": 6000,
+ "n_wrong": 837,
+ "held_out_AUROC": {
+  "mouth_confidence_only": 0.9026,
+  "middle_readings_only": 0.9314,
+  "mouth_plus_middle": 0.9418
+ },
+ "note": "learned diagnostic ceiling, folds by patient; not the monitor"
+}

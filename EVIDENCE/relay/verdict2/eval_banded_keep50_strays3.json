@@ -1,0 +1,30 @@
+{
+ "facts": "runs/route_from_fields/verdict2/facts_keep50_strays3.jsonl",
+ "n": 1000,
+ "AUROC_goal_tilt_flags_wrong": 0.9328,
+ "AUROC_router_sure_alone": 0.7907,
+ "verdicts": {
+  "hand to a person": {
+   "n": 258,
+   "share": 0.258,
+   "dept_acc": 0.8837
+  },
+  "maybe yes": {
+   "n": 31,
+   "share": 0.031,
+   "dept_acc": 1.0
+  },
+  "no": {
+   "n": 239,
+   "share": 0.239,
+   "dept_acc": 0.3849
+  },
+  "yes": {
+   "n": 472,
+   "share": 0.472,
+   "dept_acc": 0.9979
+  }
+ },
+ "auto_routed_share": 0.503,
+ "auto_routed_acc": 0.998
+}

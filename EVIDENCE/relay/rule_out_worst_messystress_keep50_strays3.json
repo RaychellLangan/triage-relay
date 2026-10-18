@@ -1,0 +1,22 @@
+{
+ "danger_first": {
+  "dept_acc": 0.766,
+  "under_triage": 0.01,
+  "severe_missed_of_severe": 0.024,
+  "over_triage": 0.295,
+  "questions_per_case": 0.0
+ },
+ "rule_out_worst": {
+  "dept_acc": 0.781,
+  "under_triage": 0.009,
+  "severe_missed_of_severe": 0.0205,
+  "over_triage": 0.269,
+  "questions_per_case": 6.31
+ },
+ "settings": {
+  "n": 1000,
+  "top_n": 10,
+  "per_condition": 2,
+  "rounds": 1
+ }
+}

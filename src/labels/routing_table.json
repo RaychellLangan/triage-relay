@@ -1,0 +1,345 @@
+{
+ "Spontaneous pneumothorax": {
+  "name": "Spontaneous pneumothorax",
+  "icd10": "J93",
+  "department": "Respiratory",
+  "severity": 2,
+  "urgency": "Very urgent"
+ },
+ "Cluster headache": {
+  "name": "Cluster headache",
+  "icd10": "g44.009",
+  "department": "Neurology",
+  "severity": 3,
+  "urgency": "Urgent"
+ },
+ "Boerhaave": {
+  "name": "Boerhaave",
+  "icd10": "K22.3",
+  "department": "Gastroenterology",
+  "severity": 2,
+  "urgency": "Very urgent"
+ },
+ "Spontaneous rib fracture": {
+  "name": "Spontaneous rib fracture",
+  "icd10": "S22.9",
+  "department": "Trauma and orthopaedics",
+  "severity": 3,
+  "urgency": "Urgent"
+ },
+ "GERD": {
+  "name": "GERD",
+  "icd10": "K21",
+  "department": "Gastroenterology",
+  "severity": 3,
+  "urgency": "Urgent"
+ },
+ "HIV (initial infection)": {
+  "name": "HIV (initial infection)",
+  "icd10": "B20",
+  "department": "Infectious diseases",
+  "severity": 3,
+  "urgency": "Urgent"
+ },
+ "Anemia": {
+  "name": "Anemia",
+  "icd10": "D64.9",
+  "department": "Haematology",
+  "severity": 4,
+  "urgency": "Standard"
+ },
+ "Viral pharyngitis": {
+  "name": "Viral pharyngitis",
+  "icd10": "J02.9",
+  "department": "Respiratory",
+  "severity": 4,
+  "urgency": "Standard"
+ },
+ "Inguinal hernia": {
+  "name": "Inguinal hernia",
+  "icd10": "K40",
+  "department": "Gastroenterology",
+  "severity": 3,
+  "urgency": "Urgent"
+ },
+ "Myasthenia gravis": {
+  "name": "Myasthenia gravis",
+  "icd10": "G70.0",
+  "department": "Neurology",
+  "severity": 3,
+  "urgency": "Urgent"
+ },
+ "Whooping cough": {
+  "name": "Whooping cough",
+  "icd10": "A37",
+  "department": "Infectious diseases",
+  "severity": 4,
+  "urgency": "Standard"
+ },
+ "Anaphylaxis": {
+  "name": "Anaphylaxis",
+  "icd10": "T78.0",
+  "department": "Emergency (resus)",
+  "severity": 1,
+  "urgency": "Immediate"
+ },
+ "Epiglottitis": {
+  "name": "Epiglottitis",
+  "icd10": "J05.1",
+  "department": "ENT",
+  "severity": 2,
+  "urgency": "Very urgent"
+ },
+ "Guillain-Barré syndrome": {
+  "name": "Guillain-Barré syndrome",
+  "icd10": "G61.0",
+  "department": "Neurology",
+  "severity": 2,
+  "urgency": "Very urgent"
+ },
+ "Acute laryngitis": {
+  "name": "Acute laryngitis",
+  "icd10": "J04.0",
+  "department": "ENT",
+  "severity": 4,
+  "urgency": "Standard"
+ },
+ "Croup": {
+  "name": "Croup",
+  "icd10": "J05.0",
+  "department": "Paediatrics",
+  "severity": 2,
+  "urgency": "Very urgent"
+ },
+ "PSVT": {
+  "name": "PSVT",
+  "icd10": "I47.1",
+  "department": "Cardiology",
+  "severity": 2,
+  "urgency": "Very urgent"
+ },
+ "Atrial fibrillation": {
+  "name": "Atrial fibrillation",
+  "icd10": "I48.91",
+  "department": "Cardiology",
+  "severity": 3,
+  "urgency": "Urgent"
+ },
+ "Bronchiectasis": {
+  "name": "Bronchiectasis",
+  "icd10": "J47",
+  "department": "Respiratory",
+  "severity": 3,
+  "urgency": "Urgent"
+ },
+ "Allergic sinusitis": {
+  "name": "Allergic sinusitis",
+  "icd10": "J30",
+  "department": "ENT",
+  "severity": 4,
+  "urgency": "Standard"
+ },
+ "Chagas": {
+  "name": "Chagas",
+  "icd10": "B57",
+  "department": "Infectious diseases",
+  "severity": 3,
+  "urgency": "Urgent"
+ },
+ "Scombroid food poisoning": {
+  "name": "Scombroid food poisoning",
+  "icd10": "T61.1",
+  "department": "Emergency (resus)",
+  "severity": 2,
+  "urgency": "Very urgent"
+ },
+ "Myocarditis": {
+  "name": "Myocarditis",
+  "icd10": "I51.4",
+  "department": "Cardiology",
+  "severity": 2,
+  "urgency": "Very urgent"
+ },
+ "Larygospasm": {
+  "name": "Larygospasm",
+  "icd10": "J38.5",
+  "department": "ENT",
+  "severity": 1,
+  "urgency": "Immediate"
+ },
+ "Acute dystonic reactions": {
+  "name": "Acute dystonic reactions",
+  "icd10": "G24.02",
+  "department": "Neurology",
+  "severity": 2,
+  "urgency": "Very urgent"
+ },
+ "Localized edema": {
+  "name": "Localized edema",
+  "icd10": "R60.0",
+  "department": "General medicine",
+  "severity": 4,
+  "urgency": "Standard"
+ },
+ "SLE": {
+  "name": "SLE",
+  "icd10": "M32",
+  "department": "Rheumatology",
+  "severity": 4,
+  "urgency": "Standard"
+ },
+ "Tuberculosis": {
+  "name": "Tuberculosis",
+  "icd10": "a15",
+  "department": "Infectious diseases",
+  "severity": 3,
+  "urgency": "Urgent"
+ },
+ "Unstable angina": {
+  "name": "Unstable angina",
+  "icd10": "I20.0",
+  "department": "Cardiology",
+  "severity": 2,
+  "urgency": "Very urgent"
+ },
+ "Stable angina": {
+  "name": "Stable angina",
+  "icd10": "I20.9",
+  "department": "Cardiology",
+  "severity": 2,
+  "urgency": "Very urgent"
+ },
+ "Ebola": {
+  "name": "Ebola",
+  "icd10": "a98.4",
+  "department": "Infectious diseases",
+  "severity": 1,
+  "urgency": "Immediate"
+ },
+ "Acute otitis media": {
+  "name": "Acute otitis media",
+  "icd10": "H66.90",
+  "department": "ENT",
+  "severity": 4,
+  "urgency": "Standard"
+ },
+ "Panic attack": {
+  "name": "Panic attack",
+  "icd10": "f41",
+  "department": "Mental health",
+  "severity": 5,
+  "urgency": "Non-urgent"
+ },
+ "Bronchospasm / acute asthma exacerbation": {
+  "name": "Bronchospasm / acute asthma exacerbation",
+  "icd10": "J45",
+  "department": "Respiratory",
+  "severity": 3,
+  "urgency": "Urgent"
+ },
+ "Bronchitis": {
+  "name": "Bronchitis",
+  "icd10": "j40",
+  "department": "Respiratory",
+  "severity": 4,
+  "urgency": "Standard"
+ },
+ "Acute COPD exacerbation / infection": {
+  "name": "Acute COPD exacerbation / infection",
+  "icd10": "j44.1",
+  "department": "Respiratory",
+  "severity": 3,
+  "urgency": "Urgent"
+ },
+ "Pulmonary embolism": {
+  "name": "Pulmonary embolism",
+  "icd10": "i26",
+  "department": "Cardiology",
+  "severity": 2,
+  "urgency": "Very urgent"
+ },
+ "URTI": {
+  "name": "URTI",
+  "icd10": "j06.9",
+  "department": "Respiratory",
+  "severity": 5,
+  "urgency": "Non-urgent"
+ },
+ "Influenza": {
+  "name": "Influenza",
+  "icd10": "j11.1",
+  "department": "Respiratory",
+  "severity": 3,
+  "urgency": "Urgent"
+ },
+ "Pneumonia": {
+  "name": "Pneumonia",
+  "icd10": "j17, j18",
+  "department": "Respiratory",
+  "severity": 3,
+  "urgency": "Urgent"
+ },
+ "Acute rhinosinusitis": {
+  "name": "Acute rhinosinusitis",
+  "icd10": "j01",
+  "department": "ENT",
+  "severity": 4,
+  "urgency": "Standard"
+ },
+ "Chronic rhinosinusitis": {
+  "name": "Chronic rhinosinusitis",
+  "icd10": "j32",
+  "department": "ENT",
+  "severity": 5,
+  "urgency": "Non-urgent"
+ },
+ "Bronchiolitis": {
+  "name": "Bronchiolitis",
+  "icd10": "j21",
+  "department": "Paediatrics",
+  "severity": 3,
+  "urgency": "Urgent"
+ },
+ "Pulmonary neoplasm": {
+  "name": "Pulmonary neoplasm",
+  "icd10": "c34",
+  "department": "Oncology",
+  "severity": 3,
+  "urgency": "Urgent"
+ },
+ "Possible NSTEMI / STEMI": {
+  "name": "Possible NSTEMI / STEMI",
+  "icd10": "I21",
+  "department": "Cardiology",
+  "severity": 1,
+  "urgency": "Immediate"
+ },
+ "Sarcoidosis": {
+  "name": "Sarcoidosis",
+  "icd10": "d86",
+  "department": "Respiratory",
+  "severity": 4,
+  "urgency": "Standard"
+ },
+ "Pancreatic neoplasm": {
+  "name": "Pancreatic neoplasm",
+  "icd10": "c25",
+  "department": "Oncology",
+  "severity": 3,
+  "urgency": "Urgent"
+ },
+ "Acute pulmonary edema": {
+  "name": "Acute pulmonary edema",
+  "icd10": "J81.0",
+  "department": "Respiratory",
+  "severity": 1,
+  "urgency": "Immediate"
+ },
+ "Pericarditis": {
+  "name": "Pericarditis",
+  "icd10": "I30",
+  "department": "Cardiology",
+  "severity": 4,
+  "urgency": "Standard"
+ }
+}

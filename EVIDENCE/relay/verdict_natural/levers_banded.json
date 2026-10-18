@@ -1,0 +1,61 @@
+{
+ "counted_on": "runs/route_from_fields/verdict_natural/facts_val_all.jsonl",
+ "n_right": 3661,
+ "n_wrong": 339,
+ "banded": true,
+ "levers": {
+  "department_calm": {
+   "yes": 0.37366,
+   "no": -0.40432
+  },
+  "router_agrees": {
+   "yes": 0.48619,
+   "no": -0.88313
+  },
+  "translator_sure": {
+   "edges": [
+    -0.617,
+    -0.5206,
+    0.102,
+    0.7664
+   ],
+   "band_push": [
+    -0.00556,
+    0.15642,
+    -0.08686,
+    -0.0658,
+    0.01051
+   ]
+  },
+  "router_sure": {
+   "edges": [
+    0.9266,
+    0.9842,
+    0.993,
+    0.9964
+   ],
+   "band_push": [
+    -0.60676,
+    0.00378,
+    0.35712,
+    0.6241,
+    0.89671
+   ]
+  },
+  "familiar": {
+   "edges": [
+    -0.86,
+    -0.562,
+    -0.078,
+    0.462
+   ],
+   "band_push": [
+    -0.57885,
+    -0.2514,
+    0.58563,
+    0.80534,
+    0.97344
+   ]
+  }
+ }
+}

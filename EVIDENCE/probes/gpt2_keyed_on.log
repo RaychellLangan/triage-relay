@@ -1,0 +1,29 @@
+<python env>\lib\site-packages\torch\cuda\__init__.py:58: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+<python env>\lib\site-packages\transformers\integrations\sdpa_attention.py:96: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at <torch build>  attn_output = torch.nn.functional.scaled_dot_product_attention(
+A content_blind {'acc': 0.7517, 'changed_vs_full': 0.0617, 'mean_conf': 0.7936, 'full_mean_conf': 0.8119}
+B planted_no E_55 {'question': 'Do you feel pain somewhere?', 'answer_planted': 'nowhere', 'patients': 119, 'department_changed': 0, 'changed_share': 0.0, 'toward': {}}
+B planted_no E_57 {'question': 'Does the pain radiate to another location?', 'answer_planted': 'nowhere', 'patients': 119, 'department_changed': 0, 'changed_share': 0.0, 'toward': {}}
+B planted_no E_54 {'question': 'Characterize your pain:', 'answer_planted': 'NA', 'patients': 119, 'department_changed': 0, 'changed_share': 0.0, 'toward': {}}
+B planted_no E_133 {'question': 'Where is the affected region located?', 'answer_planted': 'nowhere', 'patients': 480, 'department_changed': 9, 'changed_share': 0.0187, 'toward': {'Respiratory': 5, 'Haematology': 2, 'Mental health': 1, 'Cardiology': 1}}
+B planted_no E_130 {'question': 'What color is the rash?', 'answer_planted': 'NA', 'patients': 480, 'department_changed': 67, 'changed_share': 0.1396, 'toward': {'Respiratory': 62, 'Oncology': 3, 'Haematology': 2}}
+B planted_no E_135 {'question': 'Is the lesion (or are the lesions) larger than 1cm?', 'answer_planted': 'N', 'patients': 480, 'department_changed': 20, 'changed_share': 0.0417, 'toward': {'Respiratory': 9, 'Oncology': 4, 'Neurology': 4, 'Haematology': 2}}
+B planted_no E_131 {'question': 'Do your lesions peel off?', 'answer_planted': 'N', 'patients': 480, 'department_changed': 13, 'changed_share': 0.0271, 'toward': {'Respiratory': 9, 'Neurology': 2, 'Mental health': 1, 'Haematology': 1}}
+B planted_no E_152 {'question': 'Where is the swelling located?', 'answer_planted': 'nowhere', 'patients': 532, 'department_changed': 13, 'changed_share': 0.0244, 'toward': {'Respiratory': 11, 'Oncology': 1, 'Mental health': 1}}
+C single: model pick == the department that question is most often asked for, in 0.3722 of 223
+    0.998 Neurology | data: Neurology 1.0 | Did you previously, or do you currently, have any weakness/paralysis in one or m
+    0.998 Infectious diseases | data: Infectious diseases 1.0 | Have you ever had a sexually transmitted infection?
+    0.995 Neurology | data: Mental health 0.568 | Have you recently had numbness, loss of sensation or tingling, in both arms and 
+    0.995 Neurology | data: Neurology 1.0 | Do you have annoying muscle spasms in your face, neck or any other part of your 
+    0.995 Infectious diseases | data: Cardiology 0.622 | Have you recently had a viral infection?
+    0.994 Neurology | data: Neurology 1.0 | Do you feel that muscle spasms or soreness in your neck are keeping you from tur
+    0.992 Infectious diseases | data: Infectious diseases 1.0 | Have you had sexual intercourse with an HIV-positive partner in the past 12 mont
+    0.992 Neurology | data: Neurology 1.0 | Do you feel weakness in both arms and/or both legs?
+    0.99 Neurology | data: Mental health 0.511 | Do you currently, or did you ever, have numbness, loss of sensitivity or tinglin
+    0.985 Neurology | data: Neurology 1.0 | Have you noticed weakness in your facial muscles and/or eyes?
+    0.984 Respiratory | data: Respiratory 1.0 | Do you have a chronic obstructive pulmonary disease (COPD)?
+    0.984 Cardiology | data: Cardiology 1.0 | Do you feel your heart is beating very irregularly or in a disorganized pattern?
+D age_2 {'acc': 0.79, 'changed_share': 0.0033, 'changed_by_true_department': {'ENT': '2/84'}}
+D age_40 {'acc': 0.7883, 'changed_share': 0.005, 'changed_by_true_department': {'ENT': '1/84', 'Oncology': '2/21'}}
+D age_80 {'acc': 0.7917, 'changed_share': 0.005, 'changed_by_true_department': {'ENT': '1/84', 'Gastroenterology': '1/36', 'Oncology': '1/21'}}
+D sex_swapped {'acc': 0.7883, 'changed_share': 0.0083, 'changed_by_true_department': {'Cardiology': '1/98', 'ENT': '1/84', 'General medicine': '1/19', 'Oncology': '1/21', 'Respiratory': '1/199'}}

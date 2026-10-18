@@ -1,0 +1,30 @@
+{"id": 1, "text": "58m crushing pain in my chest that goes into my left arm, sweating, feel sick", "expect": "Cardiology", "note": "classic heart attack picture"}
+{"id": 2, "text": "34f sore throat for three days, runny nose, bit of a cough, no fever", "expect": "Respiratory", "note": "cold / URTI (URTI sits in Respiratory in our table)"}
+{"id": 3, "text": "71m really short of breath, wheezy, coughing up green stuff, I have COPD and I smoke", "expect": "Respiratory", "note": "COPD flare"}
+{"id": 4, "text": "45f burning in my stomach that comes up into my throat, worse after eating and when I lie down", "expect": "Gastroenterology", "note": "reflux"}
+{"id": 5, "text": "29m my heart is racing and pounding, came on suddenly, feel a bit dizzy", "expect": "Cardiology", "note": "palpitations / SVT"}
+{"id": 6, "text": "8m barking cough, noisy breathing when he breathes in, worse at night", "expect": "Paediatrics", "note": "croup"}
+{"id": 7, "text": "39f I ate prawns, now my lips are swelling, I'm itchy all over and it's hard to breathe", "expect": "Emergency (resus)", "note": "anaphylaxis"}
+{"id": 8, "text": "62m sharp pain on the right side of my chest when I breathe in, came on suddenly, short of breath", "expect": "Respiratory", "note": "could be pneumothorax or PE (PE sits in Cardiology in our table)"}
+{"id": 9, "text": "25f I keep having attacks where my heart pounds, I can't breathe and I think I'm dying, then it passes", "expect": "Mental health", "note": "panic attack"}
+{"id": 10, "text": "50m high temperature, aching all over, chills, cough, really tired since yesterday", "expect": "Respiratory", "note": "flu (Influenza sits in Respiratory)"}
+{"id": 11, "text": "67f my legs feel weak and tingly, it's moving up, started after a stomach bug last week", "expect": "Neurology", "note": "Guillain-Barre picture"}
+{"id": 12, "text": "33m vomited something that looked like coffee grounds, black poo, I drink a lot", "expect": "Gastroenterology", "note": "upper GI bleed; Boerhaave/GERD in table"}
+{"id": 13, "text": "41f awful headache behind my right eye, comes every day at the same time, eye waters", "expect": "Neurology", "note": "cluster headache"}
+{"id": 14, "text": "55m chest pain when I walk up hills, goes away when I rest, I have high blood pressure", "expect": "Cardiology", "note": "stable angina"}
+{"id": 15, "text": "19f my ear really hurts and I've got a temperature, can't hear well on that side", "expect": "ENT", "note": "otitis media"}
+{"id": 16, "text": "74f getting more breathless, can't lie flat, my ankles are swollen, I have heart failure", "expect": "Respiratory", "note": "pulmonary oedema (sits in Respiratory, J81, in our table)"}
+{"id": 17, "text": "30m lost my voice, throat a bit sore, been shouting at a gig", "expect": "ENT", "note": "laryngitis"}
+{"id": 18, "text": "47f blocked nose for months, can't smell anything, pressure in my face", "expect": "ENT", "note": "chronic rhinosinusitis"}
+{"id": 19, "text": "60m lump in my groin that gets bigger when I cough, aches when I lift", "expect": "Gastroenterology", "note": "inguinal hernia"}
+{"id": 20, "text": "52f always tired, pale, short of breath on the stairs, my periods are heavy", "expect": "Haematology", "note": "anaemia"}
+{"id": 21, "text": "36m coughing up blood, night sweats, losing weight, I travelled to South East Asia", "expect": "Infectious diseases", "note": "TB"}
+{"id": 22, "text": "23f started a new medicine yesterday and now my neck is twisting and I can't control my jaw", "expect": "Neurology", "note": "acute dystonic reaction"}
+{"id": 23, "text": "65m pain in my upper belly going through to my back, losing weight, yellow eyes", "expect": "Oncology", "note": "pancreatic picture"}
+{"id": 24, "text": "28f joint pains, a rash across my cheeks, very tired, hair falling out", "expect": "Rheumatology", "note": "lupus picture"}
+{"id": 25, "text": "70m my heartbeat feels irregular and fluttery, a bit breathless", "expect": "Cardiology", "note": "atrial fibrillation"}
+{"id": 26, "text": "44m pain in my ribs after a coughing fit, hurts when I breathe or move", "expect": "Trauma and orthopaedics", "note": "rib fracture"}
+{"id": 27, "text": "2f baby is wheezing and breathing fast, has a runny nose and isn't feeding well", "expect": "Paediatrics", "note": "bronchiolitis"}
+{"id": 28, "text": "38m my eyelids droop by the evening and I see double, arms get tired", "expect": "Neurology", "note": "myasthenia gravis"}
+{"id": 29, "text": "56f swollen left leg, calf is sore and red, then suddenly short of breath and chest pain", "expect": "Cardiology", "note": "PE (I26 = Cardiology in our table)"}
+{"id": 30, "text": "31m flu-like symptoms, rash, swollen glands, sore throat, had unprotected sex recently", "expect": "Infectious diseases", "note": "acute HIV"}

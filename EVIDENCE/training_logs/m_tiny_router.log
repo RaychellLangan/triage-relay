@@ -1,0 +1,17 @@
+<python env>\lib\site-packages\torch\cuda\__init__.py:58: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+<python env>\lib\site-packages\transformers\integrations\sdpa_attention.py:96: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at <torch build>  attn_output = torch.nn.functional.scaled_dot_product_attention(
+arm tiny task router set messy: 6.3M params on cuda; start val loss 8.6144 dept 0.091 urg 0.270 H 3.76b KL 1.446
+step    250 loss 0.037 val 0.0603 dept 0.966 urg 0.950 H 0.28b KL 2.394 head 120.079% margins steps-19750.0000
+step    500 loss 0.030 val 0.0410 dept 0.974 urg 0.965 H 0.14b KL 3.155 head 128.602% margins steps-19500.0000
+step    750 loss 0.025 val 0.0333 dept 0.979 urg 0.968 H 0.10b KL 3.647 head 132.528% margins steps-19250.0000
+step   1000 loss 0.015 val 0.0244 dept 0.985 urg 0.978 H 0.09b KL 3.624 head 135.276% margins steps-19000.0000 val-0.2876
+step   1250 loss 0.011 val 0.0222 dept 0.986 urg 0.975 H 0.08b KL 3.912 head 137.336% margins steps-18750.0000 val-0.1072
+step   1500 loss 0.019 val 0.0197 dept 0.985 urg 0.976 H 0.07b KL 3.929 head 139.069% margins steps-18500.0000 val-0.1326
+step   1750 loss 0.010 val 0.0187 dept 0.986 urg 0.983 H 0.07b KL 4.054 head 140.556% margins steps-18250.0000 val-0.0747
+step   2000 loss 0.014 val 0.0158 dept 0.991 urg 0.983 H 0.04b KL 4.432 head 142.001% margins steps-18000.0000 val-0.1745
+step   2250 loss 0.007 val 0.0135 dept 0.991 urg 0.981 H 0.06b KL 4.188 head 143.297% margins steps-17750.0000 val-0.1671
+step   2500 loss 0.037 val 0.0179 dept 0.985 urg 0.982 H 0.05b KL 4.610 head 144.523% margins steps-17500.0000 val+0.3091
+stopped at step 2500 after 4.4 min because crossed val
+peak GPU memory allocated: 3.76 GB
+rolled back to step 2250 (val 0.0135, dept 0.991 urg 0.981 H 0.06b KL 4.188)

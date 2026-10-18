@@ -1,0 +1,29 @@
+{
+ "all": {
+  "n": 2000,
+  "seesaw_acc": 0.9805,
+  "router_acc": 0.9905,
+  "agree_share": 0.9795,
+  "acc_when_agree": 0.9959,
+  "both_wrong": 0.0045,
+  "relay_acc (seesaw calm, router on fights)": 0.988
+ },
+ "seesaw_fights": {
+  "n": 237,
+  "seesaw_acc": 0.9114,
+  "router_acc": 0.9747,
+  "agree_share": 0.903,
+  "acc_when_agree": 0.9907,
+  "both_wrong": 0.0084,
+  "relay_acc (seesaw calm, router on fights)": 0.9747
+ },
+ "seesaw_calm": {
+  "n": 1763,
+  "seesaw_acc": 0.9898,
+  "router_acc": 0.9926,
+  "agree_share": 0.9898,
+  "acc_when_agree": 0.9966,
+  "both_wrong": 0.004,
+  "relay_acc (seesaw calm, router on fights)": 0.9898
+ }
+}

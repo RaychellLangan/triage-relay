@@ -1,0 +1,29 @@
+{
+ "all": {
+  "n": 270,
+  "seesaw_acc": 0.3667,
+  "router_acc": 0.363,
+  "agree_share": 0.7185,
+  "acc_when_agree": 0.5,
+  "both_wrong": 0.6296,
+  "relay_acc": 0.3667
+ },
+ "seesaw_fights": {
+  "n": 60,
+  "seesaw_acc": 0.25,
+  "router_acc": 0.25,
+  "agree_share": 0.5333,
+  "acc_when_agree": 0.4375,
+  "both_wrong": 0.7333,
+  "relay_acc": 0.25
+ },
+ "seesaw_calm": {
+  "n": 210,
+  "seesaw_acc": 0.4,
+  "router_acc": 0.3952,
+  "agree_share": 0.7714,
+  "acc_when_agree": 0.5123,
+  "both_wrong": 0.6,
+  "relay_acc": 0.4
+ }
+}

@@ -1,0 +1,35 @@
+{
+ "facts": "runs/route_from_fields/verdict2/facts_ood.jsonl",
+ "n": 270,
+ "AUROC_goal_tilt_flags_wrong": 0.6417,
+ "AUROC_router_sure_alone": 0.6164,
+ "verdicts": {
+  "hand to a person": {
+   "n": 22,
+   "share": 0.0815,
+   "dept_acc": 0.4091
+  },
+  "maybe yes": {
+   "n": 4,
+   "share": 0.0148,
+   "dept_acc": 0.25
+  },
+  "no": {
+   "n": 35,
+   "share": 0.1296,
+   "dept_acc": 0.0571
+  },
+  "no idea": {
+   "n": 35,
+   "share": 0.1296,
+   "dept_acc": 0.0
+  },
+  "yes": {
+   "n": 174,
+   "share": 0.6444,
+   "dept_acc": 0.5
+  }
+ },
+ "auto_routed_share": 0.6593,
+ "auto_routed_acc": 0.4944
+}

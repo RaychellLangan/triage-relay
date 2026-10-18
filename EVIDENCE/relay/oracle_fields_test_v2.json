@@ -1,0 +1,74 @@
+{
+ "all": {
+  "n": 2000,
+  "dept_acc": 0.9805,
+  "urgency_acc": 0.9535,
+  "truth_in_top2": 0.9975,
+  "fight_share": 0.1185,
+  "dept_acc_when_no_fight": 0.9898,
+  "dept_acc_when_fight": 0.9114
+ },
+ "keep_0.5": {
+  "n": 430,
+  "dept_acc": 0.9488,
+  "urgency_acc": 0.914,
+  "truth_in_top2": 0.993,
+  "fight_share": 0.1535,
+  "dept_acc_when_no_fight": 0.967,
+  "dept_acc_when_fight": 0.8485
+ },
+ "keep_0.7": {
+  "n": 396,
+  "dept_acc": 0.9848,
+  "urgency_acc": 0.952,
+  "truth_in_top2": 0.9949,
+  "fight_share": 0.1212,
+  "dept_acc_when_no_fight": 0.9914,
+  "dept_acc_when_fight": 0.9375
+ },
+ "keep_0.85": {
+  "n": 414,
+  "dept_acc": 0.9928,
+  "urgency_acc": 0.9662,
+  "truth_in_top2": 1.0,
+  "fight_share": 0.1256,
+  "dept_acc_when_no_fight": 1.0,
+  "dept_acc_when_fight": 0.9423
+ },
+ "keep_1.0": {
+  "n": 760,
+  "dept_acc": 0.9895,
+  "urgency_acc": 0.9697,
+  "truth_in_top2": 1.0,
+  "fight_share": 0.0934,
+  "dept_acc_when_no_fight": 0.9956,
+  "dept_acc_when_fight": 0.9296
+ },
+ "stray_0.0": {
+  "n": 1057,
+  "dept_acc": 0.9839,
+  "urgency_acc": 0.9565,
+  "truth_in_top2": 0.9972,
+  "fight_share": 0.0265,
+  "dept_acc_when_no_fight": 0.9883,
+  "dept_acc_when_fight": 0.8214
+ },
+ "stray_0.3": {
+  "n": 454,
+  "dept_acc": 0.9868,
+  "urgency_acc": 0.9559,
+  "truth_in_top2": 1.0,
+  "fight_share": 0.1498,
+  "dept_acc_when_no_fight": 0.9974,
+  "dept_acc_when_fight": 0.9265
+ },
+ "stray_0.6": {
+  "n": 489,
+  "dept_acc": 0.9673,
+  "urgency_acc": 0.9448,
+  "truth_in_top2": 0.9959,
+  "fight_share": 0.2883,
+  "dept_acc_when_no_fight": 0.9856,
+  "dept_acc_when_fight": 0.922
+ }
+}

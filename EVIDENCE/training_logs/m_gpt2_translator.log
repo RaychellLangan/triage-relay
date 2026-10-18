@@ -1,0 +1,27 @@
+<python env>\lib\site-packages\torch\cuda\__init__.py:58: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+<python env>\lib\site-packages\transformers\integrations\sdpa_attention.py:96: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at <torch build>  attn_output = torch.nn.functional.scaled_dot_product_attention(
+`loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`.
+arm gpt2 task translator set messy: 124.4M params on cuda; start val loss 1.9370 tok 0.689 exact 0.000, English 3.677
+step     10 loss 1.314 val 1.1893 tok 0.760 exact 0.000 Eng +0.8% head 0.070% margins steps-3990.0000 english-0.0423 readout-0.0103
+step     20 loss 1.019 val 0.8518 tok 0.796 exact 0.000 Eng +2.9% head 0.146% margins steps-3980.0000 english-0.0213 readout-0.0095
+step     30 loss 0.758 val 0.7427 tok 0.818 exact 0.000 Eng +4.0% head 0.181% margins steps-3970.0000 english-0.0100 readout-0.0092
+step     40 loss 0.735 val 0.6888 tok 0.838 exact 0.000 Eng +4.1% head 0.199% margins steps-3960.0000 english-0.0089 readout-0.0090 val-0.0926
+step     50 loss 0.692 val 0.6659 tok 0.839 exact 0.000 Eng +4.3% head 0.210% margins steps-3950.0000 english-0.0073 readout-0.0089 val-0.0532
+step     60 loss 0.724 val 0.6215 tok 0.841 exact 0.000 Eng +4.5% head 0.219% margins steps-3940.0000 english-0.0047 readout-0.0088 val-0.0867
+step     70 loss 0.749 val 0.6092 tok 0.844 exact 0.000 Eng +4.5% head 0.226% margins steps-3930.0000 english-0.0054 readout-0.0087 val-0.0398
+step     80 loss 0.576 val 0.5871 tok 0.850 exact 0.000 Eng +4.4% head 0.233% margins steps-3920.0000 english-0.0057 readout-0.0087 val-0.0563
+step     90 loss 0.600 val 0.5814 tok 0.846 exact 0.000 Eng +4.8% head 0.240% margins steps-3910.0000 english-0.0024 readout-0.0086 val-0.0296
+step    100 loss 0.683 val 0.5668 tok 0.853 exact 0.000 Eng +4.6% head 0.247% margins steps-3900.0000 english-0.0035 readout-0.0085 val-0.0451
+step    110 loss 0.608 val 0.5531 tok 0.855 exact 0.000 Eng +4.5% head 0.255% margins steps-3890.0000 english-0.0054 readout-0.0084 val-0.0443
+step    120 loss 0.537 val 0.5481 tok 0.851 exact 0.000 Eng +4.6% head 0.263% margins steps-3880.0000 english-0.0040 readout-0.0084 val-0.0289
+step    130 loss 0.602 val 0.5418 tok 0.855 exact 0.000 Eng +4.9% head 0.271% margins steps-3870.0000 english-0.0015 readout-0.0083 val-0.0315
+step    140 loss 0.510 val 0.5288 tok 0.859 exact 0.000 Eng +4.7% head 0.279% margins steps-3860.0000 english-0.0026 readout-0.0082 val-0.0441
+step    150 loss 0.585 val 0.5228 tok 0.861 exact 0.000 Eng +4.9% head 0.287% margins steps-3850.0000 english-0.0007 readout-0.0081 val-0.0312
+step    160 loss 0.446 val 0.5174 tok 0.863 exact 0.000 Eng +5.0% head 0.295% margins steps-3840.0000 english-0.0002 readout-0.0080 val-0.0305
+step    170 loss 0.578 val 0.5156 tok 0.861 exact 0.000 Eng +4.7% head 0.303% margins steps-3830.0000 english-0.0032 readout-0.0080 val-0.0234
+step    180 loss 0.525 val 0.4949 tok 0.865 exact 0.000 Eng +4.9% head 0.310% margins steps-3820.0000 english-0.0005 readout-0.0079 val-0.0601
+step    190 loss 0.549 val 0.4956 tok 0.865 exact 0.000 Eng +5.1% head 0.319% margins steps-3810.0000 english+0.0009 readout-0.0078 val-0.0188
+stopped at step 190 after 9.6 min because crossed english
+peak GPU memory allocated: 6.99 GB
+rolled back to step 180 (val 0.4949, tok 0.865 exact 0.000)

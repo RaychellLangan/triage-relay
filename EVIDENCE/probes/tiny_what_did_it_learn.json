@@ -1,0 +1,164 @@
+{
+ "model": "runs/tiny/model",
+ "patients": 1000,
+ "full": {
+  "dept_acc": 0.999,
+  "mean_confidence": 0.9978,
+  "mean_entropy_bits": 0.0173,
+  "confidently_wrong_share": 0.001
+ },
+ "shuffled": {
+  "dept_acc": 0.998,
+  "mean_confidence": 0.9964,
+  "mean_entropy_bits": 0.0234,
+  "confidently_wrong_share": 0.001
+ },
+ "reason_only": {
+  "dept_acc": 0.335,
+  "mean_confidence": 0.8316,
+  "mean_entropy_bits": 0.7077,
+  "confidently_wrong_share": 0.164
+ },
+ "keep_0.8": {
+  "dept_acc": 0.983,
+  "mean_confidence": 0.9932,
+  "mean_entropy_bits": 0.0341,
+  "confidently_wrong_share": 0.011
+ },
+ "keep_0.6": {
+  "dept_acc": 0.966,
+  "mean_confidence": 0.9817,
+  "mean_entropy_bits": 0.084,
+  "confidently_wrong_share": 0.016
+ },
+ "keep_0.4": {
+  "dept_acc": 0.865,
+  "mean_confidence": 0.9516,
+  "mean_entropy_bits": 0.2022,
+  "confidently_wrong_share": 0.06
+ },
+ "keep_0.2": {
+  "dept_acc": 0.705,
+  "mean_confidence": 0.9099,
+  "mean_entropy_bits": 0.3662,
+  "confidently_wrong_share": 0.109
+ },
+ "stray_1": {
+  "dept_acc": 0.979,
+  "mean_confidence": 0.9859,
+  "mean_entropy_bits": 0.0613,
+  "confidently_wrong_share": 0.005
+ },
+ "stray_2": {
+  "dept_acc": 0.934,
+  "mean_confidence": 0.9757,
+  "mean_entropy_bits": 0.1061,
+  "confidently_wrong_share": 0.034
+ },
+ "stray_3": {
+  "dept_acc": 0.893,
+  "mean_confidence": 0.9634,
+  "mean_entropy_bits": 0.1596,
+  "confidently_wrong_share": 0.051
+ },
+ "stray_5": {
+  "dept_acc": 0.818,
+  "mean_confidence": 0.9392,
+  "mean_entropy_bits": 0.243,
+  "confidently_wrong_share": 0.097
+ },
+ "leave_one_out": {
+  "answers_tried": {
+   "own_symptom": 10138,
+   "own_antecedent": 4423,
+   "not_listed_for_condition": 0
+  },
+  "answers_that_flip": {
+   "own_symptom": 24,
+   "own_antecedent": 5,
+   "not_listed_for_condition": 0
+  },
+  "flip_rate": {
+   "own_symptom": 0.0024,
+   "own_antecedent": 0.0011,
+   "not_listed_for_condition": null
+  },
+  "top_flipping_questions": [
+   [
+    "E_55",
+    7,
+    "Do you feel pain somewhere?"
+   ],
+   [
+    "E_57",
+    4,
+    "Does the pain radiate to another location?"
+   ],
+   [
+    "E_54",
+    3,
+    "Characterize your pain:"
+   ],
+   [
+    "E_65",
+    2,
+    "Do you have difficulty swallowing, or have a feeling of discomfort/blockage when swallowing?"
+   ],
+   [
+    "E_212",
+    2,
+    "Have you noticed that the tone of your voice has become deeper, softer or hoarse?"
+   ],
+   [
+    "E_187",
+    1,
+    "Did you eat dark-fleshed fish (such as tuna) or Swiss cheese before the reaction occurred?"
+   ],
+   [
+    "E_170",
+    1,
+    "Do you have severe itching in one or both eyes?"
+   ],
+   [
+    "E_169",
+    1,
+    "Is your nose or the back of your throat itchy?"
+   ],
+   [
+    "E_130",
+    1,
+    "What color is the rash?"
+   ],
+   [
+    "E_116",
+    1,
+    "Have you had a cold in the last 2 weeks?"
+   ],
+   [
+    "E_25",
+    1,
+    "Have any of your family members been diagnosed with cluster headaches?"
+   ],
+   [
+    "E_58",
+    1,
+    "How precisely is the pain located?"
+   ],
+   [
+    "E_59",
+    1,
+    "How fast did the pain appear?"
+   ],
+   [
+    "E_225",
+    1,
+    "Do you have close family members who had a cardiovascular disease problem before the age of 50?"
+   ],
+   [
+    "E_79",
+    1,
+    "Do you smoke cigarettes?"
+   ]
+  ]
+ }
+}

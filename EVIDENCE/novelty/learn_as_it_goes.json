@@ -1,0 +1,32 @@
+{
+ "files": [
+  "data_built/messystress_strays5.jsonl",
+  "data_built/messystress_keep30.jsonl",
+  "data_built/messystress_keep50_strays3.jsonl"
+ ],
+ "past": 1500,
+ "now": 1500,
+ "seesaw_wrong_now": 167,
+ "mean_novelty_before": 0.0704,
+ "mean_novelty_after": 0.0609,
+ "novelty_AUROC_seesaw_wrong_before": 0.8011,
+ "novelty_AUROC_seesaw_wrong_after": 0.7899,
+ "accuracy_all_now": {
+  "seesaw": 0.8887,
+  "router": 0.9133,
+  "memory_vote": 0.9173
+ },
+ "accuracy_on_seesaw_wrong": {
+  "seesaw": 0.0,
+  "router": 0.6287,
+  "memory_vote": 0.6407
+ },
+ "memory_vote_when_it_disagrees_with_seesaw": 0.5431,
+ "share_vote_disagrees_with_seesaw": 0.1313,
+ "memory_vote_acc_by_closeness_quartile (far->near)": [
+  0.7547,
+  0.9413,
+  0.9733,
+  1.0
+ ]
+}
